@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, ArrowLeft, MessageCircle, Shield, RefreshCw, Maximize2, X, User, Check, Sliders, ChevronLeft, ChevronRight, Heart, CreditCard, MapPin, Package, Image as ImageIcon, Info, Trash2 } from 'lucide-react';
+import { ShoppingBag, ArrowLeft, MessageCircle, Shield, Maximize2, X, User, Check, Sliders, ChevronLeft, ChevronRight, Heart, CreditCard, Package, Image as ImageIcon, Info, Trash2 } from 'lucide-react';
 
 // Tipus de dades per a una arquitectura neta
 interface PerfilCompleter {
@@ -143,7 +143,7 @@ export default function App() {
   const [tallaSeleccionada, setTallaSeleccionada] = useState<string | null>(null);
   
   // Subgrup actiu dins de la pàgina de Perfil
-  const [subgrupPerfil, setSubgrupPerfil] = useState<'dades' | 'ra' | 'looks' | 'compres'>('dades');
+  const [subgrupPerfil, setSubgrupPerfil] = useState<'dades' | 'ra' | 'looks' | 'compres' | 'preferits'>('dades');
 
   // Missatges interns integrats a la interfície
   const [missatgeWeb, setMissatgeWeb] = useState<{ text: string; tipus: 'exit' | 'info' } | null>(null);
@@ -536,7 +536,7 @@ export default function App() {
               <button onClick={() => setSubgrupPerfil('looks')} style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', padding: '15px', border: 'none', background: subgrupPerfil === 'looks' ? '#f4f3ee' : 'none', textAlign: 'left', cursor: 'pointer', fontWeight: subgrupPerfil === 'looks' ? 'bold' : 'normal', fontSize: '14px' }}>
                 <Sliders size={16} /> Els meus looks provats
               </button>
-              <button onClick={() => setSubgrupPerfil('preferits' as any)} style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', padding: '15px', border: 'none', background: subgrupPerfil === 'preferits' ? '#f4f3ee' : 'none', textAlign: 'left', cursor: 'pointer', fontWeight: subgrupPerfil === 'preferits' ? 'bold' : 'normal', fontSize: '14px' }}>
+              <button onClick={() => setSubgrupPerfil('preferits')} style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', padding: '15px', border: 'none', background: subgrupPerfil === 'preferits' ? '#f4f3ee' : 'none', textAlign: 'left', cursor: 'pointer', fontWeight: subgrupPerfil === 'preferits' ? 'bold' : 'normal', fontSize: '14px' }}>
                 <Heart size={16} /> Els meus preferits {preferits.length > 0 && `(${preferits.length})`}
               </button>
               <button onClick={() => setSubgrupPerfil('compres')} style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', padding: '15px', border: 'none', background: subgrupPerfil === 'compres' ? '#f4f3ee' : 'none', textAlign: 'left', cursor: 'pointer', fontWeight: subgrupPerfil === 'compres' ? 'bold' : 'normal', fontSize: '14px' }}>
