@@ -20,11 +20,10 @@ interface PerfilCompleter {
   adreca: string;
   fotoRA: string | null;
   alcada: string;
-  pes: string;
   pit: string;
   cintura: string;
   maluc: string;
-  looksProvats: string[]; 
+  looksProvats: string[];
   comandes: { id: string; data: string; productes: string; total: string }[];
 }
 
@@ -83,9 +82,9 @@ const PRODUCTES = [
     descripcio: 'Camiseta de la línia Tailor amb un tall més estructurat i refinat, ideal per a looks més formals sense renunciar a la comoditat. Dissenyada amb patronatge digital d\'alta precisió per a una producció conscient i optimitzada.',
     imatges: [
       '/assets/camiseta_tailor_1.png',
-      '/assets/camiseta_tailor_2.png',
+      '/assets/camiseta_tailor_2.jpg',
       '/assets/camiseta_tailor_3.png',
-      '/assets/camiseta_tailor_4.png'
+      '/assets/camiseta_tailor_4.jpg'
     ],
     teixit: '100% Cotó Orgànic Premium d\'alta densitat i tissatge fi',
     model3d: '/assets/camiseta_tailor.glb'
@@ -203,7 +202,7 @@ export default function App() {
 
   // Modal de mesures ràpides des de la fitxa de producte
   const [mesuresRapidesObertes, setMesuresRapidesObertes] = useState(false);
-  const [mesuresTemp, setMesuresTemp] = useState({ alcada: '', pes: '', pit: '', cintura: '', maluc: '' });
+  const [mesuresTemp, setMesuresTemp] = useState({ alcada: '', pit: '', cintura: '', maluc: '' });
 
   // Pas de pagament al carretó
   const [pasCheckout, setPasCheckout] = useState<'carret' | 'pagament'>('carret');
@@ -219,7 +218,6 @@ export default function App() {
       adreca: 'Carrer de la Moda, 45, Barcelona',
       fotoRA: null,
       alcada: '168',
-      pes: '',
       pit: '88',
       cintura: '70',
       maluc: '96',
@@ -245,18 +243,76 @@ export default function App() {
     setMenuMobilObert(false);
   }, [seccioActiva]);
 
-  // Recomanador lògic basat en la cintura
-  const recomanarTalla = () => {
-    if (!perfil.cintura) return null;
-    const c = parseInt(perfil.cintura);
-    if (!c || c <= 0) return null;
-    if (c < 65) return 'XS';
-    if (c >= 65 && c < 72) return 'S';
-    if (c >= 72 && c < 80) return 'M';
-    if (c >= 80 && c < 88) return 'L';
-    return 'XL';
+  // ─── Configuració: quines mesures necessita cada producte ─────────────────
+  const CAMPS_PER_PRODUCTE: Record<string, Array<'pit' | 'cintura' | 'maluc'>> = {
+    'camiseta-essence':  ['cintura', 'pit'],
+    'pantalons-essence': ['cintura', 'maluc'],
+    'camiseta-tailor':   ['pit'],
+    'pantalons-tailor':  ['cintura', 'maluc'],
   };
-  const tallaRecomanada = recomanarTalla();
+
+  const LABELS_CAMP: Record<string, string> = {
+    pit:     'Contorn de Pit (cm)',
+    cintura: 'Contorn de Cintura (cm)',
+    maluc:   'Contorn de Maluc (cm)',
+  };
+
+  // ─── Recomanador intel·ligent per producte ────────────────────────────────
+  const recomanarTallaPerProducte = (prodId: string | undefined): string | null => {
+    if (!prodId) return null;
+    const cintura = parseInt(perfil.cintura) || 0;
+    const pit     = parseInt(perfil.pit)     || 0;
+
+    switch (prodId) {
+      case 'camiseta-essence':
+        // Ajustada en cintura: XS 60-64 · S 64-68 · M 68-72 · L 72-76 · XL 76-80
+        if (!perfil.cintura || !perfil.pit) return null;
+        if (cintura < 64) return 'XS';
+        if (cintura < 68) return 'S';
+        if (cintura < 72) return 'M';
+        if (cintura < 76) return 'L';
+        return 'XL';
+
+      case 'pantalons-essence':
+        // Oversized elàstic: XS 60-68 · S 64-72 · M 70-78 · L 76-84 · XL 82-90
+        if (!perfil.cintura || !perfil.maluc) return null;
+        if (cintura < 64) return 'XS';
+        if (cintura < 70) return 'S';
+        if (cintura < 76) return 'M';
+        if (cintura < 82) return 'L';
+        return 'XL';
+
+      case 'camiseta-tailor':
+        // Tall recte: XS 84-88 · S 88-92 · M 92-96 · L 96-100 · XL 100-104
+        if (!perfil.pit) return null;
+        if (pit < 88) return 'XS';
+        if (pit < 92) return 'S';
+        if (pit < 96) return 'M';
+        if (pit < 100) return 'L';
+        return 'XL';
+
+      case 'pantalons-tailor':
+        // Sastreria estricta: XS 62-65 · S 66-69 · M 70-73 · L 74-77 · XL 78-81
+        // Si és a la vora, agafem la talla més gran
+        if (!perfil.cintura || !perfil.maluc) return null;
+        if (cintura <= 65) return 'XS';
+        if (cintura <= 69) return 'S';
+        if (cintura <= 73) return 'M';
+        if (cintura <= 77) return 'L';
+        return 'XL';
+
+      default:
+        return null;
+    }
+  };
+
+  // Talla recomanada per al producte que s'està visualitzant ara
+  const tallaRecomanada = recomanarTallaPerProducte(producteSeleccionat?.id);
+
+  // Camps que falten per al producte actual
+  const campsFaltants: Array<'pit' | 'cintura' | 'maluc'> = producteSeleccionat
+    ? (CAMPS_PER_PRODUCTE[producteSeleccionat.id] || []).filter(camp => !perfil[camp])
+    : [];
 
   useEffect(() => {
     if (tallaRecomanada && producteSeleccionat) {
@@ -546,41 +602,58 @@ export default function App() {
                 <p style={{ margin: 0, fontSize: '13px', color: '#7c7a72' }}><strong>Composició:</strong> {producteSeleccionat.teixit}</p>
               </div>
 
-              {/* RECOMANADOR DE TALLES */}
+              {/* RECOMANADOR DE TALLES INTEL·LIGENT */}
               <div style={{ backgroundColor: '#f4f3ee', padding: '20px', marginBottom: '30px', border: '1px solid #eae8e1' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
                   <span style={{ fontSize: '12px', fontWeight: 'bold', letterSpacing: '1px' }}>RECOMANADOR D'ALTA PRECISIÓ</span>
                   <span onClick={() => setGuiaMidesOberta(true)} style={{ fontSize: '12px', color: '#111', textDecoration: 'underline', cursor: 'pointer' }}>Taula de mides oficial</span>
                 </div>
+
                 {tallaRecomanada ? (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#2e7d32', fontSize: '14px' }}>
-                    <Check size={18} />
-                    <span>Basat en el teu perfil, et recomanem la talla <strong>{tallaRecomanada}</strong>.</span>
-                  </div>
-                ) : (
+                  /* ✓ Totes les mesures disponibles → mostra recomanació */
                   <div>
-                    <p style={{ margin: '0 0 10px 0', fontSize: '13px', color: '#6d6b64' }}>Falta configurar les mides corporals per activar l'assistent de talles automàtic.</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#2e7d32', fontSize: '14px', marginBottom: '6px' }}>
+                      <Check size={18} />
+                      <span>Et recomanem la talla <strong>{tallaRecomanada}</strong> per a aquesta peça.</span>
+                    </div>
+                    <p style={{ margin: '0 0 8px 0', fontSize: '12px', color: '#6d6b64', paddingLeft: '28px' }}>
+                      {producteSeleccionat.id === 'camiseta-essence'  && `Basat en el teu contorn de cintura (${perfil.cintura} cm) i pit (${perfil.pit} cm).`}
+                      {producteSeleccionat.id === 'pantalons-essence' && `Basat en el teu contorn de cintura (${perfil.cintura} cm) i maluc (${perfil.maluc} cm).`}
+                      {producteSeleccionat.id === 'camiseta-tailor'   && `Basat en el teu contorn de pit (${perfil.pit} cm).`}
+                      {producteSeleccionat.id === 'pantalons-tailor'  && `Basat en el teu contorn de cintura (${perfil.cintura} cm) i maluc (${perfil.maluc} cm).`}
+                    </p>
                     <button
                       onClick={() => {
-                        setMesuresTemp({ alcada: perfil.alcada, pes: perfil.pes, pit: perfil.pit, cintura: perfil.cintura, maluc: perfil.maluc });
+                        setMesuresTemp({ alcada: perfil.alcada, pit: perfil.pit, cintura: perfil.cintura, maluc: perfil.maluc });
+                        setMesuresRapidesObertes(true);
+                      }}
+                      style={{ background: 'none', border: 'none', padding: 0, fontSize: '12px', color: '#6d6b64', textDecoration: 'underline', cursor: 'pointer' }}
+                    >
+                      Modificar mesures
+                    </button>
+                  </div>
+                ) : campsFaltants.length > 0 ? (
+                  /* ✗ Falten mesures específiques → indica quines */
+                  <div>
+                    <p style={{ margin: '0 0 8px 0', fontSize: '13px', color: '#6d6b64' }}>
+                      Per calcular la teva talla per a aquesta peça necessitem:&nbsp;
+                      <strong>{campsFaltants.map(c => LABELS_CAMP[c]).join(' i ')}</strong>.
+                    </p>
+                    <button
+                      onClick={() => {
+                        setMesuresTemp({ alcada: perfil.alcada, pit: perfil.pit, cintura: perfil.cintura, maluc: perfil.maluc });
                         setMesuresRapidesObertes(true);
                       }}
                       style={{ background: 'none', border: 'none', padding: 0, fontSize: '13px', color: '#111', fontWeight: 'bold', textDecoration: 'underline', cursor: 'pointer' }}
                     >
-                      Introduir les meves mesures ara
+                      Introduir les mesures que falten
                     </button>
                   </div>
-                )}
-                {tallaRecomanada && (
-                  <button
-                    onClick={() => {
-                      setMesuresTemp({ alcada: perfil.alcada, pes: perfil.pes, pit: perfil.pit, cintura: perfil.cintura, maluc: perfil.maluc });
-                      setMesuresRapidesObertes(true);
-                    }}
-                    style={{ background: 'none', border: 'none', padding: '8px 0 0 0', fontSize: '12px', color: '#6d6b64', textDecoration: 'underline', cursor: 'pointer', display: 'block' }}
-                  >
-                    Modificar mesures
-                  </button>
+                ) : (
+                  /* Producte no reconegut o cap camp configurat */
+                  <p style={{ margin: 0, fontSize: '13px', color: '#6d6b64' }}>
+                    Configura les teves mesures al perfil per activar el recomanador.
+                  </p>
                 )}
               </div>
 
@@ -1013,36 +1086,84 @@ export default function App() {
               <X size={20} />
             </button>
             <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 8px 0', fontWeight: '300' }}>Les meves mesures</h3>
-            <p style={{ fontSize: '13px', color: '#6d6b64', margin: '0 0 25px 0' }}>Les mesures es guardaran al teu perfil i activaran el recomanador de talles automàticament.</p>
-            
+
+            {/* Si tenim producte actiu i falten camps concrets, ho indiquem */}
+            {producteSeleccionat && campsFaltants.length > 0 ? (
+              <p style={{ fontSize: '13px', color: '#bd1c1c', margin: '0 0 20px 0', fontWeight: 'bold' }}>
+                Per calcular la talla de <em>{producteSeleccionat.nom}</em> necessitem: {campsFaltants.map(c => LABELS_CAMP[c]).join(' i ')}.
+              </p>
+            ) : (
+              <p style={{ fontSize: '13px', color: '#6d6b64', margin: '0 0 20px 0' }}>Les mesures es guardaran al teu perfil i actualitzaran el recomanador automàticament.</p>
+            )}
+
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginBottom: '25px' }}>
+              {/* Alçada — sempre visible */}
               <div>
                 <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>Alçada (cm)</label>
                 <input type="number" value={mesuresTemp.alcada} onChange={e => setMesuresTemp({...mesuresTemp, alcada: e.target.value})} placeholder="Ej: 168" style={{ width: '100%', padding: '12px', border: '1px solid #ccc', boxSizing: 'border-box' }} />
               </div>
-              <div>
-                <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>Pes (kg)</label>
-                <input type="number" value={mesuresTemp.pes} onChange={e => setMesuresTemp({...mesuresTemp, pes: e.target.value})} placeholder="Ej: 62" style={{ width: '100%', padding: '12px', border: '1px solid #ccc', boxSizing: 'border-box' }} />
-              </div>
-              <div>
-                <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>Pit (cm)</label>
-                <input type="number" value={mesuresTemp.pit} onChange={e => setMesuresTemp({...mesuresTemp, pit: e.target.value})} placeholder="Ej: 88" style={{ width: '100%', padding: '12px', border: '1px solid #ccc', boxSizing: 'border-box' }} />
-              </div>
-              <div>
-                <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>Cintura (cm)</label>
-                <input type="number" value={mesuresTemp.cintura} onChange={e => setMesuresTemp({...mesuresTemp, cintura: e.target.value})} placeholder="Ej: 70" style={{ width: '100%', padding: '12px', border: '1px solid #ccc', boxSizing: 'border-box' }} />
-              </div>
-              <div style={{ gridColumn: '1 / -1' }}>
-                <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>Maluc (cm)</label>
-                <input type="number" value={mesuresTemp.maluc} onChange={e => setMesuresTemp({...mesuresTemp, maluc: e.target.value})} placeholder="Ej: 96" style={{ width: '100%', padding: '12px', border: '1px solid #ccc', boxSizing: 'border-box' }} />
-              </div>
+
+              {/* Pit — només si el producte el necessita, o si no hi ha producte actiu */}
+              {(!producteSeleccionat || (CAMPS_PER_PRODUCTE[producteSeleccionat.id] || []).includes('pit')) && (
+                <div style={{ position: 'relative' }}>
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>
+                    Contorn de Pit (cm)
+                    {campsFaltants.includes('pit') && <span style={{ color: '#bd1c1c', marginLeft: '4px' }}>*</span>}
+                  </label>
+                  <input
+                    type="number"
+                    value={mesuresTemp.pit}
+                    onChange={e => setMesuresTemp({...mesuresTemp, pit: e.target.value})}
+                    placeholder="Ej: 90"
+                    style={{ width: '100%', padding: '12px', border: campsFaltants.includes('pit') ? '1px solid #bd1c1c' : '1px solid #ccc', boxSizing: 'border-box' }}
+                  />
+                </div>
+              )}
+
+              {/* Cintura — només si el producte el necessita, o si no hi ha producte actiu */}
+              {(!producteSeleccionat || (CAMPS_PER_PRODUCTE[producteSeleccionat.id] || []).includes('cintura')) && (
+                <div>
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>
+                    Contorn de Cintura (cm)
+                    {campsFaltants.includes('cintura') && <span style={{ color: '#bd1c1c', marginLeft: '4px' }}>*</span>}
+                  </label>
+                  <input
+                    type="number"
+                    value={mesuresTemp.cintura}
+                    onChange={e => setMesuresTemp({...mesuresTemp, cintura: e.target.value})}
+                    placeholder="Ej: 70"
+                    style={{ width: '100%', padding: '12px', border: campsFaltants.includes('cintura') ? '1px solid #bd1c1c' : '1px solid #ccc', boxSizing: 'border-box' }}
+                  />
+                </div>
+              )}
+
+              {/* Maluc — només si el producte el necessita, o si no hi ha producte actiu */}
+              {(!producteSeleccionat || (CAMPS_PER_PRODUCTE[producteSeleccionat.id] || []).includes('maluc')) && (
+                <div style={{ gridColumn: (CAMPS_PER_PRODUCTE[producteSeleccionat?.id ?? ''] || []).length === 1 ? '1 / -1' : undefined }}>
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>
+                    Contorn de Maluc (cm)
+                    {campsFaltants.includes('maluc') && <span style={{ color: '#bd1c1c', marginLeft: '4px' }}>*</span>}
+                  </label>
+                  <input
+                    type="number"
+                    value={mesuresTemp.maluc}
+                    onChange={e => setMesuresTemp({...mesuresTemp, maluc: e.target.value})}
+                    placeholder="Ej: 96"
+                    style={{ width: '100%', padding: '12px', border: campsFaltants.includes('maluc') ? '1px solid #bd1c1c' : '1px solid #ccc', boxSizing: 'border-box' }}
+                  />
+                </div>
+              )}
             </div>
+
+            {campsFaltants.length > 0 && (
+              <p style={{ fontSize: '11px', color: '#bd1c1c', margin: '-10px 0 15px 0' }}>* Mesures necessàries per calcular la talla</p>
+            )}
 
             <div style={{ display: 'flex', gap: '12px' }}>
               <button onClick={() => setMesuresRapidesObertes(false)} style={{ flex: 1, background: 'none', border: '1px solid #ccc', padding: '13px', fontSize: '13px', cursor: 'pointer' }}>Cancel·lar</button>
               <button
                 onClick={() => {
-                  setPerfil(prev => ({ ...prev, alcada: mesuresTemp.alcada, pes: mesuresTemp.pes, pit: mesuresTemp.pit, cintura: mesuresTemp.cintura, maluc: mesuresTemp.maluc }));
+                  setPerfil(prev => ({ ...prev, alcada: mesuresTemp.alcada, pit: mesuresTemp.pit, cintura: mesuresTemp.cintura, maluc: mesuresTemp.maluc }));
                   setMesuresRapidesObertes(false);
                   setMissatgeWeb({ text: 'Mesures guardades al perfil. Recomanador activat!', tipus: 'exit' });
                 }}
@@ -1055,35 +1176,112 @@ export default function App() {
         </div>
       )}
 
-      {/* MODAL TAULA DE MIDES OFICIALS */}
+      {/* MODAL TAULA DE MIDES OFICIALS (per producte) */}
       {guiaMidesOberta && (
         <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', backgroundColor: 'rgba(0,0,0,0.4)', zIndex: 700, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <div style={{ backgroundColor: '#fff', padding: isMobile ? '28px 16px' : '40px', maxWidth: '480px', width: '92%', position: 'relative', border: '1px solid #eae8e1', overflowX: 'auto' }}>
+          <div style={{ backgroundColor: '#fff', padding: isMobile ? '28px 16px' : '40px', maxWidth: '520px', width: '92%', position: 'relative', border: '1px solid #eae8e1', overflowX: 'auto' }}>
             <button onClick={() => setGuiaMidesOberta(false)} style={{ position: 'absolute', top: '20px', right: '20px', background: 'none', border: 'none', cursor: 'pointer', color: '#111' }}>
               <X size={20} />
             </button>
-            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '24px', margin: '0 0 25px 0', fontWeight: '300', textAlign: 'center' }}>TAULA DE MIDES OFICIALS</h3>
-            
-            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: isMobile ? '12px' : '14px', textAlign: 'center' }}>
-              <thead>
-                <tr style={{ borderBottom: '2px solid #111', fontWeight: 'bold' }}>
-                  <th style={{ padding: '12px 5px' }}>Talla</th>
-                  <th style={{ padding: '12px 5px' }}>Cintura (cm)</th>
-                  <th style={{ padding: '12px 5px' }}>Pit (cm)</th>
-                  <th style={{ padding: '12px 5px' }}>Maluc (cm)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style={{ borderBottom: '1px solid #eceae4' }}><td style={{ padding: '12px 5px', fontWeight: 'bold' }}>XS</td><td style={{ padding: '12px 5px' }}>&lt; 65</td><td style={{ padding: '12px 5px' }}>80-84</td><td style={{ padding: '12px 5px' }}>88-92</td></tr>
-                <tr style={{ borderBottom: '1px solid #eceae4', backgroundColor: tallaRecomanada === 'S' ? '#f4f3ee' : 'transparent' }}><td style={{ padding: '12px 5px', fontWeight: 'bold' }}>S {tallaRecomanada === 'S' && '•'}</td><td style={{ padding: '12px 5px' }}>65 - 71</td><td style={{ padding: '12px 5px' }}>85-89</td><td style={{ padding: '12px 5px' }}>93-97</td></tr>
-                <tr style={{ borderBottom: '1px solid #eceae4', backgroundColor: tallaRecomanada === 'M' ? '#f4f3ee' : 'transparent' }}><td style={{ padding: '12px 5px', fontWeight: 'bold' }}>M {tallaRecomanada === 'M' && '•'}</td><td style={{ padding: '12px 5px' }}>72 - 79</td><td style={{ padding: '12px 5px' }}>90-94</td><td style={{ padding: '12px 5px' }}>98-102</td></tr>
-                <tr style={{ borderBottom: '1px solid #eceae4', backgroundColor: tallaRecomanada === 'L' ? '#f4f3ee' : 'transparent' }}><td style={{ padding: '12px 5px', fontWeight: 'bold' }}>L {tallaRecomanada === 'L' && '•'}</td><td style={{ padding: '12px 5px' }}>80 - 87</td><td style={{ padding: '12px 5px' }}>95-99</td><td style={{ padding: '12px 5px' }}>103-107</td></tr>
-                <tr style={{ borderBottom: '1px solid #111', backgroundColor: tallaRecomanada === 'XL' ? '#f4f3ee' : 'transparent' }}><td style={{ padding: '12px 5px', fontWeight: 'bold' }}>XL {tallaRecomanada === 'XL' && '•'}</td><td style={{ padding: '12px 5px' }}>&gt;= 88</td><td style={{ padding: '12px 5px' }}>100-105</td><td style={{ padding: '12px 5px' }}>108-113</td></tr>
-              </tbody>
-            </table>
-            {tallaRecomanada && (
-              <p style={{ fontSize: '12px', color: '#2e7d32', marginTop: '20px', textAlign: 'center', fontWeight: 'bold' }}>
-                • La teva talla recomanada actual és la {tallaRecomanada}.
+            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 4px 0', fontWeight: '300', textAlign: 'center' }}>TAULA DE MIDES OFICIALS</h3>
+            {producteSeleccionat && (
+              <p style={{ fontSize: '12px', color: '#6d6b64', textAlign: 'center', margin: '0 0 22px 0', letterSpacing: '1px' }}>{producteSeleccionat.nom.toUpperCase()}</p>
+            )}
+
+            {/* ── Camiseta Essence ── */}
+            {(!producteSeleccionat || producteSeleccionat.id === 'camiseta-essence') && (
+              <>
+                {!producteSeleccionat && <h4 style={{ fontSize: '13px', letterSpacing: '1px', margin: '0 0 10px 0' }}>CAMISETA ESSENCE</h4>}
+                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: isMobile ? '12px' : '13px', textAlign: 'center', marginBottom: '24px' }}>
+                  <thead><tr style={{ borderBottom: '2px solid #111', fontWeight: 'bold' }}>
+                    <th style={{ padding: '10px 6px' }}>Talla</th>
+                    <th style={{ padding: '10px 6px' }}>Cintura (cm)</th>
+                    <th style={{ padding: '10px 6px' }}>Pit (cm)</th>
+                  </tr></thead>
+                  <tbody>
+                    {[['XS','60 – 64','84 – 88'],['S','64 – 68','88 – 92'],['M','68 – 72','92 – 96'],['L','72 – 76','96 – 100'],['XL','76 – 80','100 – 104']].map(([t,c,p]) => (
+                      <tr key={t} style={{ borderBottom: '1px solid #eceae4', backgroundColor: tallaRecomanada === t && producteSeleccionat?.id === 'camiseta-essence' ? '#e8f5e9' : 'transparent' }}>
+                        <td style={{ padding: '10px 6px', fontWeight: 'bold' }}>{t} {tallaRecomanada === t && producteSeleccionat?.id === 'camiseta-essence' && '•'}</td>
+                        <td style={{ padding: '10px 6px' }}>{c}</td>
+                        <td style={{ padding: '10px 6px' }}>{p}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </>
+            )}
+
+            {/* ── Pantalons Essence ── */}
+            {(!producteSeleccionat || producteSeleccionat.id === 'pantalons-essence') && (
+              <>
+                {!producteSeleccionat && <h4 style={{ fontSize: '13px', letterSpacing: '1px', margin: '0 0 10px 0' }}>PANTALONS ESSENCE</h4>}
+                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: isMobile ? '12px' : '13px', textAlign: 'center', marginBottom: '24px' }}>
+                  <thead><tr style={{ borderBottom: '2px solid #111', fontWeight: 'bold' }}>
+                    <th style={{ padding: '10px 6px' }}>Talla</th>
+                    <th style={{ padding: '10px 6px' }}>Cintura elàstica (cm)</th>
+                    <th style={{ padding: '10px 6px' }}>Maluc (cm)</th>
+                  </tr></thead>
+                  <tbody>
+                    {[['XS','60 – 68','86 – 92'],['S','64 – 72','90 – 96'],['M','70 – 78','94 – 100'],['L','76 – 84','98 – 104'],['XL','82 – 90','102 – 108']].map(([t,c,m]) => (
+                      <tr key={t} style={{ borderBottom: '1px solid #eceae4', backgroundColor: tallaRecomanada === t && producteSeleccionat?.id === 'pantalons-essence' ? '#e8f5e9' : 'transparent' }}>
+                        <td style={{ padding: '10px 6px', fontWeight: 'bold' }}>{t} {tallaRecomanada === t && producteSeleccionat?.id === 'pantalons-essence' && '•'}</td>
+                        <td style={{ padding: '10px 6px' }}>{c}</td>
+                        <td style={{ padding: '10px 6px' }}>{m}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </>
+            )}
+
+            {/* ── Camiseta Tailor ── */}
+            {(!producteSeleccionat || producteSeleccionat.id === 'camiseta-tailor') && (
+              <>
+                {!producteSeleccionat && <h4 style={{ fontSize: '13px', letterSpacing: '1px', margin: '0 0 10px 0' }}>CAMISETA TAILOR</h4>}
+                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: isMobile ? '12px' : '13px', textAlign: 'center', marginBottom: '24px' }}>
+                  <thead><tr style={{ borderBottom: '2px solid #111', fontWeight: 'bold' }}>
+                    <th style={{ padding: '10px 6px' }}>Talla</th>
+                    <th style={{ padding: '10px 6px' }}>Contorn de Pit (cm)</th>
+                  </tr></thead>
+                  <tbody>
+                    {[['XS','84 – 88'],['S','88 – 92'],['M','92 – 96'],['L','96 – 100'],['XL','100 – 104']].map(([t,p]) => (
+                      <tr key={t} style={{ borderBottom: '1px solid #eceae4', backgroundColor: tallaRecomanada === t && producteSeleccionat?.id === 'camiseta-tailor' ? '#e8f5e9' : 'transparent' }}>
+                        <td style={{ padding: '10px 6px', fontWeight: 'bold' }}>{t} {tallaRecomanada === t && producteSeleccionat?.id === 'camiseta-tailor' && '•'}</td>
+                        <td style={{ padding: '10px 6px' }}>{p}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </>
+            )}
+
+            {/* ── Pantalons Tailor ── */}
+            {(!producteSeleccionat || producteSeleccionat.id === 'pantalons-tailor') && (
+              <>
+                {!producteSeleccionat && <h4 style={{ fontSize: '13px', letterSpacing: '1px', margin: '0 0 10px 0' }}>PANTALONS TAILOR</h4>}
+                <p style={{ fontSize: '11px', color: '#6d6b64', margin: '-4px 0 10px 0', fontStyle: 'italic' }}>Sastreria de cintura fixa · Si estàs entre dues talles, agafa la més gran.</p>
+                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: isMobile ? '12px' : '13px', textAlign: 'center', marginBottom: '8px' }}>
+                  <thead><tr style={{ borderBottom: '2px solid #111', fontWeight: 'bold' }}>
+                    <th style={{ padding: '10px 6px' }}>Talla</th>
+                    <th style={{ padding: '10px 6px' }}>Cintura fixa (cm)</th>
+                    <th style={{ padding: '10px 6px' }}>Maluc (cm)</th>
+                  </tr></thead>
+                  <tbody>
+                    {[['XS','62 – 65','88 – 92'],['S','66 – 69','92 – 96'],['M','70 – 73','96 – 100'],['L','74 – 77','100 – 104'],['XL','78 – 81','104 – 108']].map(([t,c,m]) => (
+                      <tr key={t} style={{ borderBottom: '1px solid #eceae4', backgroundColor: tallaRecomanada === t && producteSeleccionat?.id === 'pantalons-tailor' ? '#e8f5e9' : 'transparent' }}>
+                        <td style={{ padding: '10px 6px', fontWeight: 'bold' }}>{t} {tallaRecomanada === t && producteSeleccionat?.id === 'pantalons-tailor' && '•'}</td>
+                        <td style={{ padding: '10px 6px' }}>{c}</td>
+                        <td style={{ padding: '10px 6px' }}>{m}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </>
+            )}
+
+            {tallaRecomanada && producteSeleccionat && (
+              <p style={{ fontSize: '12px', color: '#2e7d32', marginTop: '16px', textAlign: 'center', fontWeight: 'bold' }}>
+                • La teva talla recomanada per a aquesta peça és la <strong>{tallaRecomanada}</strong>.
               </p>
             )}
           </div>
@@ -1120,28 +1318,41 @@ export default function App() {
             </div>
 
             <h3 style={{ fontFamily: '"Didot", serif', fontSize: '18px', margin: '0 0 20px 0', fontWeight: '300', borderTop: '1px solid #eee', paddingTop: '25px' }}>Mesures del Cos per al Recomanador</h3>
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(3, 1fr)', gap: '15px', marginBottom: '25px' }}>
-              <div>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(2, 1fr)', gap: '15px', marginBottom: '25px' }}>
+              <div style={{ gridColumn: '1 / -1' }}>
                 <label style={{ display: 'block', fontSize: '12px', marginBottom: '6px' }}>Alçada (cm)</label>
                 <input type="number" value={perfil.alcada} onChange={e => setPerfil({...perfil, alcada: e.target.value})} style={{ width: '100%', padding: '10px', border: '1px solid #ccc', boxSizing: 'border-box' }} />
               </div>
               <div>
-                <label style={{ display: 'block', fontSize: '12px', marginBottom: '6px' }}>Pes (kg)</label>
-                <input type="number" value={perfil.pes} onChange={e => setPerfil({...perfil, pes: e.target.value})} style={{ width: '100%', padding: '10px', border: '1px solid #ccc', boxSizing: 'border-box' }} />
-              </div>
-              <div>
-                <label style={{ display: 'block', fontSize: '12px', marginBottom: '6px' }}>Pit (cm)</label>
+                <label style={{ display: 'block', fontSize: '12px', marginBottom: '6px' }}>Contorn de Pit (cm)</label>
                 <input type="number" value={perfil.pit} onChange={e => setPerfil({...perfil, pit: e.target.value})} style={{ width: '100%', padding: '10px', border: '1px solid #ccc', boxSizing: 'border-box' }} />
               </div>
               <div>
-                <label style={{ display: 'block', fontSize: '12px', marginBottom: '6px' }}>Cintura (cm)</label>
+                <label style={{ display: 'block', fontSize: '12px', marginBottom: '6px' }}>Contorn de Cintura (cm)</label>
                 <input type="number" value={perfil.cintura} onChange={e => setPerfil({...perfil, cintura: e.target.value})} style={{ width: '100%', padding: '10px', border: '1px solid #ccc', boxSizing: 'border-box' }} />
               </div>
-              <div>
-                <label style={{ display: 'block', fontSize: '12px', marginBottom: '6px' }}>Maluc (cm)</label>
+              <div style={{ gridColumn: '1 / -1' }}>
+                <label style={{ display: 'block', fontSize: '12px', marginBottom: '6px' }}>Contorn de Maluc (cm)</label>
                 <input type="number" value={perfil.maluc} onChange={e => setPerfil({...perfil, maluc: e.target.value})} style={{ width: '100%', padding: '10px', border: '1px solid #ccc', boxSizing: 'border-box' }} />
               </div>
             </div>
+            {/* Resum de talles recomanades per totes les peces */}
+            {(perfil.pit || perfil.cintura || perfil.maluc) && (
+              <div style={{ backgroundColor: '#f4f3ee', border: '1px solid #eae8e1', padding: '16px', fontSize: '13px' }}>
+                <p style={{ margin: '0 0 10px 0', fontWeight: 'bold', letterSpacing: '0.5px', fontSize: '12px' }}>TALLES RECOMANADES PER A CADA PEÇA</p>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                  {PRODUCTES.map(p => {
+                    const t = recomanarTallaPerProducte(p.id);
+                    return (
+                      <div key={p.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 10px', backgroundColor: '#fff', border: '1px solid #eceae4' }}>
+                        <span style={{ fontSize: '12px', color: '#555' }}>{p.nom}</span>
+                        {t ? <strong style={{ color: '#2e7d32' }}>{t}</strong> : <span style={{ color: '#aaa', fontSize: '11px' }}>—</span>}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
         )}
 
