@@ -92,16 +92,19 @@ const PRODUCTES = [
 ];
 
 // Component inline de preferits al carretó amb selector de talla
-function PreferitsCarret({ preferits, tallaRecomanada, onAfegir, onEliminarPreferit, isMobile }: {
+function PreferitsCarret({ preferits, tallaRecomanadaPerProducte, onAfegir, onEliminarPreferit, isMobile }: {
   preferits: typeof PRODUCTES;
-  tallaRecomanada: string | null;
+  tallaRecomanadaPerProducte: (prodId: string) => string | null;
   onAfegir: (prod: typeof PRODUCTES[0], talla: string) => void;
   onEliminarPreferit: (prod: typeof PRODUCTES[0]) => void;
   isMobile: boolean;
 }) {
   const [tallesSeleccionades, setTallesSeleccionades] = useState<Record<string, string>>(() => {
     const init: Record<string, string> = {};
-    preferits.forEach(p => { init[p.id] = tallaRecomanada || 'M'; });
+    preferits.forEach(p => {
+      const rec = tallaRecomanadaPerProducte(p.id);
+      init[p.id] = rec || 'M';
+    });
     return init;
   });
 
@@ -116,7 +119,8 @@ function PreferitsCarret({ preferits, tallaRecomanada, onAfegir, onEliminarPrefe
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '20px' }}>
         {preferits.map((prod) => {
-          const tallaActual = tallesSeleccionades[prod.id] || tallaRecomanada || 'M';
+          const tallaRec = tallaRecomanadaPerProducte(prod.id);
+          const tallaActual = tallesSeleccionades[prod.id] || tallaRec || 'M';
           return (
             <div key={prod.id} style={{ backgroundColor: '#fff', border: '1px solid #eae8e1', padding: '20px', display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
               <div style={{ width: '70px', height: '90px', backgroundColor: '#f5f5f3', overflow: 'hidden', border: '1px solid #eceae4', flexShrink: 0 }}>
@@ -124,12 +128,19 @@ function PreferitsCarret({ preferits, tallaRecomanada, onAfegir, onEliminarPrefe
               </div>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <h4 style={{ margin: '0 0 3px 0', fontSize: '14px', fontWeight: '400', letterSpacing: '0.5px' }}>{prod.nom}</h4>
-                <p style={{ margin: '0 0 10px 0', fontSize: '13px', fontWeight: 'bold' }}>{prod.preu.toFixed(2)} €</p>
+                <p style={{ margin: '0 0 6px 0', fontSize: '13px', fontWeight: 'bold' }}>{prod.preu.toFixed(2)} €</p>
+
+                {/* TALLA RECOMANADA */}
+                {tallaRec && (
+                  <p style={{ margin: '0 0 8px 0', fontSize: '12px', color: '#2e7d32', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <Check size={12} /> La teva talla recomanada: {tallaRec}
+                  </p>
+                )}
 
                 {/* Selector de talla inline */}
                 <div style={{ marginBottom: '10px' }}>
                   <span style={{ fontSize: '11px', color: '#6d6b64', display: 'block', marginBottom: '6px', letterSpacing: '0.5px' }}>
-                    TALLA{tallaRecomanada ? ` · Recomanada: ${tallaRecomanada}` : ''}
+                    TALLA
                   </span>
                   <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                     {['XS', 'S', 'M', 'L', 'XL'].map(t => (
@@ -139,7 +150,7 @@ function PreferitsCarret({ preferits, tallaRecomanada, onAfegir, onEliminarPrefe
                         style={{
                           width: '34px', height: '34px', fontSize: '11px', fontWeight: 'bold', cursor: 'pointer',
                           border: tallaActual === t ? '2px solid #111' : '1px solid #ccc',
-                          backgroundColor: tallaActual === t ? '#111' : t === tallaRecomanada ? '#e8f5e9' : '#fff',
+                          backgroundColor: tallaActual === t ? '#111' : t === tallaRec ? '#e8f5e9' : '#fff',
                           color: tallaActual === t ? '#fff' : '#111'
                         }}
                       >
@@ -265,7 +276,6 @@ export default function App() {
 
     switch (prodId) {
       case 'camiseta-essence':
-        // Ajustada en cintura: XS 60-64 · S 64-68 · M 68-72 · L 72-76 · XL 76-80
         if (!perfil.cintura || !perfil.pit) return null;
         if (cintura < 64) return 'XS';
         if (cintura < 68) return 'S';
@@ -274,7 +284,6 @@ export default function App() {
         return 'XL';
 
       case 'pantalons-essence':
-        // Oversized elàstic: XS 60-68 · S 64-72 · M 70-78 · L 76-84 · XL 82-90
         if (!perfil.cintura || !perfil.maluc) return null;
         if (cintura < 64) return 'XS';
         if (cintura < 70) return 'S';
@@ -283,7 +292,6 @@ export default function App() {
         return 'XL';
 
       case 'camiseta-tailor':
-        // Tall recte: XS 84-88 · S 88-92 · M 92-96 · L 96-100 · XL 100-104
         if (!perfil.pit) return null;
         if (pit < 88) return 'XS';
         if (pit < 92) return 'S';
@@ -292,8 +300,6 @@ export default function App() {
         return 'XL';
 
       case 'pantalons-tailor':
-        // Sastreria estricta: XS 62-65 · S 66-69 · M 70-73 · L 74-77 · XL 78-81
-        // Si és a la vora, agafem la talla més gran
         if (!perfil.cintura || !perfil.maluc) return null;
         if (cintura <= 65) return 'XS';
         if (cintura <= 69) return 'S';
@@ -424,8 +430,20 @@ export default function App() {
 
       {/* ── CAPÇALERA ── */}
       <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: isMobile ? '18px 20px' : '25px 50px', backgroundColor: '#ffffff', borderBottom: '1px solid #eceae4', position: 'sticky', top: 0, zIndex: 90 }}>
-        <div style={{ fontSize: isMobile ? '22px' : '28px', fontWeight: 'bold', letterSpacing: '6px', cursor: 'pointer', fontFamily: '"Didot", serif' }} onClick={() => { setProducteSeleccionat(null); setSeccioActiva('colleccio'); }}>
-          MiRA
+        {/* CANVI 1: Logo + nom de marca */}
+        <div
+          style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}
+          onClick={() => { setProducteSeleccionat(null); setSeccioActiva('colleccio'); }}
+        >
+          <img
+            src="/assets/logo.png"
+            alt="MiRA logo"
+            style={{ height: isMobile ? '32px' : '40px', width: 'auto', objectFit: 'contain' }}
+            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+          />
+          <span style={{ fontSize: isMobile ? '22px' : '28px', fontWeight: 'bold', letterSpacing: '6px', fontFamily: '"Didot", serif' }}>
+            MiRA
+          </span>
         </div>
 
         {/* Nav d'escriptori */}
@@ -477,7 +495,6 @@ export default function App() {
 
       {/* SECCIÓ A: COL·LECCIÓ GENERAL AMB SEPARACIÓ DE LÍNIES */}
       {seccioActiva === 'colleccio' && !producteSeleccionat && (() => {
-        // Agrupem els productes per línia una sola vegada
         const LINIES = [
           {
             key: 'essence',
@@ -493,7 +510,6 @@ export default function App() {
           },
         ];
 
-        // Targeta de producte reutilitzable (sense títol de línia)
         const TarjetaProducte = ({ prod }: { prod: typeof PRODUCTES[0] }) => (
           <div style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', overflow: 'hidden', position: 'relative', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', alignItems: 'center' }}>
             <div onClick={() => { setProducteSeleccionat(prod); setImatgeActiva(0); }} style={{ width: '100%', height: isMobile ? '300px' : '420px', backgroundColor: '#f5f5f3', overflow: 'hidden', cursor: 'pointer' }}>
@@ -525,12 +541,9 @@ export default function App() {
               </p>
             </div>
 
-            {/* DOS APARTATS: un per línia */}
             <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '80px' }}>
               {LINIES.map((linia) => (
                 <div key={linia.key} style={{ borderTop: '1px solid #eceae4', paddingTop: '40px' }}>
-
-                  {/* Capçalera de línia — apareix UNA SOLA VEGADA per secció */}
                   <div style={{ marginBottom: '30px' }}>
                     <span style={{ fontSize: '12px', letterSpacing: '3px', color: '#6d6b64', fontWeight: 'bold' }}>
                       {linia.etiqueta}
@@ -540,7 +553,6 @@ export default function App() {
                     </h2>
                   </div>
 
-                  {/* Productes d'aquesta línia apilats verticalment */}
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                     {linia.productes.map((prod) => (
                       <TarjetaProducte key={prod.id} prod={prod} />
@@ -561,7 +573,6 @@ export default function App() {
             <ArrowLeft size={14} /> TORNAR A LA COL·LECCIÓ
           </button>
 
-          {/* Grid horitzontal en escriptori, columna única en mòbil */}
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.1fr 0.9fr', gap: isMobile ? '30px' : '60px', alignItems: 'start' }}>
             <div>
               <div style={{ width: '100%', height: isMobile ? '360px' : '620px', backgroundColor: '#f5f5f3', overflow: 'hidden', marginBottom: '20px', position: 'relative', border: '1px solid #eae8e1' }}>
@@ -610,7 +621,6 @@ export default function App() {
                 </div>
 
                 {tallaRecomanada ? (
-                  /* ✓ Totes les mesures disponibles → mostra recomanació */
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#2e7d32', fontSize: '14px', marginBottom: '6px' }}>
                       <Check size={18} />
@@ -633,7 +643,6 @@ export default function App() {
                     </button>
                   </div>
                 ) : campsFaltants.length > 0 ? (
-                  /* ✗ Falten mesures específiques → indica quines */
                   <div>
                     <p style={{ margin: '0 0 8px 0', fontSize: '13px', color: '#6d6b64' }}>
                       Per calcular la teva talla per a aquesta peça necessitem:&nbsp;
@@ -650,7 +659,6 @@ export default function App() {
                     </button>
                   </div>
                 ) : (
-                  /* Producte no reconegut o cap camp configurat */
                   <p style={{ margin: 0, fontSize: '13px', color: '#6d6b64' }}>
                     Configura les teves mesures al perfil per activar el recomanador.
                   </p>
@@ -689,7 +697,16 @@ export default function App() {
       {/* SECCIÓ C: SOBRE MIRA */}
       {seccioActiva === 'sobre-mira' && (
         <main style={{ maxWidth: '800px', margin: '60px auto', padding: isMobile ? '0 16px' : '0 30px', textAlign: 'center' }}>
-          <h1 style={{ fontSize: isMobile ? '26px' : '36px', fontWeight: '300', letterSpacing: '4px', marginBottom: '30px', fontFamily: '"Didot", serif' }}>SOBRE MIRA</h1>
+          {/* CANVI 1b: Logo integrat a la pàgina Sobre MiRA */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '30px' }}>
+            <img
+              src="/assets/logo.png"
+              alt="MiRA logo"
+              style={{ height: isMobile ? '48px' : '64px', width: 'auto', objectFit: 'contain' }}
+              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+            />
+            <h1 style={{ fontSize: isMobile ? '26px' : '36px', fontWeight: '300', letterSpacing: '4px', margin: 0, fontFamily: '"Didot", serif' }}>SOBRE MIRA</h1>
+          </div>
           <p style={{ fontSize: '16px', lineHeight: '2', color: '#444', textAlign: 'justify', marginBottom: '30px' }}>
             MiRA neix com un projecte conceptual de transformació digital en l'àmbit del patronatge industrial i el disseny de moda. La nostra filosofia es recolza en la fusió de dos mons aparentment oposats: la precisió de la sastreria tradicional estructurada i la comoditat d'ús diari de les col·leccions contemporànies.
           </p>
@@ -710,10 +727,8 @@ export default function App() {
         <main style={{ maxWidth: '1100px', margin: '40px auto', padding: isMobile ? '0 16px' : '0 30px' }}>
           <h1 style={{ fontSize: isMobile ? '24px' : '34px', fontWeight: '300', letterSpacing: '3px', marginBottom: '30px', fontFamily: '"Didot", serif' }}>EL MEU PERFIL DE LUXE</h1>
           
-          {/* En mòbil: pestanyes horitzontals a dalt. En escriptori: sidebar lateral */}
           {isMobile ? (
             <>
-              {/* Pestanyes horitzontals per a mòbil */}
               <div style={{ display: 'flex', overflowX: 'auto', gap: '0', borderBottom: '2px solid #eae8e1', marginBottom: '24px', WebkitOverflowScrolling: 'touch' }}>
                 {([
                   { key: 'dades', icon: <User size={14} />, label: 'Dades' },
@@ -731,7 +746,6 @@ export default function App() {
                   </button>
                 ))}
               </div>
-              {/* Contingut del perfil (mòbil) */}
               <div style={{ backgroundColor: '#ffffff', padding: '24px', border: '1px solid #eae8e1' }}>
                 {renderContingutPerfil()}
               </div>
@@ -776,37 +790,45 @@ export default function App() {
               <button onClick={() => setSeccioActiva('colleccio')} style={{ backgroundColor: '#111', color: '#fff', border: 'none', padding: '12px 28px', fontSize: '13px', letterSpacing: '1px', cursor: 'pointer' }}>EXPLORAR PRODUCTES</button>
             </div>
           ) : pasCheckout === 'carret' ? (
-            /* Columna única en mòbil, grid en escriptori */
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 340px', gap: '30px', alignItems: 'start' }}>
               {/* Llista d'ítems afegits */}
               <div style={{ backgroundColor: '#fff', border: '1px solid #eae8e1', padding: isMobile ? '16px' : '25px' }}>
-                {carret.map((item, index) => (
-                  <div key={`${item.producte.id}-${item.talla}`} style={{ display: 'flex', gap: '16px', padding: '20px 0', borderBottom: index === carret.length - 1 ? 'none' : '1px solid #eceae4', alignItems: 'center' }}>
-                    <div style={{ width: '65px', height: '82px', backgroundColor: '#f5f5f3', overflow: 'hidden', border: '1px solid #eceae4', flexShrink: 0 }}>
-                      <img src={item.producte.imatges[0]} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                {carret.map((item, index) => {
+                  const tallaRecItem = recomanarTallaPerProducte(item.producte.id);
+                  return (
+                    <div key={`${item.producte.id}-${item.talla}`} style={{ display: 'flex', gap: '16px', padding: '20px 0', borderBottom: index === carret.length - 1 ? 'none' : '1px solid #eceae4', alignItems: 'center' }}>
+                      <div style={{ width: '65px', height: '82px', backgroundColor: '#f5f5f3', overflow: 'hidden', border: '1px solid #eceae4', flexShrink: 0 }}>
+                        <img src={item.producte.imatges[0]} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      </div>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <h4 style={{ margin: '0 0 5px 0', fontSize: isMobile ? '14px' : '16px', fontWeight: '400' }}>{item.producte.nom}</h4>
+                        <p style={{ margin: '0 0 5px 0', fontSize: '13px', color: '#6d6b64' }}>Talla: <strong>{item.talla}</strong></p>
+                        {/* CANVI 2: Talla recomanada al carretó */}
+                        {tallaRecItem && (
+                          <p style={{ margin: '0 0 5px 0', fontSize: '12px', color: '#2e7d32', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                            <Check size={11} /> La teva talla recomanada: {tallaRecItem}
+                          </p>
+                        )}
+                        <p style={{ margin: 0, fontSize: '13px', color: '#111' }}>{item.quantitat} x {item.producte.preu.toFixed(2)} €</p>
+                      </div>
+                      <div style={{ textAlign: 'right', flexShrink: 0 }}>
+                        <p style={{ margin: '0 0 10px 0', fontWeight: 'bold', fontSize: '15px' }}>{(item.producte.preu * item.quantitat).toFixed(2)} €</p>
+                        <button 
+                          onClick={() => setCarret(prev => {
+                            const it = prev[index];
+                            if (it.quantitat > 1) {
+                              return prev.map((x, i) => i === index ? { ...x, quantitat: x.quantitat - 1 } : x);
+                            }
+                            return prev.filter((_, i) => i !== index);
+                          })}
+                          style={{ background: 'none', border: 'none', color: '#bd1c1c', cursor: 'pointer', fontSize: '12px', textDecoration: 'underline', padding: 0 }}
+                        >
+                          Eliminar
+                        </button>
+                      </div>
                     </div>
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <h4 style={{ margin: '0 0 5px 0', fontSize: isMobile ? '14px' : '16px', fontWeight: '400' }}>{item.producte.nom}</h4>
-                      <p style={{ margin: '0 0 5px 0', fontSize: '13px', color: '#6d6b64' }}>Talla: <strong>{item.talla}</strong></p>
-                      <p style={{ margin: 0, fontSize: '13px', color: '#111' }}>{item.quantitat} x {item.producte.preu.toFixed(2)} €</p>
-                    </div>
-                    <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                      <p style={{ margin: '0 0 10px 0', fontWeight: 'bold', fontSize: '15px' }}>{(item.producte.preu * item.quantitat).toFixed(2)} €</p>
-                      <button 
-                        onClick={() => setCarret(prev => {
-                          const item = prev[index];
-                          if (item.quantitat > 1) {
-                            return prev.map((it, i) => i === index ? { ...it, quantitat: it.quantitat - 1 } : it);
-                          }
-                          return prev.filter((_, i) => i !== index);
-                        })}
-                        style={{ background: 'none', border: 'none', color: '#bd1c1c', cursor: 'pointer', fontSize: '12px', textDecoration: 'underline', padding: 0 }}
-                      >
-                        Eliminar
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
               {/* Resum de compra */}
@@ -842,7 +864,6 @@ export default function App() {
               </div>
             </div>
           ) : (
-            /* Checkout - columna única en mòbil */
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 340px', gap: '30px', alignItems: 'start' }}>
               <div style={{ backgroundColor: '#fff', border: '1px solid #eae8e1', padding: isMobile ? '20px' : '35px' }}>
                 <button onClick={() => setPasCheckout('carret')} style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'none', border: 'none', fontSize: '13px', cursor: 'pointer', marginBottom: '25px', color: '#6d6b64', letterSpacing: '1px' }}>
@@ -913,7 +934,6 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Resum final de la comanda */}
               <div style={{ backgroundColor: '#fff', border: '1px solid #eae8e1', padding: isMobile ? '20px' : '30px' }}>
                 <h3 style={{ fontFamily: '"Didot", serif', fontSize: '20px', margin: '0 0 20px 0', fontWeight: '300', borderBottom: '1px solid #eceae4', paddingBottom: '15px' }}>RESUM FINAL</h3>
                 {carret.map((item) => (
@@ -966,7 +986,7 @@ export default function App() {
           {preferits.length > 0 && pasCheckout === 'carret' && (
             <PreferitsCarret
               preferits={preferits}
-              tallaRecomanada={tallaRecomanada}
+              tallaRecomanadaPerProducte={recomanarTallaPerProducte}
               isMobile={isMobile}
               onAfegir={(prod, talla) => {
                 setCarret(prev => {
@@ -990,7 +1010,6 @@ export default function App() {
               <X size={24} />
             </button>
             
-            {/* Àrea del Model 3D Real */}
             <div style={{ backgroundColor: '#f5f5f3', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: isMobile ? '240px' : undefined }}>
               {React.createElement('model-viewer' as any, {
                 src: producteSeleccionat.model3d,
@@ -1000,14 +1019,12 @@ export default function App() {
               })}
             </div>
 
-            {/* Lateral del control de l'emprovador */}
             <div style={{ padding: isMobile ? '20px' : '40px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', borderLeft: isMobile ? 'none' : '1px solid #eceae4', borderTop: isMobile ? '1px solid #eceae4' : 'none', backgroundColor: '#fff', overflowY: 'auto' }}>
               <div>
                 <span style={{ fontSize: '11px', letterSpacing: '2px', color: '#6d6b64', fontWeight: 'bold' }}>SISTEMA INTERACTIU MIRA</span>
                 <h3 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '20px' : '24px', margin: '5px 0 15px 0', fontWeight: '300' }}>EMPROVADOR 3D</h3>
                 {!isMobile && <p style={{ fontSize: '13px', color: '#555', lineHeight: '1.6', marginBottom: '20px' }}>Estàs visualitzant l'adaptació digital en tres dimensions de la peça. Pots rotar, fer zoom i analitzar la caiguda estructural del teixit de forma interactiva.</p>}
 
-                {/* TALLA SELECCIONADA I SELECTOR */}
                 <div style={{ backgroundColor: '#f4f3ee', padding: '16px', border: '1px solid #eae8e1', marginBottom: '20px' }}>
                   <span style={{ fontSize: '11px', fontWeight: 'bold', letterSpacing: '1px', display: 'block', marginBottom: '10px' }}>TALLA SELECCIONADA</span>
                   <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
@@ -1054,7 +1071,7 @@ export default function App() {
         </div>
       )}
 
-      {/* MODAL FOTO OBLIGATÒRIA - AMB PUJADA RÀPIDA DES D'AQUÍ */}
+      {/* MODAL FOTO OBLIGATÒRIA */}
       {pasFotoObligatori && (
         <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', backgroundColor: 'rgba(0,0,0,0.6)', zIndex: 600, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <div style={{ backgroundColor: '#fff', padding: isMobile ? '28px 20px' : '40px', maxWidth: '480px', width: '90%', border: '1px solid #eae8e1', textAlign: 'center' }}>
@@ -1078,7 +1095,7 @@ export default function App() {
         </div>
       )}
 
-      {/* MODAL MESURES RÀPIDES DES DE LA FITXA DE PRODUCTE */}
+      {/* MODAL MESURES RÀPIDES */}
       {mesuresRapidesObertes && (
         <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 650, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <div style={{ backgroundColor: '#fff', padding: isMobile ? '28px 20px' : '40px', maxWidth: '460px', width: '90%', border: '1px solid #eae8e1', position: 'relative' }}>
@@ -1087,7 +1104,6 @@ export default function App() {
             </button>
             <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 8px 0', fontWeight: '300' }}>Les meves mesures</h3>
 
-            {/* Si tenim producte actiu i falten camps concrets, ho indiquem */}
             {producteSeleccionat && campsFaltants.length > 0 ? (
               <p style={{ fontSize: '13px', color: '#bd1c1c', margin: '0 0 20px 0', fontWeight: 'bold' }}>
                 Per calcular la talla de <em>{producteSeleccionat.nom}</em> necessitem: {campsFaltants.map(c => LABELS_CAMP[c]).join(' i ')}.
@@ -1097,13 +1113,11 @@ export default function App() {
             )}
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginBottom: '25px' }}>
-              {/* Alçada — sempre visible */}
               <div>
                 <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>Alçada (cm)</label>
                 <input type="number" value={mesuresTemp.alcada} onChange={e => setMesuresTemp({...mesuresTemp, alcada: e.target.value})} placeholder="Ej: 168" style={{ width: '100%', padding: '12px', border: '1px solid #ccc', boxSizing: 'border-box' }} />
               </div>
 
-              {/* Pit — només si el producte el necessita, o si no hi ha producte actiu */}
               {(!producteSeleccionat || (CAMPS_PER_PRODUCTE[producteSeleccionat.id] || []).includes('pit')) && (
                 <div style={{ position: 'relative' }}>
                   <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>
@@ -1120,7 +1134,6 @@ export default function App() {
                 </div>
               )}
 
-              {/* Cintura — només si el producte el necessita, o si no hi ha producte actiu */}
               {(!producteSeleccionat || (CAMPS_PER_PRODUCTE[producteSeleccionat.id] || []).includes('cintura')) && (
                 <div>
                   <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>
@@ -1137,7 +1150,6 @@ export default function App() {
                 </div>
               )}
 
-              {/* Maluc — només si el producte el necessita, o si no hi ha producte actiu */}
               {(!producteSeleccionat || (CAMPS_PER_PRODUCTE[producteSeleccionat.id] || []).includes('maluc')) && (
                 <div style={{ gridColumn: (CAMPS_PER_PRODUCTE[producteSeleccionat?.id ?? ''] || []).length === 1 ? '1 / -1' : undefined }}>
                   <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>
@@ -1176,7 +1188,7 @@ export default function App() {
         </div>
       )}
 
-      {/* MODAL TAULA DE MIDES OFICIALS (per producte) */}
+      {/* MODAL TAULA DE MIDES OFICIALS */}
       {guiaMidesOberta && (
         <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', backgroundColor: 'rgba(0,0,0,0.4)', zIndex: 700, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <div style={{ backgroundColor: '#fff', padding: isMobile ? '28px 16px' : '40px', maxWidth: '520px', width: '92%', position: 'relative', border: '1px solid #eae8e1', overflowX: 'auto' }}>
@@ -1188,7 +1200,6 @@ export default function App() {
               <p style={{ fontSize: '12px', color: '#6d6b64', textAlign: 'center', margin: '0 0 22px 0', letterSpacing: '1px' }}>{producteSeleccionat.nom.toUpperCase()}</p>
             )}
 
-            {/* ── Camiseta Essence ── */}
             {(!producteSeleccionat || producteSeleccionat.id === 'camiseta-essence') && (
               <>
                 {!producteSeleccionat && <h4 style={{ fontSize: '13px', letterSpacing: '1px', margin: '0 0 10px 0' }}>CAMISETA ESSENCE</h4>}
@@ -1211,7 +1222,6 @@ export default function App() {
               </>
             )}
 
-            {/* ── Pantalons Essence ── */}
             {(!producteSeleccionat || producteSeleccionat.id === 'pantalons-essence') && (
               <>
                 {!producteSeleccionat && <h4 style={{ fontSize: '13px', letterSpacing: '1px', margin: '0 0 10px 0' }}>PANTALONS ESSENCE</h4>}
@@ -1234,7 +1244,6 @@ export default function App() {
               </>
             )}
 
-            {/* ── Camiseta Tailor ── */}
             {(!producteSeleccionat || producteSeleccionat.id === 'camiseta-tailor') && (
               <>
                 {!producteSeleccionat && <h4 style={{ fontSize: '13px', letterSpacing: '1px', margin: '0 0 10px 0' }}>CAMISETA TAILOR</h4>}
@@ -1255,7 +1264,6 @@ export default function App() {
               </>
             )}
 
-            {/* ── Pantalons Tailor ── */}
             {(!producteSeleccionat || producteSeleccionat.id === 'pantalons-tailor') && (
               <>
                 {!producteSeleccionat && <h4 style={{ fontSize: '13px', letterSpacing: '1px', margin: '0 0 10px 0' }}>PANTALONS TAILOR</h4>}
@@ -1291,7 +1299,7 @@ export default function App() {
     </div>
   );
 
-  // ─── Funció auxiliar: contingut intern del Perfil (compartit entre mòbil i escriptori) ──
+  // ─── Funció auxiliar: contingut intern del Perfil ──
   function renderContingutPerfil() {
     return (
       <>
@@ -1336,7 +1344,6 @@ export default function App() {
                 <input type="number" value={perfil.maluc} onChange={e => setPerfil({...perfil, maluc: e.target.value})} style={{ width: '100%', padding: '10px', border: '1px solid #ccc', boxSizing: 'border-box' }} />
               </div>
             </div>
-            {/* Resum de talles recomanades per totes les peces */}
             {(perfil.pit || perfil.cintura || perfil.maluc) && (
               <div style={{ backgroundColor: '#f4f3ee', border: '1px solid #eae8e1', padding: '16px', fontSize: '13px' }}>
                 <p style={{ margin: '0 0 10px 0', fontWeight: 'bold', letterSpacing: '0.5px', fontSize: '12px' }}>TALLES RECOMANADES PER A CADA PEÇA</p>
@@ -1419,34 +1426,43 @@ export default function App() {
               </div>
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                {preferits.map((prod) => (
-                  <div key={prod.id} style={{ display: 'flex', gap: '20px', padding: '20px', border: '1px solid #eae8e1', backgroundColor: '#faf9f6', alignItems: 'center' }}>
-                    <div style={{ width: '80px', height: '100px', backgroundColor: '#f5f5f3', overflow: 'hidden', border: '1px solid #eceae4', flexShrink: 0 }}>
-                      <img src={prod.imatges[0]} alt={prod.nom} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/100?text=' + prod.nom }} />
-                    </div>
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <h4 style={{ margin: '0 0 6px 0', fontSize: '16px', fontWeight: '400', letterSpacing: '0.5px' }}>{prod.nom}</h4>
-                      <p style={{ margin: '0 0 12px 0', fontSize: '14px', fontWeight: 'bold' }}>{prod.preu.toFixed(2)} €</p>
-                      <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-                        <button
-                          onClick={() => { setSeccioActiva('colleccio'); setProducteSeleccionat(prod); setImatgeActiva(0); }}
-                          style={{ backgroundColor: '#111', color: '#fff', border: 'none', padding: '9px 16px', fontSize: '12px', fontWeight: 'bold', cursor: 'pointer', letterSpacing: '1px' }}
-                        >
-                          VEURE PEÇA
-                        </button>
-                        <button
-                          onClick={() => commutarPreferit(prod)}
-                          style={{ backgroundColor: 'transparent', color: '#bd1c1c', border: '1px solid #bd1c1c', padding: '9px 16px', fontSize: '12px', cursor: 'pointer', letterSpacing: '1px', display: 'flex', alignItems: 'center', gap: '6px' }}
-                        >
-                          <Trash2 size={13} /> ELIMINAR
-                        </button>
+                {preferits.map((prod) => {
+                  const tallaRecPref = recomanarTallaPerProducte(prod.id);
+                  return (
+                    <div key={prod.id} style={{ display: 'flex', gap: '20px', padding: '20px', border: '1px solid #eae8e1', backgroundColor: '#faf9f6', alignItems: 'center' }}>
+                      <div style={{ width: '80px', height: '100px', backgroundColor: '#f5f5f3', overflow: 'hidden', border: '1px solid #eceae4', flexShrink: 0 }}>
+                        <img src={prod.imatges[0]} alt={prod.nom} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/100?text=' + prod.nom }} />
+                      </div>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <h4 style={{ margin: '0 0 6px 0', fontSize: '16px', fontWeight: '400', letterSpacing: '0.5px' }}>{prod.nom}</h4>
+                        <p style={{ margin: '0 0 6px 0', fontSize: '14px', fontWeight: 'bold' }}>{prod.preu.toFixed(2)} €</p>
+                        {/* CANVI 2: Talla recomanada als preferits del perfil */}
+                        {tallaRecPref && (
+                          <p style={{ margin: '0 0 10px 0', fontSize: '13px', color: '#2e7d32', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                            <Check size={13} /> La teva talla recomanada: {tallaRecPref}
+                          </p>
+                        )}
+                        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                          <button
+                            onClick={() => { setSeccioActiva('colleccio'); setProducteSeleccionat(prod); setImatgeActiva(0); }}
+                            style={{ backgroundColor: '#111', color: '#fff', border: 'none', padding: '9px 16px', fontSize: '12px', fontWeight: 'bold', cursor: 'pointer', letterSpacing: '1px' }}
+                          >
+                            VEURE PEÇA
+                          </button>
+                          <button
+                            onClick={() => commutarPreferit(prod)}
+                            style={{ backgroundColor: 'transparent', color: '#bd1c1c', border: '1px solid #bd1c1c', padding: '9px 16px', fontSize: '12px', cursor: 'pointer', letterSpacing: '1px', display: 'flex', alignItems: 'center', gap: '6px' }}
+                          >
+                            <Trash2 size={13} /> ELIMINAR
+                          </button>
+                        </div>
+                      </div>
+                      <div style={{ flexShrink: 0 }}>
+                        <Heart size={20} fill="#111" color="#111" />
                       </div>
                     </div>
-                    <div style={{ flexShrink: 0 }}>
-                      <Heart size={20} fill="#111" color="#111" />
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             )}
           </div>
@@ -1461,7 +1477,6 @@ export default function App() {
                 <p style={{ fontSize: '14px', margin: 0 }}>Encara no has realitzat cap comanda anteriorment a la nostra plataforma.</p>
               </div>
             ) : isMobile ? (
-              /* Comandes en mòbil: targetes verticals en lloc de taula */
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 {perfil.comandes.map((cmd) => (
                   <div key={cmd.id} style={{ border: '1px solid #eae8e1', padding: '16px', backgroundColor: '#faf9f6', fontSize: '13px' }}>
