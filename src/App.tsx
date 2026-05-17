@@ -36,9 +36,9 @@ interface ItemCarret {
 const PRODUCTES = [
   {
     id: 'pantalons-essence',
-    nom: 'Pantalons Línia Essence',
+    nom: 'Pantaló fluid Essence',
     preu: 50.00,
-    descripcio: 'Pantalons estil jogger de la línia Essence, dissenyats per a oferir el maxim confort i llibertat de movimento. Teixit de cotó orgànic d\'alta qualitat, suau al tacte i ideal per a un stile diari relaxat. Desenvolupat mitjançant patronatge digital sostenible.',
+    descripcio: "Pantaló d'estil urbà amb tall wide leg i teixit fluid que s'adapta perfectament al teu moviment. Confeccionat de manera sostenible en tallers locals. Una peça còmoda, versàtil i en tendència per al teu dia a dia.",
     imatges: [
       '/assets/pantalons_essence_1.jpg',
       '/assets/pantalons_essence_2.jpg',
@@ -50,9 +50,9 @@ const PRODUCTES = [
   },
   {
     id: 'pantalons-tailor',
-    nom: 'Pantalons Línia Tailor',
+    nom: 'Pantaló sastre Tailor',
     preu: 70.00,
-    descripcio: 'Pantalons de la línia Tailor amb un tall més estructurat, elegant i formal, sans renunciar a la comoditat de la nostra marca. Una peça clau de sastreria contemporània digitalitzada, optimitzada per a una producció conscient i residu zero.',
+    descripcio: 'Elegància clàssica i sastreria contemporània. Aquest pantaló destaca pel seu tall estructurat de tir alt que defineix la silueta amb la màxima comoditat. Creat a Barcelona amb materials responsables i sota criteris de residu zero.',
     imatges: [
       '/assets/pantalons_tailor_1.jpg',
       '/assets/pantalons_tailor_2.jpg',
@@ -64,9 +64,9 @@ const PRODUCTES = [
   },
   {
     id: 'camiseta-essence',
-    nom: 'Camiseta Línia Essence',
-    preu: 35.00,
-    descripcio: 'Camiseta de la línia Essence, concebuda per a la màxima lleugeresa i comoditat en el dia a dia. Tall relaxat i modern, elaborada amb cotó orgànic certificat de primera qualitat. Cada peça és produïda sota comanda per garantir zero residus tèxtils.',
+    nom: 'Top drapejat Essence',
+    preu: 40.00,
+    descripcio: 'Disseny conscient i sofisticació minimalista. Aquest top destaca pel seu escot creuat i un drapejat elegant que afavoreix la silueta amb una caiguda molt fluida. Dissenyada de proximitat i amb residu zero.',
     imatges: [
       '/assets/camiseta_essence_1.png',
       '/assets/camiseta_essence_2.png',
@@ -77,9 +77,9 @@ const PRODUCTES = [
   },
   {
     id: 'camiseta-tailor',
-    nom: 'Camiseta Línia Tailor',
-    preu: 55.00,
-    descripcio: 'Camiseta de la línia Tailor amb un tall més estructurat i refinat, ideal per a looks més formals sense renunciar a la comoditat. Dissenyada amb patronatge digital d\'alta precisió per a una producció conscient i optimitzada.',
+    nom: 'Brusa sastre Tailor',
+    preu: 50.00,
+    descripcio: 'Elegància i sofisticació minimalista per al teu dia a dia. Aquesta brusa destaca per les seves línies pures, un escot refinat i una caiguda fluida de màxima comoditat. Confeccionada a Barcelona sota criteris de disseny conscient i residu zero.',
     imatges: [
       '/assets/camiseta_tailor_1.png',
       '/assets/camiseta_tailor_2.jpg',
@@ -411,6 +411,12 @@ export default function App() {
     setMissatgeWeb({ text: preferits.find(p => p.id === prod.id) ? 'Eliminat de preferits.' : 'Afegit a la llista de preferits.', tipus: 'exit' });
   };
 
+  // ── CANVI 2: Funció per eliminar un look provat ──────────────────────────
+  const handleDeleteLook = (lookId: string) => {
+    setPerfil(prev => ({ ...prev, looksProvats: prev.looksProvats.filter(id => id !== lookId) }));
+    setMissatgeWeb({ text: 'Look eliminat de la teva galeria.', tipus: 'info' });
+  };
+
   // Càlcul de totals de comanda
   const subtotalCarret = carret.reduce((sum, item) => sum + (item.producte.preu * item.quantitat), 0);
   const costEnviament = subtotalCarret >= 60 || subtotalCarret === 0 ? 0 : 3.95;
@@ -537,7 +543,7 @@ export default function App() {
             <div style={{ textAlign: 'center', marginBottom: '60px', maxWidth: '700px', margin: '0 auto 60px auto' }}>
               <h1 style={{ fontSize: isMobile ? '26px' : '38px', fontWeight: '300', letterSpacing: isMobile ? '2px' : '4px', marginBottom: '20px', fontFamily: '"Didot", serif' }}>EXPLORA LES LÍNIES</h1>
               <p style={{ color: '#6d6b64', fontSize: '15px', lineHeight: '1.8', letterSpacing: '0.5px' }}>
-                Un estudi analític i conceptual entre el patronatge d'alta sastreria estructural i l'ergonomia relaxada del loungewear. Descobreix la teva forma ideal amb l'assistent tridimensional interactiu.
+                Benvinguda a una nova manera d'emprovar-te la roba des de casa. Amb el sistema de realitat augmentada de MiRA, podràs visualitzar com s'adapten els nostres dissenys a la teva silueta abans de comprar-los. Només has de seleccionar la teva peça preferida i deixar que la nostra tecnologia t'ajudi a trobar la teva talla exacta. Sense errors, sense pèrdues de temps amb les devolucions i amb tota la comoditat que busques en una marca de moda conscient i de proximitat.
               </p>
             </div>
 
@@ -694,11 +700,12 @@ export default function App() {
         </main>
       )}
 
-      {/* SECCIÓ C: SOBRE MIRA */}
+      {/* ── CANVI 1: SECCIÓ C: SOBRE MIRA — Redisseny editorial ── */}
       {seccioActiva === 'sobre-mira' && (
-        <main style={{ maxWidth: '800px', margin: '60px auto', padding: isMobile ? '0 16px' : '0 30px', textAlign: 'center' }}>
-          {/* CANVI 1b: Logo integrat a la pàgina Sobre MiRA */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '30px' }}>
+        <main style={{ maxWidth: '1000px', margin: '0 auto', padding: isMobile ? '40px 16px' : '60px 40px' }}>
+
+          {/* Capçalera de secció */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '40px' }}>
             <img
               src="/assets/logo.png"
               alt="MiRA logo"
@@ -707,25 +714,79 @@ export default function App() {
             />
             <h1 style={{ fontSize: isMobile ? '26px' : '36px', fontWeight: '300', letterSpacing: '4px', margin: 0, fontFamily: '"Didot", serif' }}>SOBRE MIRA</h1>
           </div>
-          <p style={{ fontSize: '16px', lineHeight: '2', color: '#444', textAlign: 'justify', marginBottom: '30px' }}>
-            MiRA neix com un projecte conceptual de transformació digital en l'àmbit del patronatge industrial i el disseny de moda. La nostra filosofia es recolza en la fusió de dos mons aparentment oposats: la precisió de la sastreria tradicional estructurada i la comoditat d'ús diari de les col·leccions contemporànies.
-          </p>
-          <div style={{ backgroundColor: '#ffffff', padding: isMobile ? '24px' : '40px', border: '1px solid #eae8e1', textAlign: 'left', marginBottom: '40px' }}>
-            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '20px', marginBottom: '15px', letterSpacing: '1px' }}>El Manifest de Sostenibilitat Digital</h3>
-            <p style={{ fontSize: '14px', lineHeight: '1.8', color: '#6d6b64', margin: 0 }}>
-              Mitjançant la implementació d'emprovadors tridimensionals interactius basats en Realitat Augmentada (RA), reduïm preventivament l'índex de devolució de peces de roba. Això minimitza l'impacte i la petjada de carboni de la logística inversa, assegurant una producció conscient, sota comanda i optimitzada amb zero residus tèxtils en els marcatges de tall.
+
+          {/* Hero Image: dues models caminant */}
+          <div style={{ width: '100%', marginBottom: '0' }}>
+            <img
+              src="/assets/tailor_essence.png"
+              alt="Models MiRA"
+              style={{ width: '100%', height: isMobile ? '320px' : '520px', objectFit: 'cover', display: 'block' }}
+              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+            />
+          </div>
+          <div style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', borderTop: 'none', padding: isMobile ? '28px 24px' : '40px 48px', marginBottom: '60px' }}>
+            <p style={{ fontSize: isMobile ? '14px' : '16px', lineHeight: '2', color: '#444', margin: 0 }}>
+              MiRA és la unió de disseny conscient, comoditat i innovació digital. Creem col·leccions atemporals de proximitat que s'integren perfectament en el teu armari diari. Cada detall dels nostres dissenys està pensat per oferir-te el màxim confort, utilitzant la tecnologia per connectar de manera més directa i transparent amb tu.
             </p>
           </div>
-          <button onClick={() => setSeccioActiva('colleccio')} style={{ backgroundColor: '#111', color: '#fff', border: 'none', padding: '15px 35px', fontSize: '13px', letterSpacing: '2px', cursor: 'pointer' }}>
-            TORNAR AL CATÀLEG
-          </button>
+
+          {/* Bloc: LA NOSTRA INNOVACIÓ DIGITAL */}
+          <div style={{ borderTop: '1px solid #eceae4', paddingTop: '50px', marginBottom: '60px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '0' : '0', alignItems: 'stretch' }}>
+              <div style={{ overflow: 'hidden' }}>
+                <img
+                  src="/assets/realitat_augmentada.png"
+                  alt="Emprovador de realitat augmentada MiRA"
+                  style={{ width: '100%', height: isMobile ? '260px' : '420px', objectFit: 'cover', display: 'block' }}
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                />
+              </div>
+              <div style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', borderLeft: isMobile ? '1px solid #eae8e1' : 'none', padding: isMobile ? '28px 24px' : '48px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#6d6b64', fontWeight: 'bold', display: 'block', marginBottom: '12px' }}>TECNOLOGIA</span>
+                <h2 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '20px' : '26px', fontWeight: '300', letterSpacing: '1px', margin: '0 0 20px 0' }}>LA NOSTRA INNOVACIÓ DIGITAL</h2>
+                <p style={{ fontSize: '14px', lineHeight: '1.9', color: '#555', margin: 0 }}>
+                  Volem transformar la teva manera de comprar online. Gràcies al nostre emprovador virtual de realitat augmentada, podràs comprovar com s'ajusta cada peça al teu cos abans de triar. Aquesta tecnologia ens permet ajudar-te a trobar la teva talla ideal a la primera, eliminant els dubtes i evitant l'impacte de les devolucions innecessàries.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Bloc: SOSTENIBILITAT I RESIDU ZERO */}
+          <div style={{ borderTop: '1px solid #eceae4', paddingTop: '50px', marginBottom: '60px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '0', alignItems: 'stretch' }}>
+              {/* En mòbil: text primer, imatge a sota. En escriptori: text esquerra, imatge dreta */}
+              <div style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', borderRight: isMobile ? '1px solid #eae8e1' : 'none', padding: isMobile ? '28px 24px' : '48px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center', order: isMobile ? 1 : 0 }}>
+                <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#6d6b64', fontWeight: 'bold', display: 'block', marginBottom: '12px' }}>COMPROMÍS</span>
+                <h2 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '20px' : '26px', fontWeight: '300', letterSpacing: '1px', margin: '0 0 20px 0' }}>SOSTENIBILITAT I RESIDU ZERO</h2>
+                <p style={{ fontSize: '14px', lineHeight: '1.9', color: '#555', margin: 0 }}>
+                  A més, apostem per una producció de proximitat i conscient en lots limitats de 50 peces, passant al model sota comanda un cop esgotat l'estoc inicial. Treballem amb un criteri de residu zero, assegurant-nos que cada disseny es fabriqui de manera local a Barcelona, evitant la sobreproducció i sense malgastar teixit.
+                </p>
+              </div>
+              <div style={{ overflow: 'hidden', order: isMobile ? 0 : 1 }}>
+                <img
+                  src="/assets/tela.png"
+                  alt="Teixit de cotó orgànic MiRA"
+                  style={{ width: '100%', height: isMobile ? '260px' : '420px', objectFit: 'cover', display: 'block' }}
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Botó de tornada */}
+          <div style={{ textAlign: 'center' }}>
+            <button onClick={() => setSeccioActiva('colleccio')} style={{ backgroundColor: '#111', color: '#fff', border: 'none', padding: '15px 35px', fontSize: '13px', letterSpacing: '2px', cursor: 'pointer' }}>
+              TORNAR AL CATÀLEG
+            </button>
+          </div>
+
         </main>
       )}
 
       {/* SECCIÓ D: PERFIL D'USUARI */}
       {seccioActiva === 'perfil' && (
         <main style={{ maxWidth: '1100px', margin: '40px auto', padding: isMobile ? '0 16px' : '0 30px' }}>
-          <h1 style={{ fontSize: isMobile ? '24px' : '34px', fontWeight: '300', letterSpacing: '3px', marginBottom: '30px', fontFamily: '"Didot", serif' }}>EL MEU PERFIL DE LUXE</h1>
+          <h1 style={{ fontSize: isMobile ? '24px' : '34px', fontWeight: '300', letterSpacing: '3px', marginBottom: '30px', fontFamily: '"Didot", serif' }}>EL MEU PERFIL</h1>
           
           {isMobile ? (
             <>
@@ -1305,7 +1366,7 @@ export default function App() {
       <>
         {subgrupPerfil === 'dades' && (
           <div>
-            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 25px 0', fontWeight: '300' }}>Informació Personal i Atributs</h3>
+            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 25px 0', fontWeight: '300' }}>Informació Personal</h3>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '20px', marginBottom: '35px' }}>
               <div>
                 <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>Nom Complet</label>
@@ -1325,7 +1386,7 @@ export default function App() {
               </div>
             </div>
 
-            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '18px', margin: '0 0 20px 0', fontWeight: '300', borderTop: '1px solid #eee', paddingTop: '25px' }}>Mesures del Cos per al Recomanador</h3>
+            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '18px', margin: '0 0 20px 0', fontWeight: '300', borderTop: '1px solid #eee', paddingTop: '25px' }}>Les teves mesures</h3>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(2, 1fr)', gap: '15px', marginBottom: '25px' }}>
               <div style={{ gridColumn: '1 / -1' }}>
                 <label style={{ display: 'block', fontSize: '12px', marginBottom: '6px' }}>Alçada (cm)</label>
@@ -1386,6 +1447,7 @@ export default function App() {
           </div>
         )}
 
+        {/* ── CANVI 2: Looks provats amb botó d'eliminar per targeta ── */}
         {subgrupPerfil === 'looks' && (
           <div>
             <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 20px 0', fontWeight: '300' }}>Looks provats a l'emprovador 3D</h3>
@@ -1397,8 +1459,25 @@ export default function App() {
                   const prodAsociat = PRODUCTES.find(p => p.id === lookId);
                   if (!prodAsociat) return null;
                   return (
-                    <div key={lookId} style={{ border: '1px solid #eae8e1', padding: '20px', backgroundColor: '#faf9f6' }}>
-                      <h4 style={{ margin: '0 0 15px 0', fontSize: '16px', letterSpacing: '1px' }}>{prodAsociat.nom}</h4>
+                    <div key={lookId} style={{ border: '1px solid #eae8e1', backgroundColor: '#faf9f6', position: 'relative', overflow: 'hidden' }}>
+                      {/* Botó eliminar a la cantonada superior dreta de la targeta */}
+                      <button
+                        onClick={() => handleDeleteLook(lookId)}
+                        title="Eliminar look"
+                        style={{
+                          position: 'absolute', top: '10px', right: '10px', zIndex: 10,
+                          background: 'rgba(255,255,255,0.92)', border: '1px solid #eae8e1',
+                          borderRadius: '50%', width: '30px', height: '30px',
+                          display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          cursor: 'pointer', boxShadow: '0 1px 4px rgba(0,0,0,0.10)'
+                        }}
+                      >
+                        <X size={14} color="#888" />
+                      </button>
+
+                      <div style={{ padding: '20px 20px 12px 20px' }}>
+                        <h4 style={{ margin: '0 0 15px 0', fontSize: '16px', letterSpacing: '1px', paddingRight: '32px' }}>{prodAsociat.nom}</h4>
+                      </div>
                       <div style={{ width: '100%', height: '300px', backgroundColor: '#f5f5f3', border: '1px solid #ddd', position: 'relative' }}>
                         {React.createElement('model-viewer' as any, {
                           src: prodAsociat.model3d,
@@ -1406,6 +1485,19 @@ export default function App() {
                           'auto-rotate': '',
                           style: { width: '100%', height: '100%' }
                         })}
+                      </div>
+                      <div style={{ padding: '14px 20px' }}>
+                        <button
+                          onClick={() => handleDeleteLook(lookId)}
+                          style={{
+                            display: 'inline-flex', alignItems: 'center', gap: '6px',
+                            background: 'none', border: '1px solid #ccc',
+                            padding: '8px 14px', fontSize: '12px', cursor: 'pointer',
+                            color: '#6d6b64', letterSpacing: '0.5px'
+                          }}
+                        >
+                          <Trash2 size={13} /> Eliminar look
+                        </button>
                       </div>
                     </div>
                   );
