@@ -62,6 +62,33 @@ const PRODUCTES = [
     ],
     teixit: '100% Cotó Orgànic Premium d\'alta densitat',
     model3d: '/assets/pantalons_tailor.glb'
+  },
+  {
+    id: 'camiseta-essence',
+    nom: 'Camiseta Línia Essence',
+    preu: 35.00,
+    descripcio: 'Camiseta de la línia Essence, concebuda per a la màxima lleugeresa i comoditat en el dia a dia. Tall relaxat i modern, elaborada amb cotó orgànic certificat de primera qualitat. Cada peça és produïda sota comanda per garantir zero residus tèxtils.',
+    imatges: [
+      '/assets/camiseta_essence_1.png',
+      '/assets/camiseta_essence_2.png',
+      '/assets/camiseta_essence_3.png'
+    ],
+    teixit: '100% Cotó Orgànic Certificat de primera qualitat',
+    model3d: '/assets/camiseta_essence.glb'
+  },
+  {
+    id: 'camiseta-tailor',
+    nom: 'Camiseta Línia Tailor',
+    preu: 55.00,
+    descripcio: 'Camiseta de la línia Tailor amb un tall més estructurat i refinat, ideal per a looks més formals sense renunciar a la comoditat. Dissenyada amb patronatge digital d\'alta precisió per a una producció conscient i optimitzada.',
+    imatges: [
+      '/assets/camiseta_tailor_1.png',
+      '/assets/camiseta_tailor_2.png',
+      '/assets/camiseta_tailor_3.png',
+      '/assets/camiseta_tailor_4.png'
+    ],
+    teixit: '100% Cotó Orgànic Premium d\'alta densitat i tissatge fi',
+    model3d: '/assets/camiseta_tailor.glb'
   }
 ];
 
@@ -393,52 +420,83 @@ export default function App() {
       )}
 
       {/* SECCIÓ A: COL·LECCIÓ GENERAL AMB SEPARACIÓ DE LÍNIES */}
-      {seccioActiva === 'colleccio' && !producteSeleccionat && (
-        <main style={{ padding: isMobile ? '30px 16px' : '60px 40px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '60px', maxWidth: '700px', margin: '0 auto 60px auto' }}>
-            <h1 style={{ fontSize: isMobile ? '26px' : '38px', fontWeight: '300', letterSpacing: isMobile ? '2px' : '4px', marginBottom: '20px', fontFamily: '"Didot", serif' }}>EXPLORA LES LÍNIES</h1>
-            <p style={{ color: '#6d6b64', fontSize: '15px', lineHeight: '1.8', letterSpacing: '0.5px' }}>
-              Un estudi analític i conceptual entre el patronatge d'alta sastreria estructural i l'ergonomia relaxada del loungewear. Descobreix la teva forma ideal amb l'assistent tridimensional interactiu.
-            </p>
+      {seccioActiva === 'colleccio' && !producteSeleccionat && (() => {
+        // Agrupem els productes per línia una sola vegada
+        const LINIES = [
+          {
+            key: 'essence',
+            etiqueta: 'COL·LECCIÓ CASUAL ESSENTIALS',
+            titol: 'LÍNIA ESSENCE',
+            productes: PRODUCTES.filter(p => p.id.includes('essence')),
+          },
+          {
+            key: 'tailor',
+            etiqueta: 'ALTA SASTRERIA ESTRUCTURAL',
+            titol: 'LÍNIA TAILOR',
+            productes: PRODUCTES.filter(p => p.id.includes('tailor')),
+          },
+        ];
+
+        // Targeta de producte reutilitzable (sense títol de línia)
+        const TarjetaProducte = ({ prod }: { prod: typeof PRODUCTES[0] }) => (
+          <div style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', overflow: 'hidden', position: 'relative', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', alignItems: 'center' }}>
+            <div onClick={() => { setProducteSeleccionat(prod); setImatgeActiva(0); }} style={{ width: '100%', height: isMobile ? '300px' : '420px', backgroundColor: '#f5f5f3', overflow: 'hidden', cursor: 'pointer' }}>
+              <img src={prod.imatges[0]} alt={prod.nom} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400x420?text=' + prod.nom }} />
+            </div>
+
+            <button
+              onClick={(e) => { e.stopPropagation(); commutarPreferit(prod); }}
+              style={{ position: 'absolute', top: '16px', left: '16px', backgroundColor: '#fff', border: 'none', width: '34px', height: '34px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', zIndex: 10 }}
+            >
+              <Heart size={16} fill={preferits.find(p => p.id === prod.id) ? '#111' : 'none'} color={preferits.find(p => p.id === prod.id) ? '#111' : '#888'} />
+            </button>
+
+            <div style={{ padding: isMobile ? '22px' : '40px', display: 'flex', flexDirection: 'column', justifyContent: 'center', boxSizing: 'border-box', cursor: 'pointer' }} onClick={() => { setProducteSeleccionat(prod); setImatgeActiva(0); }}>
+              <h3 style={{ margin: '0 0 8px 0', fontSize: isMobile ? '17px' : '20px', fontWeight: '400', letterSpacing: '1px' }}>{prod.nom}</h3>
+              <p style={{ margin: '0 0 16px 0', color: '#6d6b64', fontSize: '14px', lineHeight: '1.6' }}>{prod.descripcio}</p>
+              <p style={{ margin: '0 0 24px 0', fontWeight: 'bold', fontSize: '17px', color: '#111' }}>{prod.preu.toFixed(2)} €</p>
+              <span style={{ fontSize: '12px', letterSpacing: '2px', textDecoration: 'underline', fontWeight: 'bold' }}>EXPLORAR PEÇA I PROVAR EN 3D</span>
+            </div>
           </div>
+        );
 
-          <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '80px' }}>
-            {PRODUCTES.map((prod) => (
-              <div key={prod.id} style={{ borderTop: '1px solid #eceae4', paddingTop: '40px' }}>
-                <div style={{ marginBottom: '25px' }}>
-                  <span style={{ fontSize: '12px', letterSpacing: '3px', color: '#6d6b64', fontWeight: 'bold' }}>
-                    {prod.id === 'pantalons-essence' ? 'COL·LECCIÓ CASUAL ESSENTIALS' : 'ALTA SASTRERIA ESTRUCTURAL'}
-                  </span>
-                  <h2 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '22px' : '28px', margin: '5px 0 0 0', fontWeight: '300', letterSpacing: '1px' }}>
-                    {prod.id === 'pantalons-essence' ? 'LÍNIA ESSENCE' : 'LÍNIA TAILOR'}
-                  </h2>
-                </div>
+        return (
+          <main style={{ padding: isMobile ? '30px 16px' : '60px 40px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '60px', maxWidth: '700px', margin: '0 auto 60px auto' }}>
+              <h1 style={{ fontSize: isMobile ? '26px' : '38px', fontWeight: '300', letterSpacing: isMobile ? '2px' : '4px', marginBottom: '20px', fontFamily: '"Didot", serif' }}>EXPLORA LES LÍNIES</h1>
+              <p style={{ color: '#6d6b64', fontSize: '15px', lineHeight: '1.8', letterSpacing: '0.5px' }}>
+                Un estudi analític i conceptual entre el patronatge d'alta sastreria estructural i l'ergonomia relaxada del loungewear. Descobreix la teva forma ideal amb l'assistent tridimensional interactiu.
+              </p>
+            </div>
 
-                {/* Layout: horitzontal en escriptori, vertical en mòbil */}
-                <div style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', overflow: 'hidden', cursor: 'pointer', position: 'relative', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', alignItems: 'center' }}>
-                  <div onClick={() => { setProducteSeleccionat(prod); setImatgeActiva(0); }} style={{ width: '100%', height: isMobile ? '320px' : '550px', backgroundColor: '#f5f5f3', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-                    <img src={prod.imatges[0]} alt={prod.nom} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400x550?text=' + prod.nom }} />
+            {/* DOS APARTATS: un per línia */}
+            <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '80px' }}>
+              {LINIES.map((linia) => (
+                <div key={linia.key} style={{ borderTop: '1px solid #eceae4', paddingTop: '40px' }}>
+
+                  {/* Capçalera de línia — apareix UNA SOLA VEGADA per secció */}
+                  <div style={{ marginBottom: '30px' }}>
+                    <span style={{ fontSize: '12px', letterSpacing: '3px', color: '#6d6b64', fontWeight: 'bold' }}>
+                      {linia.etiqueta}
+                    </span>
+                    <h2 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '22px' : '28px', margin: '5px 0 0 0', fontWeight: '300', letterSpacing: '1px' }}>
+                      {linia.titol}
+                    </h2>
                   </div>
-                  
-                  <button 
-                    onClick={(e) => { e.stopPropagation(); commutarPreferit(prod); }}
-                    style={{ position: 'absolute', top: '20px', left: '20px', backgroundColor: '#fff', border: 'none', width: '36px', height: '36px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', zIndex: 10 }}
-                  >
-                    <Heart size={18} fill={preferits.find(p => p.id === prod.id) ? '#111' : 'none'} color={preferits.find(p => p.id === prod.id) ? '#111' : '#888'} />
-                  </button>
 
-                  <div style={{ padding: isMobile ? '24px' : '50px', display: 'flex', flexDirection: 'column', justifyContent: 'center', boxSizing: 'border-box' }} onClick={() => { setProducteSeleccionat(prod); setImatgeActiva(0); }}>
-                    <h3 style={{ margin: '0 0 10px 0', fontSize: isMobile ? '18px' : '22px', fontWeight: '400', letterSpacing: '1px' }}>{prod.nom}</h3>
-                    <p style={{ margin: '0 0 20px 0', color: '#6d6b64', fontSize: '14px', lineHeight: '1.6' }}>{prod.descripcio}</p>
-                    <p style={{ margin: '0 0 30px 0', fontWeight: 'bold', fontSize: '18px', color: '#111' }}>{prod.preu.toFixed(2)} €</p>
-                    <span style={{ fontSize: '13px', letterSpacing: '2px', textDecoration: 'underline', fontWeight: 'bold' }}>EXPLORAR PEÇA I PROVAR EN 3D</span>
+                  {/* Productes d'aquesta línia apilats verticalment */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                    {linia.productes.map((prod) => (
+                      <TarjetaProducte key={prod.id} prod={prod} />
+                    ))}
                   </div>
+
                 </div>
-              </div>
-            ))}
-          </div>
-        </main>
-      )}
+              ))}
+            </div>
+          </main>
+        );
+      })()}
 
       {/* SECCIÓ B: FITXA DE PRODUCTE */}
       {seccioActiva === 'colleccio' && producteSeleccionat && (
