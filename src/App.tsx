@@ -115,7 +115,7 @@ function PreferitsCarret({ preferits, tallaRecomanadaPerProducte, onAfegir, onEl
           <Heart size={18} style={{ display: 'inline', marginRight: '10px', verticalAlign: 'middle' }} fill="#111" />
           ELS TEUS PREFERITS
         </h2>
-        <span style={{ fontSize: '12px', color: '#6d6b64', letterSpacing: '1px' }}>{preferits.length} {preferits.length === 1 ? 'peça guardada' : 'peces guardades'}</span>
+        <span style={{ fontSize: '12px', color: '#444', letterSpacing: '1px' }}>{preferits.length} {preferits.length === 1 ? 'peça guardada' : 'peces guardades'}</span>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '20px' }}>
         {preferits.map((prod) => {
@@ -139,7 +139,7 @@ function PreferitsCarret({ preferits, tallaRecomanadaPerProducte, onAfegir, onEl
 
                 {/* Selector de talla inline */}
                 <div style={{ marginBottom: '10px' }}>
-                  <span style={{ fontSize: '11px', color: '#6d6b64', display: 'block', marginBottom: '6px', letterSpacing: '0.5px' }}>
+                  <span style={{ fontSize: '11px', color: '#444', display: 'block', marginBottom: '6px', letterSpacing: '0.5px' }}>
                     TALLA
                   </span>
                   <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
@@ -171,7 +171,7 @@ function PreferitsCarret({ preferits, tallaRecomanadaPerProducte, onAfegir, onEl
               {/* Creu: elimina de preferits sense afegir */}
               <button
                 onClick={() => onEliminarPreferit(prod)}
-                style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#aaa', flexShrink: 0, padding: '2px' }}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#555', flexShrink: 0, padding: '2px' }}
                 title="Eliminar de preferits"
               >
                 <X size={16} />
@@ -424,7 +424,7 @@ export default function App() {
   const faltaPerEnviamentGratis = subtotalCarret > 0 && subtotalCarret < 60 ? (60 - subtotalCarret) : 0;
 
   return (
-    <div style={{ fontFamily: '"Didot", "Playfair Display", "Helvetica Neue", sans-serif', color: '#111', backgroundColor: '#faf9f6', minHeight: '100vh', margin: 0, padding: 0, position: 'relative' }}>
+    <div style={{ fontFamily: '"Didot", "Playfair Display", "Helvetica Neue", sans-serif', color: '#111', backgroundColor: '#faf9f6', minHeight: '100vh', margin: 0, padding: 0, position: 'relative', colorScheme: 'light' } as React.CSSProperties}>
       
       {/* ALERTA DINÀMICA */}
       {missatgeWeb && (
@@ -531,7 +531,7 @@ export default function App() {
 
             <div style={{ padding: isMobile ? '22px' : '40px', display: 'flex', flexDirection: 'column', justifyContent: 'center', boxSizing: 'border-box', cursor: 'pointer' }} onClick={() => { setProducteSeleccionat(prod); setImatgeActiva(0); }}>
               <h3 style={{ margin: '0 0 8px 0', fontSize: isMobile ? '17px' : '20px', fontWeight: '400', letterSpacing: '1px' }}>{prod.nom}</h3>
-              <p style={{ margin: '0 0 16px 0', color: '#6d6b64', fontSize: '14px', lineHeight: '1.6' }}>{prod.descripcio}</p>
+              <p style={{ margin: '0 0 16px 0', color: '#444', fontSize: '14px', lineHeight: '1.6' }}>{prod.descripcio}</p>
               <p style={{ margin: '0 0 24px 0', fontWeight: 'bold', fontSize: '17px', color: '#111' }}>{prod.preu.toFixed(2)} €</p>
               <span style={{ fontSize: '12px', letterSpacing: '2px', textDecoration: 'underline', fontWeight: 'bold' }}>EXPLORAR PEÇA I PROVAR EN 3D</span>
             </div>
@@ -542,7 +542,7 @@ export default function App() {
           <main style={{ padding: isMobile ? '30px 16px' : '60px 40px' }}>
             <div style={{ textAlign: 'center', marginBottom: '60px', maxWidth: '700px', margin: '0 auto 60px auto' }}>
               <h1 style={{ fontSize: isMobile ? '26px' : '38px', fontWeight: '300', letterSpacing: isMobile ? '2px' : '4px', marginBottom: '20px', fontFamily: '"Didot", serif' }}>EXPLORA LES LÍNIES</h1>
-              <p style={{ color: '#6d6b64', fontSize: '15px', lineHeight: '1.8', letterSpacing: '0.5px' }}>
+              <p style={{ color: '#444', fontSize: '15px', lineHeight: '1.8', letterSpacing: '0.5px' }}>
                 Benvinguda a una nova manera d'emprovar-te la roba des de casa. Amb el sistema de realitat augmentada de MiRA, podràs visualitzar com s'adapten els nostres dissenys a la teva silueta abans de comprar-los. Només has de seleccionar la teva peça preferida i deixar que la nostra tecnologia t'ajudi a trobar la teva talla exacta. Sense errors, sense pèrdues de temps amb les devolucions i amb tota la comoditat que busques en una marca de moda conscient i de proximitat.
               </p>
             </div>
@@ -551,7 +551,7 @@ export default function App() {
               {LINIES.map((linia) => (
                 <div key={linia.key} style={{ borderTop: '1px solid #eceae4', paddingTop: '40px' }}>
                   <div style={{ marginBottom: '30px' }}>
-                    <span style={{ fontSize: '12px', letterSpacing: '3px', color: '#6d6b64', fontWeight: 'bold' }}>
+                    <span style={{ fontSize: '12px', letterSpacing: '3px', color: '#444', fontWeight: 'bold' }}>
                       {linia.etiqueta}
                     </span>
                     <h2 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '22px' : '28px', margin: '5px 0 0 0', fontWeight: '300', letterSpacing: '1px' }}>
@@ -575,7 +575,7 @@ export default function App() {
       {/* SECCIÓ B: FITXA DE PRODUCTE */}
       {seccioActiva === 'colleccio' && producteSeleccionat && (
         <main style={{ maxWidth: '1200px', margin: '40px auto', padding: isMobile ? '0 16px' : '0 30px' }}>
-          <button onClick={() => setProducteSeleccionat(null)} style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'none', border: 'none', fontSize: '13px', cursor: 'pointer', marginBottom: '30px', color: '#6d6b64', letterSpacing: '1px' }}>
+          <button onClick={() => setProducteSeleccionat(null)} style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'none', border: 'none', fontSize: '13px', cursor: 'pointer', marginBottom: '30px', color: '#444', letterSpacing: '1px' }}>
             <ArrowLeft size={14} /> TORNAR A LA COL·LECCIÓ
           </button>
 
@@ -616,7 +616,7 @@ export default function App() {
               
               <div style={{ borderTop: '1px solid #eae8e1', borderBottom: '1px solid #eae8e1', padding: '25px 0', marginBottom: '30px' }}>
                 <p style={{ margin: '0 0 15px 0', color: '#555', fontSize: '14px', lineHeight: '1.8' }}>{producteSeleccionat.descripcio}</p>
-                <p style={{ margin: 0, fontSize: '13px', color: '#7c7a72' }}><strong>Composició:</strong> {producteSeleccionat.teixit}</p>
+                <p style={{ margin: 0, fontSize: '13px', color: '#444' }}><strong>Composició:</strong> {producteSeleccionat.teixit}</p>
               </div>
 
               {/* RECOMANADOR DE TALLES INTEL·LIGENT */}
@@ -632,7 +632,7 @@ export default function App() {
                       <Check size={18} />
                       <span>Et recomanem la talla <strong>{tallaRecomanada}</strong> per a aquesta peça.</span>
                     </div>
-                    <p style={{ margin: '0 0 8px 0', fontSize: '12px', color: '#6d6b64', paddingLeft: '28px' }}>
+                    <p style={{ margin: '0 0 8px 0', fontSize: '12px', color: '#444', paddingLeft: '28px' }}>
                       {producteSeleccionat.id === 'camiseta-essence'  && `Basat en el teu contorn de cintura (${perfil.cintura} cm) i pit (${perfil.pit} cm).`}
                       {producteSeleccionat.id === 'pantalons-essence' && `Basat en el teu contorn de cintura (${perfil.cintura} cm) i maluc (${perfil.maluc} cm).`}
                       {producteSeleccionat.id === 'camiseta-tailor'   && `Basat en el teu contorn de pit (${perfil.pit} cm).`}
@@ -643,14 +643,14 @@ export default function App() {
                         setMesuresTemp({ alcada: perfil.alcada, pit: perfil.pit, cintura: perfil.cintura, maluc: perfil.maluc });
                         setMesuresRapidesObertes(true);
                       }}
-                      style={{ background: 'none', border: 'none', padding: 0, fontSize: '12px', color: '#6d6b64', textDecoration: 'underline', cursor: 'pointer' }}
+                      style={{ background: 'none', border: 'none', padding: 0, fontSize: '12px', color: '#444', textDecoration: 'underline', cursor: 'pointer' }}
                     >
                       Modificar mesures
                     </button>
                   </div>
                 ) : campsFaltants.length > 0 ? (
                   <div>
-                    <p style={{ margin: '0 0 8px 0', fontSize: '13px', color: '#6d6b64' }}>
+                    <p style={{ margin: '0 0 8px 0', fontSize: '13px', color: '#444' }}>
                       Per calcular la teva talla per a aquesta peça necessitem:&nbsp;
                       <strong>{campsFaltants.map(c => LABELS_CAMP[c]).join(' i ')}</strong>.
                     </p>
@@ -665,7 +665,7 @@ export default function App() {
                     </button>
                   </div>
                 ) : (
-                  <p style={{ margin: 0, fontSize: '13px', color: '#6d6b64' }}>
+                  <p style={{ margin: 0, fontSize: '13px', color: '#444' }}>
                     Configura les teves mesures al perfil per activar el recomanador.
                   </p>
                 )}
@@ -742,7 +742,7 @@ export default function App() {
                 />
               </div>
               <div style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', borderLeft: isMobile ? '1px solid #eae8e1' : 'none', padding: isMobile ? '28px 24px' : '48px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#6d6b64', fontWeight: 'bold', display: 'block', marginBottom: '12px' }}>TECNOLOGIA</span>
+                <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#444', fontWeight: 'bold', display: 'block', marginBottom: '12px' }}>TECNOLOGIA</span>
                 <h2 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '20px' : '26px', fontWeight: '300', letterSpacing: '1px', margin: '0 0 20px 0' }}>LA NOSTRA INNOVACIÓ DIGITAL</h2>
                 <p style={{ fontSize: '14px', lineHeight: '1.9', color: '#555', margin: 0 }}>
                   Volem transformar la teva manera de comprar online. Gràcies al nostre emprovador virtual de realitat augmentada, podràs comprovar com s'ajusta cada peça al teu cos abans de triar. Aquesta tecnologia ens permet ajudar-te a trobar la teva talla ideal a la primera, eliminant els dubtes i evitant l'impacte de les devolucions innecessàries.
@@ -756,7 +756,7 @@ export default function App() {
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '0', alignItems: 'stretch' }}>
               {/* En mòbil: text primer, imatge a sota. En escriptori: text esquerra, imatge dreta */}
               <div style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', borderRight: isMobile ? '1px solid #eae8e1' : 'none', padding: isMobile ? '28px 24px' : '48px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center', order: isMobile ? 1 : 0 }}>
-                <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#6d6b64', fontWeight: 'bold', display: 'block', marginBottom: '12px' }}>COMPROMÍS</span>
+                <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#444', fontWeight: 'bold', display: 'block', marginBottom: '12px' }}>COMPROMÍS</span>
                 <h2 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '20px' : '26px', fontWeight: '300', letterSpacing: '1px', margin: '0 0 20px 0' }}>SOSTENIBILITAT I RESIDU ZERO</h2>
                 <p style={{ fontSize: '14px', lineHeight: '1.9', color: '#555', margin: 0 }}>
                   A més, apostem per una producció de proximitat i conscient en lots limitats de 50 peces, passant al model sota comanda un cop esgotat l'estoc inicial. Treballem amb un criteri de residu zero, assegurant-nos que cada disseny es fabriqui de manera local a Barcelona, evitant la sobreproducció i sense malgastar teixit.
@@ -801,7 +801,7 @@ export default function App() {
                   <button
                     key={tab.key}
                     onClick={() => setSubgrupPerfil(tab.key as any)}
-                    style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '12px 14px', border: 'none', background: 'none', cursor: 'pointer', fontSize: '12px', letterSpacing: '0.5px', whiteSpace: 'nowrap', borderBottom: subgrupPerfil === tab.key ? '2px solid #111' : '2px solid transparent', marginBottom: '-2px', fontWeight: subgrupPerfil === tab.key ? 'bold' : 'normal', color: subgrupPerfil === tab.key ? '#111' : '#6d6b64' }}
+                    style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '12px 14px', border: 'none', background: 'none', cursor: 'pointer', fontSize: '12px', letterSpacing: '0.5px', whiteSpace: 'nowrap', borderBottom: subgrupPerfil === tab.key ? '2px solid #111' : '2px solid transparent', marginBottom: '-2px', fontWeight: subgrupPerfil === tab.key ? 'bold' : 'normal', color: subgrupPerfil === tab.key ? '#111' : '#444' }}
                   >
                     {tab.icon} {tab.label}
                   </button>
@@ -814,19 +814,19 @@ export default function App() {
           ) : (
             <div style={{ display: 'grid', gridTemplateColumns: '280px 1fr', gap: '50px', alignItems: 'start' }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', backgroundColor: '#fff', padding: '20px', border: '1px solid #eae8e1' }}>
-                <button onClick={() => setSubgrupPerfil('dades')} style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', padding: '15px', border: 'none', background: subgrupPerfil === 'dades' ? '#f4f3ee' : 'none', textAlign: 'left', cursor: 'pointer', fontWeight: subgrupPerfil === 'dades' ? 'bold' : 'normal', fontSize: '14px' }}>
+                <button onClick={() => setSubgrupPerfil('dades')} style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', padding: '15px', border: 'none', background: subgrupPerfil === 'dades' ? '#f4f3ee' : 'none', textAlign: 'left', cursor: 'pointer', fontWeight: subgrupPerfil === 'dades' ? 'bold' : 'normal', fontSize: '14px', color: '#111' }}>
                   <User size={16} /> Les meves dades i mides
                 </button>
-                <button onClick={() => setSubgrupPerfil('ra')} style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', padding: '15px', border: 'none', background: subgrupPerfil === 'ra' ? '#f4f3ee' : 'none', textAlign: 'left', cursor: 'pointer', fontWeight: subgrupPerfil === 'ra' ? 'bold' : 'normal', fontSize: '14px' }}>
+                <button onClick={() => setSubgrupPerfil('ra')} style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', padding: '15px', border: 'none', background: subgrupPerfil === 'ra' ? '#f4f3ee' : 'none', textAlign: 'left', cursor: 'pointer', fontWeight: subgrupPerfil === 'ra' ? 'bold' : 'normal', fontSize: '14px', color: '#111' }}>
                   <ImageIcon size={16} /> Fotografies per a la RA
                 </button>
-                <button onClick={() => setSubgrupPerfil('looks')} style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', padding: '15px', border: 'none', background: subgrupPerfil === 'looks' ? '#f4f3ee' : 'none', textAlign: 'left', cursor: 'pointer', fontWeight: subgrupPerfil === 'looks' ? 'bold' : 'normal', fontSize: '14px' }}>
+                <button onClick={() => setSubgrupPerfil('looks')} style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', padding: '15px', border: 'none', background: subgrupPerfil === 'looks' ? '#f4f3ee' : 'none', textAlign: 'left', cursor: 'pointer', fontWeight: subgrupPerfil === 'looks' ? 'bold' : 'normal', fontSize: '14px', color: '#111' }}>
                   <Sliders size={16} /> Els meus looks provats
                 </button>
-                <button onClick={() => setSubgrupPerfil('preferits')} style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', padding: '15px', border: 'none', background: subgrupPerfil === 'preferits' ? '#f4f3ee' : 'none', textAlign: 'left', cursor: 'pointer', fontWeight: subgrupPerfil === 'preferits' ? 'bold' : 'normal', fontSize: '14px' }}>
+                <button onClick={() => setSubgrupPerfil('preferits')} style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', padding: '15px', border: 'none', background: subgrupPerfil === 'preferits' ? '#f4f3ee' : 'none', textAlign: 'left', cursor: 'pointer', fontWeight: subgrupPerfil === 'preferits' ? 'bold' : 'normal', fontSize: '14px', color: '#111' }}>
                   <Heart size={16} /> Els meus preferits {preferits.length > 0 && `(${preferits.length})`}
                 </button>
-                <button onClick={() => setSubgrupPerfil('compres')} style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', padding: '15px', border: 'none', background: subgrupPerfil === 'compres' ? '#f4f3ee' : 'none', textAlign: 'left', cursor: 'pointer', fontWeight: subgrupPerfil === 'compres' ? 'bold' : 'normal', fontSize: '14px' }}>
+                <button onClick={() => setSubgrupPerfil('compres')} style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', padding: '15px', border: 'none', background: subgrupPerfil === 'compres' ? '#f4f3ee' : 'none', textAlign: 'left', cursor: 'pointer', fontWeight: subgrupPerfil === 'compres' ? 'bold' : 'normal', fontSize: '14px', color: '#111' }}>
                   <Package size={16} /> Les meves comandes
                 </button>
               </div>
@@ -846,8 +846,8 @@ export default function App() {
           
           {carret.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '60px', border: '1px solid #eae8e1', backgroundColor: '#fff' }}>
-              <ShoppingBag size={40} style={{ marginBottom: '15px', strokeWidth: 1, color: '#6d6b64' }} />
-              <p style={{ color: '#6d6b64', fontSize: '15px', marginBottom: '25px' }}>El teu carretó està buit actualment.</p>
+              <ShoppingBag size={40} style={{ marginBottom: '15px', strokeWidth: 1, color: '#444' }} />
+              <p style={{ color: '#444', fontSize: '15px', marginBottom: '25px' }}>El teu carretó està buit actualment.</p>
               <button onClick={() => setSeccioActiva('colleccio')} style={{ backgroundColor: '#111', color: '#fff', border: 'none', padding: '12px 28px', fontSize: '13px', letterSpacing: '1px', cursor: 'pointer' }}>EXPLORAR PRODUCTES</button>
             </div>
           ) : pasCheckout === 'carret' ? (
@@ -863,7 +863,7 @@ export default function App() {
                       </div>
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <h4 style={{ margin: '0 0 5px 0', fontSize: isMobile ? '14px' : '16px', fontWeight: '400' }}>{item.producte.nom}</h4>
-                        <p style={{ margin: '0 0 5px 0', fontSize: '13px', color: '#6d6b64' }}>Talla: <strong>{item.talla}</strong></p>
+                        <p style={{ margin: '0 0 5px 0', fontSize: '13px', color: '#444' }}>Talla: <strong>{item.talla}</strong></p>
                         {/* CANVI 2: Talla recomanada al carretó */}
                         {tallaRecItem && (
                           <p style={{ margin: '0 0 5px 0', fontSize: '12px', color: '#2e7d32', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '4px' }}>
@@ -927,7 +927,7 @@ export default function App() {
           ) : (
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 340px', gap: '30px', alignItems: 'start' }}>
               <div style={{ backgroundColor: '#fff', border: '1px solid #eae8e1', padding: isMobile ? '20px' : '35px' }}>
-                <button onClick={() => setPasCheckout('carret')} style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'none', border: 'none', fontSize: '13px', cursor: 'pointer', marginBottom: '25px', color: '#6d6b64', letterSpacing: '1px' }}>
+                <button onClick={() => setPasCheckout('carret')} style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'none', border: 'none', fontSize: '13px', cursor: 'pointer', marginBottom: '25px', color: '#444', letterSpacing: '1px' }}>
                   <ArrowLeft size={14} /> TORNAR AL CARRETÓ
                 </button>
                 <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 25px 0', fontWeight: '300', display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -989,7 +989,7 @@ export default function App() {
                   </div>
                 </div>
 
-                <div style={{ marginTop: '25px', padding: '15px', backgroundColor: '#f4f3ee', border: '1px solid #eae8e1', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '12px', color: '#6d6b64' }}>
+                <div style={{ marginTop: '25px', padding: '15px', backgroundColor: '#f4f3ee', border: '1px solid #eae8e1', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '12px', color: '#444' }}>
                   <Shield size={16} color="#2e7d32" />
                   <span>Les teves dades estan protegides amb xifratge SSL de 256 bits.</span>
                 </div>
@@ -1082,7 +1082,7 @@ export default function App() {
 
             <div style={{ padding: isMobile ? '20px' : '40px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', borderLeft: isMobile ? 'none' : '1px solid #eceae4', borderTop: isMobile ? '1px solid #eceae4' : 'none', backgroundColor: '#fff', overflowY: 'auto' }}>
               <div>
-                <span style={{ fontSize: '11px', letterSpacing: '2px', color: '#6d6b64', fontWeight: 'bold' }}>SISTEMA INTERACTIU MIRA</span>
+                <span style={{ fontSize: '11px', letterSpacing: '2px', color: '#444', fontWeight: 'bold' }}>SISTEMA INTERACTIU MIRA</span>
                 <h3 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '20px' : '24px', margin: '5px 0 15px 0', fontWeight: '300' }}>EMPROVADOR 3D</h3>
                 {!isMobile && <p style={{ fontSize: '13px', color: '#555', lineHeight: '1.6', marginBottom: '20px' }}>Estàs visualitzant l'adaptació digital en tres dimensions de la peça. Pots rotar, fer zoom i analitzar la caiguda estructural del teixit de forma interactiva.</p>}
 
@@ -1137,11 +1137,11 @@ export default function App() {
         <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', backgroundColor: 'rgba(0,0,0,0.6)', zIndex: 600, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <div style={{ backgroundColor: '#fff', padding: isMobile ? '28px 20px' : '40px', maxWidth: '480px', width: '90%', border: '1px solid #eae8e1', textAlign: 'center' }}>
             <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 15px 0', fontWeight: '300' }}>Fotografia necessària</h3>
-            <p style={{ fontSize: '14px', color: '#6d6b64', lineHeight: '1.6', marginBottom: '25px' }}>Per poder activar l'emprovador conceptual, primer cal una fotografia de referència corporal. Puja-la ara directament:</p>
+            <p style={{ fontSize: '14px', color: '#444', lineHeight: '1.6', marginBottom: '25px' }}>Per poder activar l'emprovador conceptual, primer cal una fotografia de referència corporal. Puja-la ara directament:</p>
             
             <div style={{ border: '2px dashed #eae8e1', padding: '25px', backgroundColor: '#faf9f6', marginBottom: '20px', textAlign: 'center' }}>
               <ImageIcon size={28} color="#aaa" style={{ marginBottom: '10px' }} />
-              <p style={{ margin: '0 0 12px 0', fontSize: '13px', color: '#6d6b64' }}>Selecciona una fotografia del teu dispositiu</p>
+              <p style={{ margin: '0 0 12px 0', fontSize: '13px', color: '#444' }}>Selecciona una fotografia del teu dispositiu</p>
               <input
                 type="file"
                 accept="image/*"
@@ -1149,7 +1149,7 @@ export default function App() {
                 style={{ cursor: 'pointer', fontSize: '13px' }}
               />
             </div>
-            <p style={{ fontSize: '11px', color: '#aaa', marginBottom: '20px' }}>La fotografia es guardarà automàticament al teu perfil.</p>
+            <p style={{ fontSize: '11px', color: '#555', marginBottom: '20px' }}>La fotografia es guardarà automàticament al teu perfil.</p>
 
             <button onClick={() => setPasFotoObligatori(false)} style={{ background: 'none', border: '1px solid #ccc', padding: '12px 20px', fontSize: '13px', cursor: 'pointer' }}>Cancel·lar</button>
           </div>
@@ -1170,7 +1170,7 @@ export default function App() {
                 Per calcular la talla de <em>{producteSeleccionat.nom}</em> necessitem: {campsFaltants.map(c => LABELS_CAMP[c]).join(' i ')}.
               </p>
             ) : (
-              <p style={{ fontSize: '13px', color: '#6d6b64', margin: '0 0 20px 0' }}>Les mesures es guardaran al teu perfil i actualitzaran el recomanador automàticament.</p>
+              <p style={{ fontSize: '13px', color: '#444', margin: '0 0 20px 0' }}>Les mesures es guardaran al teu perfil i actualitzaran el recomanador automàticament.</p>
             )}
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginBottom: '25px' }}>
@@ -1258,7 +1258,7 @@ export default function App() {
             </button>
             <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 4px 0', fontWeight: '300', textAlign: 'center' }}>TAULA DE MIDES OFICIALS</h3>
             {producteSeleccionat && (
-              <p style={{ fontSize: '12px', color: '#6d6b64', textAlign: 'center', margin: '0 0 22px 0', letterSpacing: '1px' }}>{producteSeleccionat.nom.toUpperCase()}</p>
+              <p style={{ fontSize: '12px', color: '#444', textAlign: 'center', margin: '0 0 22px 0', letterSpacing: '1px' }}>{producteSeleccionat.nom.toUpperCase()}</p>
             )}
 
             {(!producteSeleccionat || producteSeleccionat.id === 'camiseta-essence') && (
@@ -1328,7 +1328,7 @@ export default function App() {
             {(!producteSeleccionat || producteSeleccionat.id === 'pantalons-tailor') && (
               <>
                 {!producteSeleccionat && <h4 style={{ fontSize: '13px', letterSpacing: '1px', margin: '0 0 10px 0' }}>PANTALONS TAILOR</h4>}
-                <p style={{ fontSize: '11px', color: '#6d6b64', margin: '-4px 0 10px 0', fontStyle: 'italic' }}>Sastreria de cintura fixa · Si estàs entre dues talles, agafa la més gran.</p>
+                <p style={{ fontSize: '11px', color: '#444', margin: '-4px 0 10px 0', fontStyle: 'italic' }}>Sastreria de cintura fixa · Si estàs entre dues talles, agafa la més gran.</p>
                 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: isMobile ? '12px' : '13px', textAlign: 'center', marginBottom: '8px' }}>
                   <thead><tr style={{ borderBottom: '2px solid #111', fontWeight: 'bold' }}>
                     <th style={{ padding: '10px 6px' }}>Talla</th>
@@ -1414,7 +1414,7 @@ export default function App() {
                     return (
                       <div key={p.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 10px', backgroundColor: '#fff', border: '1px solid #eceae4' }}>
                         <span style={{ fontSize: '12px', color: '#555' }}>{p.nom}</span>
-                        {t ? <strong style={{ color: '#2e7d32' }}>{t}</strong> : <span style={{ color: '#aaa', fontSize: '11px' }}>—</span>}
+                        {t ? <strong style={{ color: '#2e7d32' }}>{t}</strong> : <span style={{ color: '#555', fontSize: '11px' }}>—</span>}
                       </div>
                     );
                   })}
@@ -1452,7 +1452,7 @@ export default function App() {
           <div>
             <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 20px 0', fontWeight: '300' }}>Looks provats a l'emprovador 3D</h3>
             {perfil.looksProvats.length === 0 ? (
-              <p style={{ color: '#6d6b64', fontSize: '14px' }}>Encara no has provat cap peça a l'emprovador virtual.</p>
+              <p style={{ color: '#444', fontSize: '14px' }}>Encara no has provat cap peça a l'emprovador virtual.</p>
             ) : (
               <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '30px' }}>
                 {perfil.looksProvats.map((lookId) => {
@@ -1493,7 +1493,7 @@ export default function App() {
                             display: 'inline-flex', alignItems: 'center', gap: '6px',
                             background: 'none', border: '1px solid #ccc',
                             padding: '8px 14px', fontSize: '12px', cursor: 'pointer',
-                            color: '#6d6b64', letterSpacing: '0.5px'
+                            color: '#444', letterSpacing: '0.5px'
                           }}
                         >
                           <Trash2 size={13} /> Eliminar look
@@ -1511,7 +1511,7 @@ export default function App() {
           <div>
             <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 25px 0', fontWeight: '300' }}>Els meus preferits</h3>
             {preferits.length === 0 ? (
-              <div style={{ textAlign: 'center', padding: '40px 0', color: '#6d6b64' }}>
+              <div style={{ textAlign: 'center', padding: '40px 0', color: '#444' }}>
                 <Heart size={32} style={{ marginBottom: '10px', strokeWidth: 1 }} />
                 <p style={{ fontSize: '14px', margin: '0 0 20px 0' }}>Encara no has afegit cap peça als preferits.</p>
                 <button onClick={() => { setSeccioActiva('colleccio'); setProducteSeleccionat(null); }} style={{ backgroundColor: '#111', color: '#fff', border: 'none', padding: '12px 28px', fontSize: '13px', letterSpacing: '1px', cursor: 'pointer' }}>EXPLORAR COL·LECCIÓ</button>
@@ -1564,7 +1564,7 @@ export default function App() {
           <div>
             <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 25px 0', fontWeight: '300' }}>Historial de les meves comandes</h3>
             {perfil.comandes.length === 0 ? (
-              <div style={{ textAlign: 'center', padding: '40px 0', color: '#6d6b64' }}>
+              <div style={{ textAlign: 'center', padding: '40px 0', color: '#444' }}>
                 <Package size={32} style={{ marginBottom: '10px', strokeWidth: 1 }} />
                 <p style={{ fontSize: '14px', margin: 0 }}>Encara no has realitzat cap comanda anteriorment a la nostra plataforma.</p>
               </div>
@@ -1576,7 +1576,7 @@ export default function App() {
                       <span style={{ fontWeight: 'bold' }}>{cmd.id}</span>
                       <span style={{ fontWeight: 'bold' }}>{cmd.total}</span>
                     </div>
-                    <p style={{ margin: '0 0 4px 0', color: '#6d6b64' }}>{cmd.data}</p>
+                    <p style={{ margin: '0 0 4px 0', color: '#444' }}>{cmd.data}</p>
                     <p style={{ margin: 0, color: '#444' }}>{cmd.productes}</p>
                   </div>
                 ))}
