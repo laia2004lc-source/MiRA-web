@@ -862,7 +862,7 @@ export default function App() {
           </div>
 
           <div style={{ width: '100%', marginBottom: '0' }}>
-            <img src="/assets/tailor_essence.png" alt="Models MiRA" style={{ width: '100%', height: isMobile ? '320px' : '520px', objectFit: 'cover', display: 'block' }}
+            <img src="/assets/esencia.png" alt="Models MiRA" style={{ width: '100%', height: isMobile ? '320px' : '520px', objectFit: 'cover', display: 'block' }}
               onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
           </div>
           <div style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', borderTop: 'none', padding: isMobile ? '28px 24px' : '40px 48px', marginBottom: '60px' }}>
