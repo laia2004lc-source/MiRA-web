@@ -102,7 +102,7 @@ const PRODUCTES = [
   }
 ];
 
-// ─── CANVI 3: Ressenyes de clients ─────────────────────────────────────────
+// ─── RESSENYES DE CLIENTS ──────────────────────────────────────────────────
 const RESSENYES = [
   {
     id: 1,
@@ -155,7 +155,6 @@ function SeccioRessenyes({ isMobile }: { isMobile: boolean }) {
           OPINIONS REALS
         </h2>
       </div>
-
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: '20px' }}>
         {RESSENYES.map((r) => (
           <div key={r.id} style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', padding: '28px 24px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
@@ -253,7 +252,6 @@ export default function App() {
   const isMobile = windowWidth < 768;
   const [menuMobilObert, setMenuMobilObert] = useState(false);
 
-  // CANVI 1: Secció activa ampliada. Default ara és 'sobre-mira' (primera pestanya)
   const [seccioActiva, setSeccioActiva] = useState<'colleccio' | 'sobre-mira' | 'perfil' | 'carreto' | 'novetats' | 'mid-season'>('sobre-mira');
   const [producteSeleccionat, setProducteSeleccionat] = useState<typeof PRODUCTES[0] | null>(null);
   const [imatgeActiva, setImatgeActiva] = useState(0);
@@ -395,9 +393,6 @@ export default function App() {
   const totalGlobal = subtotalCarret + costEnviament;
   const faltaPerEnviamentGratis = subtotalCarret > 0 && subtotalCarret < 60 ? (60 - subtotalCarret) : 0;
 
-  // ─── Navegació items (CANVI 1 + 2) ──────────────────────────────────────
-  // CANVI 1: Sobre MiRA és la primera pestanya
-  // CANVI 2: Novetats i Mid-season Sales afegits
   const NAV_ITEMS = [
     { label: 'SOBRE MiRA',        key: 'sobre-mira' as const, acc: () => setSeccioActiva('sobre-mira') },
     { label: 'NOVETATS',          key: 'novetats' as const,   acc: () => setSeccioActiva('novetats') },
@@ -411,7 +406,6 @@ export default function App() {
     const preuFinal = mostrarPreuSales ? preuSales(prod) : prod.preu;
     return (
       <div style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', overflow: 'hidden', position: 'relative', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', alignItems: 'center' }}>
-        {/* Badge Nou / Sales */}
         {prod.isNou && !mostrarPreuSales && (
           <span style={{ position: 'absolute', top: '14px', right: '14px', backgroundColor: '#111', color: '#fff', fontSize: '10px', fontWeight: 'bold', letterSpacing: '2px', padding: '4px 10px', zIndex: 10 }}>NOU</span>
         )}
@@ -472,7 +466,6 @@ export default function App() {
           <span style={{ fontSize: isMobile ? '22px' : '28px', fontWeight: 'bold', letterSpacing: '6px', fontFamily: '"Didot", serif' }}>MiRA</span>
         </div>
 
-        {/* ── CANVI 1 + 2: Nav escriptori reordenat amb Novetats i Mid-season ── */}
         {!isMobile && (
           <nav style={{ display: 'flex', gap: '30px', fontWeight: 400, fontSize: '13px', letterSpacing: '2px', color: '#111' }}>
             {NAV_ITEMS.map(({ label, key, acc }) => (
@@ -503,7 +496,7 @@ export default function App() {
         </div>
       </header>
 
-      {/* ── MENÚ MÒBIL (CANVI 1 + 2) ── */}
+      {/* ── MENÚ MÒBIL ── */}
       {isMobile && menuMobilObert && (
         <div style={{ backgroundColor: '#ffffff', borderBottom: '1px solid #eceae4', padding: '10px 0', zIndex: 89, position: 'sticky', top: '57px' }}>
           {NAV_ITEMS.map(({ label, key, acc }) => (
@@ -518,43 +511,190 @@ export default function App() {
       {/* ═══ SECCIÓ A: COL·LECCIÓ GENERAL ═══ */}
       {seccioActiva === 'colleccio' && !producteSeleccionat && (() => {
         const LINIES = [
-          { key: 'essence', etiqueta: 'COL·LECCIÓ CASUAL ESSENTIALS', titol: 'LÍNIA ESSENCE', productes: PRODUCTES.filter(p => p.id.includes('essence')) },
-          { key: 'tailor',  etiqueta: 'ALTA SASTRERIA ESTRUCTURAL',   titol: 'LÍNIA TAILOR',  productes: PRODUCTES.filter(p => p.id.includes('tailor')) },
+          {
+            key: 'essence',
+            etiqueta: 'COL·LECCIÓ CASUAL ESSENTIALS',
+            titol: 'LÍNIA ESSENCE',
+            subtitol: 'Comoditat i fluidesa per al teu dia a dia',
+            mosaicImg: '/assets/linia_essence.png',
+            mosaicAlt: 'Mosaïc Línia Essence',
+            productes: PRODUCTES.filter(p => p.id.includes('essence')),
+          },
+          {
+            key: 'tailor',
+            etiqueta: 'ALTA SASTRERIA ESTRUCTURAL',
+            titol: 'LÍNIA TAILOR',
+            subtitol: 'Elegància clàssica i sastreria contemporània',
+            mosaicImg: '/assets/linia_tailor.png',
+            mosaicAlt: 'Mosaïc Línia Tailor',
+            productes: PRODUCTES.filter(p => p.id.includes('tailor')),
+          },
         ];
+
         return (
-          <main style={{ padding: isMobile ? '30px 16px' : '60px 40px' }}>
-            <div style={{ textAlign: 'center', marginBottom: '60px', maxWidth: '700px', margin: '0 auto 60px auto' }}>
-              <h1 style={{ fontSize: isMobile ? '26px' : '38px', fontWeight: '300', letterSpacing: isMobile ? '2px' : '4px', marginBottom: '20px', fontFamily: '"Didot", serif', color: '#111' }}>EXPLORA LES LÍNIES</h1>
-              <p style={{ color: '#444', fontSize: '15px', lineHeight: '1.8', letterSpacing: '0.5px' }}>
-                Benvinguda a una nova manera d'emprovar-te la roba des de casa. Amb el sistema de realitat augmentada de MiRA, podràs visualitzar com s'adapten els nostres dissenys a la teva silueta abans de comprar-los.
-              </p>
+          <main style={{ padding: 0 }}>
+
+            {/* ── BANNER HERO A TOT AMPLE ── */}
+            <div style={{
+              position: 'relative',
+              width: '100%',
+              height: isMobile ? '420px' : '620px',
+              overflow: 'hidden',
+              backgroundColor: '#111',
+            }}>
+              <img
+                src="/assets/linia_essence_tailor.png"
+                alt="Col·lecció MiRA — Essence i Tailor"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center top',
+                  display: 'block',
+                  opacity: 0.88,
+                }}
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+              />
+              {/* Gradient fosc a la part inferior per al text */}
+              <div style={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: '55%',
+                background: 'linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0) 100%)',
+              }} />
+              {/* Text sobre el banner */}
+              <div style={{
+                position: 'absolute',
+                bottom: isMobile ? '32px' : '52px',
+                left: isMobile ? '24px' : '60px',
+                right: isMobile ? '24px' : '60px',
+              }}>
+                <span style={{
+                  display: 'block',
+                  fontSize: '11px',
+                  letterSpacing: '4px',
+                  color: 'rgba(255,255,255,0.65)',
+                  fontWeight: 'bold',
+                  marginBottom: '10px',
+                }}>NOVA TEMPORADA · BARCELONA</span>
+                <h1 style={{
+                  fontFamily: '"Didot", "Playfair Display", serif',
+                  fontSize: isMobile ? '32px' : '58px',
+                  fontWeight: '300',
+                  letterSpacing: isMobile ? '3px' : '6px',
+                  margin: '0 0 14px 0',
+                  color: '#ffffff',
+                  lineHeight: 1.1,
+                }}>EXPLORA LES LÍNIES</h1>
+                <p style={{
+                  color: 'rgba(255,255,255,0.75)',
+                  fontSize: isMobile ? '13px' : '15px',
+                  lineHeight: '1.7',
+                  letterSpacing: '0.5px',
+                  maxWidth: '560px',
+                  margin: 0,
+                }}>
+                  Dissenys atemporals de proximitat. Emprovador virtual en 3D. Talla exacta a la primera.
+                </p>
+              </div>
             </div>
-            <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '80px' }}>
+
+            {/* ── BLOCS PER LÍNIA ── */}
+            <div style={{ maxWidth: '1100px', margin: '0 auto', padding: isMobile ? '50px 16px' : '80px 40px', display: 'flex', flexDirection: 'column', gap: '90px' }}>
               {LINIES.map((linia) => (
-                <div key={linia.key} style={{ borderTop: '1px solid #eceae4', paddingTop: '40px' }}>
-                  <div style={{ marginBottom: '30px' }}>
-                    <span style={{ fontSize: '12px', letterSpacing: '3px', color: '#444', fontWeight: 'bold' }}>{linia.etiqueta}</span>
-                    <h2 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '22px' : '28px', margin: '5px 0 0 0', fontWeight: '300', letterSpacing: '1px', color: '#111' }}>{linia.titol}</h2>
+                <div key={linia.key}>
+
+                  {/* Capçalera de línia */}
+                  <div style={{ borderTop: '1px solid #eceae4', paddingTop: '40px', marginBottom: '36px' }}>
+                    <span style={{
+                      display: 'block',
+                      fontSize: '11px',
+                      letterSpacing: '3px',
+                      color: '#888',
+                      fontWeight: 'bold',
+                      marginBottom: '8px',
+                    }}>{linia.etiqueta}</span>
+                    <h2 style={{
+                      fontFamily: '"Didot", "Playfair Display", serif',
+                      fontSize: isMobile ? '28px' : '40px',
+                      fontWeight: '300',
+                      letterSpacing: isMobile ? '2px' : '4px',
+                      margin: '0 0 6px 0',
+                      color: '#111',
+                      lineHeight: 1.1,
+                    }}>{linia.titol}</h2>
+                    <p style={{
+                      fontSize: '14px',
+                      color: '#666',
+                      letterSpacing: '1px',
+                      margin: 0,
+                      fontStyle: 'italic',
+                    }}>{linia.subtitol}</p>
                   </div>
+
+                  {/* Mosaïc d'imatge */}
+                  <div style={{
+                    width: '100%',
+                    marginBottom: '32px',
+                    overflow: 'hidden',
+                    border: '1px solid #eae8e1',
+                    backgroundColor: '#f5f5f3',
+                    // Lleuger arrodoniment per suavitzar
+                    borderRadius: '2px',
+                    boxShadow: '0 4px 24px rgba(0,0,0,0.07)',
+                  }}>
+                    <img
+                      src={linia.mosaicImg}
+                      alt={linia.mosaicAlt}
+                      style={{
+                        width: '100%',
+                        height: isMobile ? '280px' : '480px',
+                        objectFit: 'cover',
+                        objectPosition: 'center',
+                        display: 'block',
+                        transition: 'transform 0.6s ease',
+                      }}
+                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                      onMouseEnter={(e) => { (e.target as HTMLImageElement).style.transform = 'scale(1.02)'; }}
+                      onMouseLeave={(e) => { (e.target as HTMLImageElement).style.transform = 'scale(1)'; }}
+                    />
+                  </div>
+
+                  {/* Separador de text entre mosaïc i productes */}
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '16px',
+                    marginBottom: '24px',
+                  }}>
+                    <div style={{ flex: 1, height: '1px', backgroundColor: '#eceae4' }} />
+                    <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#aaa', fontWeight: 'bold', whiteSpace: 'nowrap' }}>
+                      PECES DE LA {linia.titol.split(' ')[1].toUpperCase()}
+                    </span>
+                    <div style={{ flex: 1, height: '1px', backgroundColor: '#eceae4' }} />
+                  </div>
+
+                  {/* Grid de productes */}
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                     {linia.productes.map(prod => <TarjetaProducte key={prod.id} prod={prod} />)}
                   </div>
+
                 </div>
               ))}
-            </div>
-            {/* CANVI 3: Ressenyes al final de la col·lecció */}
-            <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+
+              {/* Ressenyes al final */}
               <SeccioRessenyes isMobile={isMobile} />
             </div>
           </main>
         );
       })()}
 
-      {/* ═══ SECCIÓ A2: NOVETATS (CANVI 2) ═══ */}
+      {/* ═══ SECCIÓ A2: NOVETATS ═══ */}
       {seccioActiva === 'novetats' && (
         <main style={{ padding: isMobile ? '30px 16px' : '60px 40px' }}>
           <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-            {/* Capçalera */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '50px', borderBottom: '1px solid #eceae4', paddingBottom: '30px' }}>
               <Sparkles size={22} />
               <div>
@@ -562,13 +702,11 @@ export default function App() {
                 <h1 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '26px' : '34px', fontWeight: '300', margin: '4px 0 0 0', letterSpacing: '2px', color: '#111' }}>NOVETATS</h1>
               </div>
             </div>
-
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               {PRODUCTES.filter(p => p.isNou).map(prod => (
                 <TarjetaProducte key={prod.id} prod={prod} />
               ))}
             </div>
-
             {PRODUCTES.filter(p => p.isNou).length === 0 && (
               <p style={{ textAlign: 'center', color: '#555', padding: '60px 0', fontSize: '15px' }}>Aviat noves incorporacions. Estigues atenta!</p>
             )}
@@ -576,11 +714,10 @@ export default function App() {
         </main>
       )}
 
-      {/* ═══ SECCIÓ A3: MID-SEASON SALES (CANVI 2) ═══ */}
+      {/* ═══ SECCIÓ A3: MID-SEASON SALES ═══ */}
       {seccioActiva === 'mid-season' && (
         <main style={{ padding: isMobile ? '30px 16px' : '60px 40px' }}>
           <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-            {/* Banner promocional */}
             <div style={{ backgroundColor: '#111', color: '#fff', padding: isMobile ? '28px 24px' : '40px 50px', marginBottom: '50px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 20px)' }} />
               <span style={{ fontSize: '11px', letterSpacing: '4px', color: '#aaa', display: 'block', marginBottom: '8px' }}>TEMPORADA ACTUAL</span>
@@ -598,15 +735,11 @@ export default function App() {
                 </div>
               </div>
             </div>
-
-            {/* Productes amb descompte */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               {PRODUCTES.filter(p => p.isSales).map(prod => (
                 <TarjetaProducte key={prod.id} prod={prod} mostrarPreuSales />
               ))}
             </div>
-
-            {/* Avís estoc */}
             <div style={{ marginTop: '40px', padding: '16px 20px', backgroundColor: '#fff', border: '1px solid #eae8e1', display: 'flex', alignItems: 'center', gap: '12px', fontSize: '13px', color: '#444' }}>
               <Tag size={16} />
               <span>Els preus de rebaixa s'apliquen automàticament al carretó. Sense codis addicionals.</span>
@@ -713,25 +846,21 @@ export default function App() {
         </main>
       )}
 
-      {/* ═══ SECCIÓ C: SOBRE MiRA — CANVI 1: Slogan + MVV afegits ═══ */}
+      {/* ═══ SECCIÓ C: SOBRE MiRA ═══ */}
       {seccioActiva === 'sobre-mira' && (
         <main style={{ maxWidth: '1000px', margin: '0 auto', padding: isMobile ? '40px 16px' : '60px 40px' }}>
-
-          {/* Capçalera */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '16px' }}>
             <img src="/assets/logo.png" alt="MiRA logo" style={{ height: isMobile ? '48px' : '64px', width: 'auto', objectFit: 'contain' }}
               onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
             <h1 style={{ fontSize: isMobile ? '26px' : '36px', fontWeight: '300', letterSpacing: '4px', margin: 0, fontFamily: '"Didot", serif', color: '#111' }}>SOBRE MiRA</h1>
           </div>
 
-          {/* ── CANVI 1: Eslogan "Born in the Maresme" ── */}
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <p style={{ fontSize: isMobile ? '18px' : '22px', fontStyle: 'italic', color: '#444', letterSpacing: '2px', fontFamily: '"Didot", serif', margin: 0 }}>
               Born in the Maresme.
             </p>
           </div>
 
-          {/* Hero */}
           <div style={{ width: '100%', marginBottom: '0' }}>
             <img src="/assets/tailor_essence.png" alt="Models MiRA" style={{ width: '100%', height: isMobile ? '320px' : '520px', objectFit: 'cover', display: 'block' }}
               onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
@@ -742,31 +871,24 @@ export default function App() {
             </p>
           </div>
 
-          {/* ── CANVI 1: Bloc Missió / Visió / Valors ── */}
           <div style={{ borderTop: '1px solid #eceae4', paddingTop: '50px', marginBottom: '60px' }}>
             <div style={{ textAlign: 'center', marginBottom: '40px' }}>
               <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#444', fontWeight: 'bold' }}>IDENTITAT DE MARCA</span>
               <h2 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '22px' : '28px', fontWeight: '300', letterSpacing: '2px', margin: '8px 0 0 0', color: '#111' }}>MISSIÓ, VISIÓ I VALORS</h2>
             </div>
-
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: '0' }}>
-              {/* Missió */}
               <div style={{ padding: isMobile ? '28px 0' : '40px 36px', borderBottom: isMobile ? '1px solid #eceae4' : 'none', borderRight: !isMobile ? '1px solid #eceae4' : 'none' }}>
                 <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#bd1c1c', fontWeight: 'bold', display: 'block', marginBottom: '14px' }}>MISSIÓ</span>
                 <p style={{ fontSize: '14px', lineHeight: '1.85', color: '#444', margin: 0 }}>
                   MiRA neix per eliminar els dubtes en la compra de moda online. A través del seu emprovador virtual de realitat augmentada, ofereix a la clienta la certesa de trobar la talla exacta a la primera, reduint devolucions i millorant l'experiència de compra de manera accessible i transparent.
                 </p>
               </div>
-
-              {/* Visió */}
               <div style={{ padding: isMobile ? '28px 0' : '40px 36px', borderBottom: isMobile ? '1px solid #eceae4' : 'none', borderRight: !isMobile ? '1px solid #eceae4' : 'none' }}>
                 <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#bd1c1c', fontWeight: 'bold', display: 'block', marginBottom: '14px' }}>VISIÓ</span>
                 <p style={{ fontSize: '14px', lineHeight: '1.85', color: '#444', margin: 0 }}>
                   Convertir-se en l'e-commerce de moda de referència a Catalunya: un espai on tecnologia, sostenibilitat i disseny local s'integren de manera natural per oferir una alternativa conscient i innovadora a la moda de consum ràpid.
                 </p>
               </div>
-
-              {/* Valors */}
               <div style={{ padding: isMobile ? '28px 0' : '40px 36px' }}>
                 <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#bd1c1c', fontWeight: 'bold', display: 'block', marginBottom: '14px' }}>VALORS</span>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
@@ -785,7 +907,6 @@ export default function App() {
             </div>
           </div>
 
-          {/* Bloc: Innovació Digital */}
           <div style={{ borderTop: '1px solid #eceae4', paddingTop: '50px', marginBottom: '60px' }}>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '0', alignItems: 'stretch' }}>
               <div style={{ overflow: 'hidden' }}>
@@ -802,7 +923,6 @@ export default function App() {
             </div>
           </div>
 
-          {/* Bloc: Sostenibilitat */}
           <div style={{ borderTop: '1px solid #eceae4', paddingTop: '50px', marginBottom: '60px' }}>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '0', alignItems: 'stretch' }}>
               <div style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', borderRight: isMobile ? '1px solid #eae8e1' : 'none', padding: isMobile ? '28px 24px' : '48px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center', order: isMobile ? 1 : 0 }}>
@@ -819,7 +939,6 @@ export default function App() {
             </div>
           </div>
 
-          {/* CANVI 3: Ressenyes també a Sobre MiRA */}
           <SeccioRessenyes isMobile={isMobile} />
 
           <div style={{ textAlign: 'center', marginTop: '60px' }}>
