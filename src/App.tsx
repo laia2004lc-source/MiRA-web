@@ -447,7 +447,7 @@ export default function App() {
   };
 
   return (
-    <div style={{ fontFamily: '"Didot", "Playfair Display", "Helvetica Neue", sans-serif', color: '#111', backgroundColor: '#faf9f6', minHeight: '100vh', margin: 0, padding: 0, position: 'relative', colorScheme: 'light' } as React.CSSProperties}>
+    <div style={{ fontFamily: '"Montserrat", "Inter", "Avenir Next", system-ui, sans-serif', color: '#111', backgroundColor: '#faf9f6', minHeight: '100vh', margin: 0, padding: 0, position: 'relative', colorScheme: 'light' } as React.CSSProperties}>
 
       {/* ALERTA DINÀMICA */}
       {missatgeWeb && (
@@ -693,13 +693,23 @@ export default function App() {
 
       {/* ═══ SECCIÓ A2: NOVETATS ═══ */}
       {seccioActiva === 'novetats' && (
-        <main style={{ padding: isMobile ? '30px 16px' : '60px 40px' }}>
-          <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '50px', borderBottom: '1px solid #eceae4', paddingBottom: '30px' }}>
-              <Sparkles size={22} />
+        <main style={{ padding: isMobile ? '0 16px 40px' : '0 40px 70px', backgroundColor: '#FBF9F6' }}>
+          <section style={{ width: 'calc(100% + ' + (isMobile ? '32px' : '80px') + ')', marginLeft: isMobile ? '-16px' : '-40px', marginRight: isMobile ? '-16px' : '-40px', marginBottom: isMobile ? '34px' : '56px', position: 'relative', overflow: 'hidden' }}>
+            <img src="/assets/modelo_caminant.png" alt="Model MiRA caminant amb sastreria urbana" style={{ width: '100%', height: isMobile ? '360px' : '520px', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(17,17,17,0.58), rgba(17,17,17,0.18) 45%, rgba(251,249,246,0.12))' }} />
+            <div style={{ position: 'absolute', left: isMobile ? '24px' : '64px', bottom: isMobile ? '34px' : '62px', maxWidth: isMobile ? '78%' : '520px', color: '#fff' }}>
+              <span style={{ fontSize: '11px', letterSpacing: '4px', textTransform: 'uppercase', display: 'block', marginBottom: '12px' }}>Edició recent</span>
+              <h1 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '34px' : '58px', lineHeight: '1', fontWeight: '300', letterSpacing: '2px', margin: 0, color: '#fff' }}>Novetats de la Temporada</h1>
+            </div>
+          </section>
+
+          <div style={{ maxWidth: '1040px', margin: '0 auto' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '32px', borderBottom: '1px solid #e5ded2', paddingBottom: '24px' }}>
+              <Sparkles size={20} />
               <div>
-                <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#444', fontWeight: 'bold', display: 'block' }}>ÚLTIMES INCORPORACIONS</span>
-                <h1 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '26px' : '34px', fontWeight: '300', margin: '4px 0 0 0', letterSpacing: '2px', color: '#111' }}>NOVETATS</h1>
+                <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#6d6256', fontWeight: 'bold', display: 'block' }}>ÚLTIMES INCORPORACIONS</span>
+                <p style={{ fontSize: isMobile ? '13px' : '14px', color: '#5f574f', margin: '6px 0 0 0', lineHeight: '1.7' }}>Peces noves pensades per vestir amb intenció, moviment i una elegància serena.</p>
               </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -708,7 +718,7 @@ export default function App() {
               ))}
             </div>
             {PRODUCTES.filter(p => p.isNou).length === 0 && (
-              <p style={{ textAlign: 'center', color: '#555', padding: '60px 0', fontSize: '15px' }}>Aviat noves incorporacions. Estigues atenta!</p>
+              <p style={{ textAlign: 'center', color: '#555', padding: '60px 0', fontSize: '15px' }}>Aviat arribaran noves peces. Mantén-te a prop de MiRA.</p>
             )}
           </div>
         </main>
@@ -716,33 +726,27 @@ export default function App() {
 
       {/* ═══ SECCIÓ A3: MID-SEASON SALES ═══ */}
       {seccioActiva === 'mid-season' && (
-        <main style={{ padding: isMobile ? '30px 16px' : '60px 40px' }}>
-          <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-            <div style={{ backgroundColor: '#111', color: '#fff', padding: isMobile ? '28px 24px' : '40px 50px', marginBottom: '50px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
-              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 20px)' }} />
-              <span style={{ fontSize: '11px', letterSpacing: '4px', color: '#aaa', display: 'block', marginBottom: '8px' }}>TEMPORADA ACTUAL</span>
-              <h1 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '30px' : '46px', fontWeight: '300', margin: '0 0 10px 0', letterSpacing: '3px' }}>MID-SEASON SALES</h1>
-              <p style={{ fontSize: '14px', color: '#bbb', margin: '0 0 16px 0', letterSpacing: '1px' }}>Peces seleccionades amb fins al 20% de descompte · Estoc limitat</p>
-              <div style={{ display: 'flex', justifyContent: 'center', gap: '30px', flexWrap: 'wrap' }}>
-                <div style={{ textAlign: 'center' }}>
-                  <span style={{ fontSize: isMobile ? '28px' : '36px', fontWeight: 'bold', color: '#fff' }}>–15%</span>
-                  <p style={{ margin: '4px 0 0 0', fontSize: '11px', color: '#999', letterSpacing: '1px' }}>TOPS</p>
-                </div>
-                <div style={{ width: '1px', backgroundColor: '#333' }} />
-                <div style={{ textAlign: 'center' }}>
-                  <span style={{ fontSize: isMobile ? '28px' : '36px', fontWeight: 'bold', color: '#bd1c1c' }}>–20%</span>
-                  <p style={{ margin: '4px 0 0 0', fontSize: '11px', color: '#999', letterSpacing: '1px' }}>PANTALONS</p>
-                </div>
-              </div>
+        <main style={{ padding: isMobile ? '0 16px 44px' : '0 40px 72px', backgroundColor: '#FBF9F6' }}>
+          <section style={{ width: 'calc(100% + ' + (isMobile ? '32px' : '80px') + ')', marginLeft: isMobile ? '-16px' : '-40px', marginRight: isMobile ? '-16px' : '-40px', marginBottom: isMobile ? '34px' : '56px', position: 'relative', overflow: 'hidden' }}>
+            <img src="/assets/colleccio.png" alt="Armari càpsula MiRA amb peces seleccionades" style={{ width: '100%', height: isMobile ? '360px' : '500px', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(251,249,246,0.92), rgba(251,249,246,0.62) 42%, rgba(17,17,17,0.18))' }} />
+            <div style={{ position: 'absolute', left: isMobile ? '24px' : '64px', bottom: isMobile ? '34px' : '58px', maxWidth: isMobile ? '82%' : '500px' }}>
+              <span style={{ fontSize: '11px', letterSpacing: '4px', color: '#6d6256', textTransform: 'uppercase', display: 'block', marginBottom: '10px' }}>Selecció conscient</span>
+              <h1 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '34px' : '56px', lineHeight: '1', fontWeight: '300', margin: '0 0 14px 0', letterSpacing: '2px', color: '#111' }}>Mid-Season Sales</h1>
+              <p style={{ fontSize: isMobile ? '13px' : '15px', color: '#4b433d', margin: 0, lineHeight: '1.8' }}>Una tria precisa de peces d'armari càpsula, amb descompte aplicat sense soroll i amb estoc limitat.</p>
             </div>
+          </section>
+
+          <div style={{ maxWidth: '1040px', margin: '0 auto' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               {PRODUCTES.filter(p => p.isSales).map(prod => (
                 <TarjetaProducte key={prod.id} prod={prod} mostrarPreuSales />
               ))}
             </div>
-            <div style={{ marginTop: '40px', padding: '16px 20px', backgroundColor: '#fff', border: '1px solid #eae8e1', display: 'flex', alignItems: 'center', gap: '12px', fontSize: '13px', color: '#444' }}>
+            <div style={{ marginTop: '40px', padding: '18px 22px', backgroundColor: '#fff', border: '1px solid #e5ded2', borderRadius: '18px', display: 'flex', alignItems: 'center', gap: '12px', fontSize: '13px', color: '#4b433d' }}>
               <Tag size={16} />
-              <span>Els preus de rebaixa s'apliquen automàticament al carretó. Sense codis addicionals.</span>
+              <span>Els preus especials s'apliquen automàticament al carretó. Sense codis, sense urgència artificial.</span>
             </div>
           </div>
         </main>
@@ -848,104 +852,130 @@ export default function App() {
 
       {/* ═══ SECCIÓ C: SOBRE MiRA ═══ */}
       {seccioActiva === 'sobre-mira' && (
-        <main style={{ maxWidth: '1000px', margin: '0 auto', padding: isMobile ? '40px 16px' : '60px 40px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '16px' }}>
-            <img src="/assets/logo.png" alt="MiRA logo" style={{ height: isMobile ? '48px' : '64px', width: 'auto', objectFit: 'contain' }}
-              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-            <h1 style={{ fontSize: isMobile ? '26px' : '36px', fontWeight: '300', letterSpacing: '4px', margin: 0, fontFamily: '"Didot", serif', color: '#111' }}>SOBRE MiRA</h1>
-          </div>
+        <main style={{ backgroundColor: '#FBF9F6', padding: isMobile ? '34px 16px 54px' : '58px 40px 82px', fontFamily: '"Montserrat", "Inter", "Avenir Next", system-ui, sans-serif' }}>
+          <section style={{ maxWidth: '1180px', margin: '0 auto 92px', backgroundColor: '#FBF9F6', borderRadius: '2rem', padding: isMobile ? '0' : '28px' }}>
+            <div style={{
+              width: '100%',
+              display: 'flex',
+              flexDirection: isMobile ? 'column' : 'row',
+              alignItems: 'stretch',
+              justifyContent: 'space-between',
+              gap: isMobile ? '28px' : '2rem',
+            }}>
+              <div style={{ flex: '1', width: isMobile ? '100%' : 'auto', aspectRatio: '1 / 1', overflow: 'hidden', borderRadius: '1rem', backgroundColor: '#eee5d9', boxShadow: isMobile ? 'none' : '0 20px 55px rgba(70,55,38,0.10)' }}>
+                <img src="/platja_maresme.png" alt="Platja del Maresme, origen de MiRA" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+                  onError={(e) => { (e.target as HTMLImageElement).src = '/assets/platja_maresme.png'; }} />
+              </div>
 
-          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <p style={{ fontSize: isMobile ? '18px' : '22px', fontStyle: 'italic', color: '#444', letterSpacing: '2px', fontFamily: '"Didot", serif', margin: 0 }}>
-              Born in the Maresme.
-            </p>
-          </div>
-
-          <div style={{ width: '100%', marginBottom: '0' }}>
-            <img src="/assets/esencia.png" alt="Models MiRA" style={{ width: '100%', height: isMobile ? '320px' : '520px', objectFit: 'cover', display: 'block' }}
-              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-          </div>
-          <div style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', borderTop: 'none', padding: isMobile ? '28px 24px' : '40px 48px', marginBottom: '60px' }}>
-            <p style={{ fontSize: isMobile ? '14px' : '16px', lineHeight: '2', color: '#444', margin: 0 }}>
-              MiRA és la unió de disseny conscient, comoditat i innovació digital. Creada al cor del Maresme, MiRA dissenya col·leccions atemporals de proximitat que s'integren perfectament en el teu armari diari. Cada detall dels seus dissenys està pensat per oferir el màxim confort, utilitzant la tecnologia per connectar de manera més directa i transparent amb la clienta.
-            </p>
-          </div>
-
-          <div style={{ borderTop: '1px solid #eceae4', paddingTop: '50px', marginBottom: '60px' }}>
-            <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-              <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#444', fontWeight: 'bold' }}>IDENTITAT DE MARCA</span>
-              <h2 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '22px' : '28px', fontWeight: '300', letterSpacing: '2px', margin: '8px 0 0 0', color: '#111' }}>MISSIÓ, VISIÓ I VALORS</h2>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: '0' }}>
-              <div style={{ padding: isMobile ? '28px 0' : '40px 36px', borderBottom: isMobile ? '1px solid #eceae4' : 'none', borderRight: !isMobile ? '1px solid #eceae4' : 'none' }}>
-                <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#bd1c1c', fontWeight: 'bold', display: 'block', marginBottom: '14px' }}>MISSIÓ</span>
-                <p style={{ fontSize: '14px', lineHeight: '1.85', color: '#444', margin: 0 }}>
-                  MiRA neix per eliminar els dubtes en la compra de moda online. A través del seu emprovador virtual de realitat augmentada, ofereix a la clienta la certesa de trobar la talla exacta a la primera, reduint devolucions i millorant l'experiència de compra de manera accessible i transparent.
+              <div style={{
+                flex: '1',
+                width: isMobile ? '100%' : 'auto',
+                aspectRatio: isMobile ? 'auto' : '1 / 1',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'flex-start',
+                alignItems: isMobile ? 'center' : 'flex-start',
+                padding: isMobile ? '2px 4px' : '0',
+                textAlign: isMobile ? 'center' : 'left',
+                color: '#111',
+              }}>
+                <span style={{ display: 'block', fontSize: '10px', letterSpacing: '5px', color: '#8a7665', textTransform: 'uppercase', marginBottom: isMobile ? '16px' : '18px', fontFamily: '"Montserrat", "Inter", "Avenir Next", system-ui, sans-serif', fontWeight: 700 }}>IDENTITAT MEDITERRÀNIA</span>
+                <h1 style={{ fontFamily: '"Playfair Display", "Cinzel Decorative", "Didot", "Bodoni 72", Georgia, serif', fontSize: isMobile ? '39px' : '50px', lineHeight: '0.98', fontWeight: '400', letterSpacing: isMobile ? '4px' : '6px', color: '#111', margin: 0, textTransform: 'uppercase' }}>BORN IN THE MARESME</h1>
+                <p style={{ margin: isMobile ? '22px auto 0' : '26px 0 0', maxWidth: isMobile ? '520px' : '330px', fontSize: isMobile ? '14px' : '14px', lineHeight: '1.82', color: '#4b433d', letterSpacing: '0.25px', fontWeight: 300, fontFamily: '"Montserrat", "Inter", "Avenir Next", system-ui, sans-serif' }}>
+                  MiRA neix entre la llum clara del Maresme i el ritme pausat de la costa. Una firma de moda digital, local i conscient que dissenya peces per vestir amb seguretat, calma i presència, sense renunciar a la precisió tecnològica.
                 </p>
               </div>
-              <div style={{ padding: isMobile ? '28px 0' : '40px 36px', borderBottom: isMobile ? '1px solid #eceae4' : 'none', borderRight: !isMobile ? '1px solid #eceae4' : 'none' }}>
-                <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#bd1c1c', fontWeight: 'bold', display: 'block', marginBottom: '14px' }}>VISIÓ</span>
-                <p style={{ fontSize: '14px', lineHeight: '1.85', color: '#444', margin: 0 }}>
-                  Convertir-se en l'e-commerce de moda de referència a Catalunya: un espai on tecnologia, sostenibilitat i disseny local s'integren de manera natural per oferir una alternativa conscient i innovadora a la moda de consum ràpid.
-                </p>
-              </div>
-              <div style={{ padding: isMobile ? '28px 0' : '40px 36px' }}>
-                <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#bd1c1c', fontWeight: 'bold', display: 'block', marginBottom: '14px' }}>VALORS</span>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                  {[
-                    { v: 'Innovació accessible', d: 'La tecnologia de RA no és un luxe: és una eina per a tothom.' },
-                    { v: 'Transparència', d: 'Materials, origen i preus clars, sense lletra petita.' },
-                    { v: 'Sostenibilitat real', d: 'Producció local, lots limitats i residu zero com a compromís permanent.' },
-                  ].map(({ v, d }) => (
-                    <div key={v}>
-                      <p style={{ margin: '0 0 3px 0', fontWeight: 'bold', fontSize: '13px', letterSpacing: '0.5px', color: '#111' }}>{v}</p>
-                      <p style={{ margin: 0, fontSize: '13px', color: '#555', lineHeight: '1.6' }}>{d}</p>
-                    </div>
-                  ))}
-                </div>
+
+              <div style={{ flex: '1', width: isMobile ? '100%' : 'auto', aspectRatio: '1 / 1', overflow: 'hidden', borderRadius: '1rem', backgroundColor: '#d8cec2', boxShadow: isMobile ? 'none' : '0 20px 55px rgba(70,55,38,0.10)' }}>
+                <video src="/mar.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+                  onError={(e) => { (e.currentTarget as HTMLVideoElement).src = '/assets/mar.mp4'; }} />
               </div>
             </div>
-          </div>
+          </section>
 
-          <div style={{ borderTop: '1px solid #eceae4', paddingTop: '50px', marginBottom: '60px' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '0', alignItems: 'stretch' }}>
-              <div style={{ overflow: 'hidden' }}>
-                <img src="/assets/realitat_augmentada.png" alt="Emprovador de realitat augmentada MiRA" style={{ width: '100%', height: isMobile ? '260px' : '420px', objectFit: 'cover', display: 'block' }}
-                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-              </div>
-              <div style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', borderLeft: isMobile ? '1px solid #eae8e1' : 'none', padding: isMobile ? '28px 24px' : '48px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#444', fontWeight: 'bold', display: 'block', marginBottom: '12px' }}>TECNOLOGIA</span>
-                <h2 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '20px' : '26px', fontWeight: '300', letterSpacing: '1px', margin: '0 0 20px 0', color: '#111' }}>LA NOSTRA INNOVACIÓ DIGITAL</h2>
-                <p style={{ fontSize: '14px', lineHeight: '1.9', color: '#555', margin: 0 }}>
-                  MiRA vol transformar la manera de comprar online. Gràcies al seu emprovador virtual de realitat augmentada, la clienta pot comprovar com s'ajusta cada peça al seu cos abans de triar. Aquesta tecnologia ajuda a trobar la talla ideal a la primera, eliminant els dubtes i evitant l'impacte de les devolucions innecessàries.
+          <section style={{ maxWidth: '1120px', margin: '0 auto 72px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.05fr 0.95fr', gap: isMobile ? '24px' : '36px', alignItems: 'stretch' }}>
+              <div style={{ backgroundColor: '#fff', border: '1px solid #e8dfd4', borderRadius: '28px', padding: isMobile ? '30px 24px' : '48px 46px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <span style={{ fontSize: '11px', letterSpacing: '4px', color: '#8a7665', fontWeight: 'bold', display: 'block', marginBottom: '12px' }}>MISSIÓ I VISIÓ</span>
+                <h2 style={{ fontFamily: '"Playfair Display", "Cinzel Decorative", "Didot", "Bodoni 72", Georgia, serif', fontSize: isMobile ? '28px' : '42px', lineHeight: '1.08', fontWeight: '400', letterSpacing: '0.6px', color: '#111', margin: '0 0 24px 0' }}>Comprar online amb la confiança d'una peça feta per a tu.</h2>
+                <p style={{ fontSize: '14px', lineHeight: '1.9', color: '#4b433d', margin: '0 0 18px 0' }}>
+                  La nostra missió és eliminar el dubte de la talla i acostar la moda responsable a una experiència digital més humana, precisa i transparent.
+                </p>
+                <p style={{ fontSize: '14px', lineHeight: '1.9', color: '#4b433d', margin: 0 }}>
+                  Aspirem a convertir MiRA en l'e-commerce de referència per a una nova generació de consumidores: dones que busquen disseny local, tecnologia útil i un armari més petit, però millor pensat.
                 </p>
               </div>
-            </div>
-          </div>
-
-          <div style={{ borderTop: '1px solid #eceae4', paddingTop: '50px', marginBottom: '60px' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '0', alignItems: 'stretch' }}>
-              <div style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', borderRight: isMobile ? '1px solid #eae8e1' : 'none', padding: isMobile ? '28px 24px' : '48px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center', order: isMobile ? 1 : 0 }}>
-                <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#444', fontWeight: 'bold', display: 'block', marginBottom: '12px' }}>COMPROMÍS</span>
-                <h2 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '20px' : '26px', fontWeight: '300', letterSpacing: '1px', margin: '0 0 20px 0', color: '#111' }}>SOSTENIBILITAT I RESIDU ZERO</h2>
-                <p style={{ fontSize: '14px', lineHeight: '1.9', color: '#555', margin: 0 }}>
-                  MiRA aposta per una producció de proximitat i conscient en lots limitats de 50 peces, passant al model sota comanda un cop esgotat l'estoc inicial. Treballa amb un criteri de residu zero, assegurant-se que cada disseny es fabriqui de manera local a Barcelona, evitant la sobreproducció i sense malgastar teixit.
-                </p>
-              </div>
-              <div style={{ overflow: 'hidden', order: isMobile ? 0 : 1 }}>
-                <img src="/assets/tela.png" alt="Teixit de cotó orgànic MiRA" style={{ width: '100%', height: isMobile ? '260px' : '420px', objectFit: 'cover', display: 'block' }}
+              <div style={{ overflow: 'hidden', borderRadius: '28px', minHeight: isMobile ? '360px' : '520px' }}>
+                <img src="/assets/balco_maremse.png" alt="Estil de vida MiRA al Maresme" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
                   onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
               </div>
             </div>
-          </div>
+          </section>
+
+          <section style={{ maxWidth: '1120px', margin: '0 auto 78px', position: 'relative' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '0.7fr 1.3fr', gridTemplateRows: isMobile ? 'auto' : '190px 390px', gap: isMobile ? '18px' : '22px', alignItems: 'stretch' }}>
+              <div style={{ overflow: 'hidden', borderRadius: '26px', minHeight: isMobile ? '220px' : '190px', alignSelf: 'stretch' }}>
+                <img src="/assets/tela.png" alt="Textura de teixit MiRA" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+              </div>
+              <div style={{ overflow: 'hidden', borderRadius: '30px', minHeight: isMobile ? '420px' : '100%', gridRow: isMobile ? 'auto' : '1 / span 2', gridColumn: isMobile ? 'auto' : '2' }}>
+                <img src="/assets/esencia.png" alt="Dues models MiRA amb peces de la col·lecció" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: isMobile ? 'center' : 'center 42%', display: 'block' }}
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+              </div>
+              <div style={{ overflow: 'hidden', borderRadius: '26px', minHeight: isMobile ? '240px' : '390px' }}>
+                <img src="/assets/colleccio.png" alt="Armari càpsula i selecció conscient MiRA" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+              </div>
+            </div>
+
+            <div style={{ backgroundColor: '#fff', border: '1px solid #e8dfd4', borderRadius: '30px', padding: isMobile ? '30px 24px' : '44px 48px', width: isMobile ? 'auto' : '52%', margin: isMobile ? '20px 0 0' : '-255px 0 0 34%', position: 'relative', zIndex: 3, boxShadow: isMobile ? 'none' : '0 28px 70px rgba(78,62,47,0.16)' }}>
+              <span style={{ fontSize: '10px', letterSpacing: '4px', color: '#8a7665', fontWeight: 700, display: 'block', marginBottom: '12px', fontFamily: '"Montserrat", "Inter", system-ui, sans-serif' }}>VALORS</span>
+              <h2 style={{ fontFamily: '"Playfair Display", "Cinzel Decorative", "Didot", "Bodoni 72", Georgia, serif', fontSize: isMobile ? '28px' : '38px', lineHeight: '1.08', fontWeight: '400', letterSpacing: '0.8px', margin: '0 0 26px 0', color: '#111' }}>Disseny que respira, tecnologia que acompanya.</h2>
+              <div style={{ display: 'grid', gap: '18px' }}>
+                {[
+                  { v: 'Innovació accessible', d: "La realitat augmentada i els patrons 3D es posen al servei d'una compra clara, intuïtiva i sense barreres." },
+                  { v: 'Transparència', d: 'Materials, origen, preus i processos explicats amb honestedat perquè cada decisió tingui context.' },
+                  { v: 'Sostenibilitat real', d: 'Producció local, lots limitats i residu zero per evitar sobreestoc i allargar el valor de cada peça.' },
+                ].map(({ v, d }) => (
+                  <div key={v} style={{ borderTop: '1px solid #eee6dc', paddingTop: '16px' }}>
+                    <p style={{ margin: '0 0 6px 0', fontWeight: 700, fontSize: '12px', letterSpacing: '1.8px', color: '#111', textTransform: 'uppercase', fontFamily: '"Montserrat", "Inter", system-ui, sans-serif' }}>{v}</p>
+                    <p style={{ margin: 0, fontSize: '14px', color: '#5b5149', lineHeight: '1.75', fontFamily: '"Montserrat", "Inter", system-ui, sans-serif' }}>{d}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section style={{ maxWidth: '1120px', margin: '0 auto 72px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '24px' : '0', alignItems: 'stretch' }}>
+              <div style={{ backgroundColor: '#111', color: '#fff', borderRadius: isMobile ? '28px' : '28px 0 0 28px', padding: isMobile ? '32px 24px' : '54px 50px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <span style={{ fontSize: '11px', letterSpacing: '4px', color: '#c9b9a8', fontWeight: 'bold', display: 'block', marginBottom: '12px' }}>INNOVACIÓ DIGITAL</span>
+                <h2 style={{ fontFamily: '"Playfair Display", "Cinzel Decorative", "Didot", "Bodoni 72", Georgia, serif', fontSize: isMobile ? '28px' : '42px', lineHeight: '1.08', fontWeight: '400', letterSpacing: '0.6px', margin: '0 0 24px 0', color: '#fff' }}>L'emprovador AR com a nova forma de confiança.</h2>
+                <p style={{ fontSize: '14px', lineHeight: '1.9', color: '#ddd4cb', margin: 0 }}>
+                  MiRA combina patrons digitals, recomanació de talla i realitat augmentada perquè puguis veure com s'adapta cada peça abans de comprar. Una experiència tècnica, però dissenyada per sentir-se natural.
+                </p>
+              </div>
+              <div style={{ overflow: 'hidden', borderRadius: isMobile ? '28px' : '0 28px 28px 0', minHeight: isMobile ? '340px' : '500px' }}>
+                <img src="/assets/disseny.png" alt="Disseny tècnic digital i patrons 3D MiRA" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+              </div>
+            </div>
+          </section>
+
+          <section style={{ maxWidth: '1120px', margin: '0 auto 64px', position: 'relative', overflow: 'hidden', borderRadius: '32px', minHeight: isMobile ? '420px' : '520px' }}>
+            <img src="/assets/image_081884.jpg" alt="Lookbook MiRA amb dues models" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+              onError={(e) => { (e.target as HTMLImageElement).src = '/assets/esencia.png'; }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(17,17,17,0.66), rgba(17,17,17,0.24) 52%, rgba(251,249,246,0.10))' }} />
+            <div style={{ position: 'relative', zIndex: 1, minHeight: isMobile ? '420px' : '520px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-start', padding: isMobile ? '34px 24px' : '54px 60px', color: '#fff' }}>
+              <span style={{ fontSize: '11px', letterSpacing: '4px', textTransform: 'uppercase', display: 'block', marginBottom: '14px' }}>Lookbook MiRA</span>
+              <h2 style={{ fontFamily: '"Playfair Display", "Cinzel Decorative", "Didot", "Bodoni 72", Georgia, serif', fontSize: isMobile ? '34px' : '56px', lineHeight: '1.04', fontWeight: '400', letterSpacing: '0.8px', maxWidth: '680px', margin: '0 0 26px 0', color: '#fff' }}>Explora la dualitat de la nostra col·lecció</h2>
+              <button onClick={() => setSeccioActiva('colleccio')} style={{ backgroundColor: '#fff', color: '#111', border: 'none', borderRadius: '999px', padding: isMobile ? '14px 24px' : '16px 34px', fontSize: '12px', letterSpacing: '2px', fontWeight: 'bold', cursor: 'pointer', textTransform: 'uppercase' }}>
+                Veure la col·lecció
+              </button>
+            </div>
+          </section>
 
           <SeccioRessenyes isMobile={isMobile} />
-
-          <div style={{ textAlign: 'center', marginTop: '60px' }}>
-            <button onClick={() => setSeccioActiva('colleccio')} style={{ backgroundColor: '#111', color: '#fff', border: 'none', padding: '15px 35px', fontSize: '13px', letterSpacing: '2px', cursor: 'pointer' }}>
-              EXPLORAR LA COL·LECCIÓ
-            </button>
-          </div>
         </main>
       )}
 
