@@ -57,6 +57,8 @@ const translations = {
       medInnovacio: { subtitulo: 'INNOVACIÓ DIGITAL', titulo: 'L\'emprovador AR com a nova forma de confiança.', texto: 'MiRA combina patrons digitals, recomanació de talla i realitat augmentada perquè puguis veure com s\'adapta cada peça abans de comprar. Una experiència tècnica, però dissenyada per sentir-se natural.' },
       medLookbook: { eyebrow: 'Lookbook MiRA', titulo: 'Explora la dualitat de la nostra col·lecció', btn: 'VEURE LA COL·LECCIÓ' },
       alts: { altBeach: 'Platja del Maresme, origen de MiRA', altLifestyle: 'Estil de vida MiRA al Maresme', altFabric: 'Textura de teixit MiRA', altModels: 'Dues models MiRA amb peces de la col·lecció', altCapsule: 'Armari càpsula i selecció conscient MiRA', altDesign: 'Disseny tècnic digital i patrons 3D MiRA', altLookbook: 'Lookbook MiRA amb dues models' },
+      valuesGrid: { v1: 'Fet a Europa', v2: 'Materials sostenibles', v3: 'Packaging biodegradable', v4: 'Financia la teva compra' },
+      instagramTitle: 'SEGUEIX-NOS A @MiRA.MARESME',
     },
     cart: { title: 'EL TEU CARRETO DE COMPRA', empty: 'El teu carreto esta buit actualment.', summary: 'RESUM DE COMPRA', shippingCosts: "Despeses d'enviament", addForFreeShippingPrefix: 'Afegeix', addForFreeShippingSuffix: 'mes per obtenir enviament gratuit!', freeShippingApplied: 'Enviament gratuit aplicat', continuePayment: 'CONTINUAR AL PAGAMENT', backToCart: 'TORNAR AL CARRETO', paymentData: 'DADES DE PAGAMENT', cardholder: 'TITULAR DE LA TARGETA', cardholderPlaceholder: 'Nom i cognoms del titular', cardNumber: 'NUMERO DE TARGETA', expiry: "DATA D'EXPIRACIO", ssl: 'Les teves dades estan protegides amb xifratge SSL de 256 bits.', finalSummary: 'RESUM FINAL', confirmPay: 'CONFIRMAR I PAGAR', orderCode: 'Codi de Comanda', date: 'Data', purchasedProducts: 'Productes comprats', paidTotal: 'Total Pagat' },
     profile: { title: 'EL MEU PERFIL', tabData: 'Dades', tabRA: 'RA', tabLooks: 'Looks', tabFavorites: 'Preferits', tabOrders: 'Comandes', menuData: 'Les meves dades i mides', menuRA: 'Fotografies per a la RA', menuLooks: 'Els meus looks provats', menuFavorites: 'Els meus preferits', menuOrders: 'Les meves comandes', personalInfo: 'Informacio Personal', fullName: 'Nom Complet', email: 'Correu Electronic', phone: 'Numero de Telefon', address: "Direccio d'Enviament", myMeasures: 'Les teves mesures', height: 'Alcada (cm)', chest: 'Contorn de Pit (cm)', waist: 'Contorn de Cintura (cm)', hip: 'Contorn de Maluc (cm)', recommendedByPiece: 'TALLES RECOMANADES PER A CADA PECA', raFiles: 'Arxius per a Realitat Augmentada', previewRA: 'Preview RA', deleteSelectedPhoto: 'BORRAR FOTO SELECCIONADA', looksTitle: "Looks provats a l'emprovador 3D", emptyLooks: "Encara no has provat cap peca a l'emprovador virtual.", deleteLook: 'Eliminar look', favoritesTitle: 'Els meus preferits', emptyFavorites: 'Encara no has afegit cap peca als preferits.', viewPiece: 'VEURE PECA', ordersTitle: 'Historial de les meves comandes', emptyOrders: 'Encara no has realitzat cap comanda anteriorment a la nostra plataforma.', exploreCollection: 'EXPLORAR COL.LECCIO' },
@@ -83,7 +85,7 @@ const translations = {
     collection: { newBadge: 'NUEVO', explorePiece: 'EXPLORAR PRENDA Y PROBAR EN 3D', heroEyebrow: 'NUEVA TEMPORADA · BARCELONA', heroTitle: 'EXPLORA LAS LÍNEAS', heroDescription: 'Diseños atemporales de proximidad. Probador virtual en 3D. Talla exacta a la primera.', essenceEyebrow: 'COLECCIÓN CASUAL ESSENTIALS', essenceTitle: 'LÍNEA ESSENCE', essenceSubtitle: 'Comodidad y fluidez para tu día a día', essenceAlt: 'Mosaico Línea Tailor', tailorEyebrow: 'ALTA SASTRERÍA ESTRUCTURAL', tailorTitle: 'LÍNEA TAILOR', tailorSubtitle: 'Elegancia clásica y sastrería contemporánea', tailorAlt: 'Mosaico Línea Tailor', piecesOf: 'PRENDAS DE LA', heroAlt: 'Colección MiRA, Essence y Tailor', back: 'VOLVER A LA COLECCIÓN', try3d: 'PROBAR EN PROBADOR 3D', officialSizeChart: 'Tabla de tallas oficial', recommenderTitle: 'RECOMENDADOR DE ALTA PRECISIÓN', recommendPrefix: 'Te recomendamos la talla', recommendSuffix: 'para esta prenda.', modifyMeasures: 'Modificar medidas', missingMeasuresPrefix: 'Para calcular tu talla necesitamos:', enterMissingMeasures: 'Introducir las medidas que faltan', configureMeasures: 'Configura tus medidas en el perfil para activar el recomendador.', selectSize: 'SELECCIONAR TALLA', addToCartLong: 'AÑADIR AL CARRITO DE COMPRA', whatsapp: 'CONSULTA RÁPIDA POR WHATSAPP', altWalking: 'Modelo MiRA caminando con sastrería urbana', altCapsule: 'Armario cápsula MiRA con prendas seleccionadas' },
     news: { eyebrow: 'Edición reciente', title: 'Novedades de la Temporada', latest: 'ÚLTIMAS INCORPORACIONES', description: 'Prendas nuevas pensadas para vestir con intención, movimiento y una elegancia serena.', empty: 'Pronto llegarán nuevas prendas. Mantente cerca de MiRA.' },
     sales: { eyebrow: 'Selección consciente', title: 'Mid-Season Sales', description: 'Una selección precisa de prendas de armario cápsula, con descuento aplicado sin ruido y con stock limitado.', note: 'Los precios especiales se aplican automáticamente al carrito. Sin códigos, sin urgencia artificial.' },
-    about: { medIdentitat: { subtitulo: 'IDENTIDAD MEDITERRÁNEA', titulo: 'BORN IN THE MARESME', texto: 'MiRA nace entre la luz clara del Maresme y el ritmo pausado de la costa. Una firma de moda digital, local y consciente que diseña prendas para vestir con seguridad, calma y presencia, sin renunciar a la precisión tecnológica.' }, medMissio: { subtitulo: 'MISIÓN Y VISIÓN', titulo: 'Comprar online con la confianza de una prenda hecha para ti.', p1: 'Nuestra misión es eliminar la duda de la talla y acercar la moda responsable a una experiencia digital más humana, precisa y transparente.', p2: 'Aspiramos a convertir MiRA en el e-commerce de referencia para una nueva generación de consumidoras: mujeres que buscan diseño local, tecnología útil y un armario más pequeño, pero mejor pensado.' }, medValors: { subtitulo: 'VALORES', titulo: 'Diseño que respira, tecnología que acompaña.', v1_tit: 'INNOVACIÓN ACCESIBLE', v1_txt: 'La realidad aumentada y los patrones 3D se ponen al servicio de una compra clara, intuitiva y sin barreras.', v2_tit: 'TRANSPARENCIA', v2_txt: 'Materiales, origen, precios y procesos explicados con honestidad para que cada decisión tenga contexto.', v3_tit: 'SOSTENIBILIDAD REAL', v3_txt: 'Producción local, lotes limitados y residuo cero para evitar sobrestock y alargar el valor de cada prenda.' }, medInnovacio: { subtitulo: 'INNOVACIÓN DIGITAL', titulo: 'El probador AR como nueva forma de confianza.', texto: 'MiRA combina patrones digitales, recomendación de talla y realidad aumentada para que puedas ver cómo se adapta cada prenda antes de comprar. Una experiencia técnica, pero diseñada para sentirse natural.' }, medLookbook: { eyebrow: 'Lookbook MiRA', titulo: 'Explora la dualidad de nuestra colección', btn: 'VER LA COLECCIÓN' }, alts: { altBeach: 'Playa del Maresme, origen de MiRA', altLifestyle: 'Estilo de vida MiRA en el Maresme', altFabric: 'Textura de tejido MiRA', altModels: 'Dos modelos MiRA con prendas de la colección', altCapsule: 'Armario cápsula y selección consciente MiRA', altDesign: 'Diseño técnico digital y patrones 3D MiRA', altLookbook: 'Lookbook MiRA con dos modelos' }, },
+    about: { medIdentitat: { subtitulo: 'IDENTIDAD MEDITERRÁNEA', titulo: 'BORN IN THE MARESME', texto: 'MiRA nace entre la luz clara del Maresme y el ritmo pausado de la costa. Una firma de moda digital, local y consciente que diseña prendas para vestir con seguridad, calma y presencia, sin renunciar a la precisión tecnológica.' }, medMissio: { subtitulo: 'MISIÓN Y VISIÓN', titulo: 'Comprar online con la confianza de una prenda hecha para ti.', p1: 'Nuestra misión es eliminar la duda de la talla y acercar la moda responsable a una experiencia digital más humana, precisa y transparente.', p2: 'Aspiramos a convertir MiRA en el e-commerce de referencia para una nueva generación de consumidoras: mujeres que buscan diseño local, tecnología útil y un armario más pequeño, pero mejor pensado.' }, medValors: { subtitulo: 'VALORES', titulo: 'Diseño que respira, tecnología que acompaña.', v1_tit: 'INNOVACIÓN ACCESIBLE', v1_txt: 'La realidad aumentada y los patrones 3D se ponen al servicio de una compra clara, intuitiva y sin barreras.', v2_tit: 'TRANSPARENCIA', v2_txt: 'Materiales, origen, precios y procesos explicados con honestidad para que cada decisión tenga contexto.', v3_tit: 'SOSTENIBILIDAD REAL', v3_txt: 'Producción local, lotes limitados y residuo cero para evitar sobrestock y alargar el valor de cada prenda.' }, medInnovacio: { subtitulo: 'INNOVACIÓN DIGITAL', titulo: 'El probador AR como nueva forma de confianza.', texto: 'MiRA combina patrones digitales, recomendación de talla y realidad aumentada para que puedas ver cómo se adapta cada prenda antes de comprar. Una experiencia técnica, pero diseñada para sentirse natural.' }, medLookbook: { eyebrow: 'Lookbook MiRA', titulo: 'Explora la dualidad de nuestra colección', btn: 'VER LA COLECCIÓN' }, alts: { altBeach: 'Playa del Maresme, origen de MiRA', altLifestyle: 'Estilo de vida MiRA en el Maresme', altFabric: 'Textura de tejido MiRA', altModels: 'Dos modelos MiRA con prendas de la colección', altCapsule: 'Armario cápsula y selección consciente MiRA', altDesign: 'Diseño técnico digital y patrones 3D MiRA', altLookbook: 'Lookbook MiRA con dos modelos' }, valuesGrid: { v1: 'Hecho en Europa', v2: 'Materiales sostenibles', v3: 'Packaging biodegradable', v4: 'Financia tu compra' }, instagramTitle: 'SÍGUENOS EN @MiRA.MARESME', },
     cart: { title: 'TU CARRITO DE COMPRA', empty: 'Tu carrito está vacío actualmente.', summary: 'RESUMEN DE COMPRA', shippingCosts: 'Gastos de envío', addForFreeShippingPrefix: 'Añade', addForFreeShippingSuffix: 'más para obtener envío gratis!', freeShippingApplied: 'Envío gratis aplicado', continuePayment: 'CONTINUAR AL PAGO', backToCart: 'VOLVER AL CARRITO', paymentData: 'DATOS DE PAGO', cardholder: 'TITULAR DE LA TARJETA', cardholderPlaceholder: 'Nombre y apellidos del titular', cardNumber: 'NÚMERO DE TARJETA', expiry: 'FECHA DE CADUCIDAD', ssl: 'Tus datos están protegidos con cifrado SSL de 256 bits.', finalSummary: 'RESUMEN FINAL', confirmPay: 'CONFIRMAR Y PAGAR', orderCode: 'Código de pedido', date: 'Fecha', purchasedProducts: 'Productos comprados', paidTotal: 'Total pagado' },
     profile: { title: 'MI PERFIL', tabData: 'Datos', tabRA: 'RA', tabLooks: 'Looks', tabFavorites: 'Favoritos', tabOrders: 'Pedidos', menuData: 'Mis datos y medidas', menuRA: 'Fotografías para la RA', menuLooks: 'Mis looks probados', menuFavorites: 'Mis favoritos', menuOrders: 'Mis pedidos', personalInfo: 'Información personal', fullName: 'Nombre completo', email: 'Correo electrónico', phone: 'Número de teléfono', address: 'Dirección de envío', myMeasures: 'Tus medidas', height: 'Altura (cm)', chest: 'Contorno de pecho (cm)', waist: 'Contorno de cintura (cm)', hip: 'Contorno de cadera (cm)', recommendedByPiece: 'TALLAS RECOMENDADAS PARA CADA PRENDA', raFiles: 'Archivos para Realidad Aumentada', previewRA: 'Vista previa RA', deleteSelectedPhoto: 'BORRAR FOTO SELECCIONADA', looksTitle: 'Looks probados en el probador 3D', emptyLooks: 'Aún no has probado ninguna prenda en el probador virtual.', deleteLook: 'Eliminar look', favoritesTitle: 'Mis favoritos', emptyFavorites: 'Aún no has añadido ninguna prenda a favoritos.', viewPiece: 'VER PRENDA', ordersTitle: 'Historial de mis pedidos', emptyOrders: 'Aún no has realizado ningún pedido anteriormente en nuestra plataforma.', exploreCollection: 'EXPLORAR COLECCIÓN' },
     favoritesCart: { title: 'TUS FAVORITOS', oneSaved: 'prenda guardada', manySaved: 'prendas guardadas', deleteTitle: 'Eliminar de favoritos' },
@@ -1006,6 +1008,43 @@ export default function App() {
             </div>
           </section>
 
+          {/* ─── SECCIÓ DE VALORS (Estil premium, La Casita de Wendy) ─── */}
+          <section style={{ maxWidth: '1180px', margin: '0 auto 64px', backgroundColor: '#FBF9F6', borderRadius: '12px', padding: isMobile ? '28px 18px' : '48px 60px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(4, 1fr)', gap: isMobile ? '18px' : '32px', alignItems: 'start', justifyItems: 'center', textAlign: 'center' }}>
+              {[
+                { key: 'v1', title: t.about.valuesGrid.v1, svg: (
+                  <svg width="52" height="52" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block' }}>
+                    <circle cx="12" cy="12" r="9" stroke="#111" strokeWidth="1.2" fill="none" />
+                    <path d="M8 12h8" stroke="#111" strokeWidth="1.4" strokeLinecap="round" />
+                  </svg>
+                ) },
+                { key: 'v2', title: t.about.valuesGrid.v2, svg: (
+                  <svg width="52" height="52" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="6" width="16" height="12" rx="2" stroke="#111" strokeWidth="1.2" fill="none" />
+                    <path d="M8 10h8" stroke="#111" strokeWidth="1.2" strokeLinecap="round" />
+                  </svg>
+                ) },
+                { key: 'v3', title: t.about.valuesGrid.v3, svg: (
+                  <svg width="52" height="52" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 3v18" stroke="#111" strokeWidth="1.2" strokeLinecap="round" />
+                    <path d="M6 8h12" stroke="#111" strokeWidth="1.2" strokeLinecap="round" />
+                  </svg>
+                ) },
+                { key: 'v4', title: t.about.valuesGrid.v4, svg: (
+                  <svg width="52" height="52" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="8" r="3" stroke="#111" strokeWidth="1.2" fill="none" />
+                    <path d="M6 20c1.5-4 5-6 6-6s4.5 2 6 6" stroke="#111" strokeWidth="1.2" strokeLinecap="round" />
+                  </svg>
+                ) },
+              ].map(item => (
+                <div key={item.key} style={{ padding: isMobile ? '20px 8px' : '28px 18px', maxWidth: '320px' }}>
+                  <div style={{ width: '52px', height: '52px', margin: '0 auto 14px' }}>{item.svg}</div>
+                  <p style={{ margin: 0, fontWeight: 700, letterSpacing: '0.6px', textTransform: 'none' }}>{item.title}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
           <section style={{ maxWidth: '1120px', margin: '0 auto 72px' }}>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.05fr 0.95fr', gap: isMobile ? '24px' : '36px', alignItems: 'stretch' }}>
               <div style={{ backgroundColor: '#fff', border: '1px solid #e8dfd4', borderRadius: '28px', padding: isMobile ? '30px 24px' : '48px 46px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -1085,6 +1124,25 @@ export default function App() {
               <button onClick={() => setSeccioActiva('colleccio')} style={{ backgroundColor: '#fff', color: '#111', border: 'none', borderRadius: '999px', padding: isMobile ? '14px 24px' : '16px 34px', fontSize: '12px', letterSpacing: '2px', fontWeight: 'bold', cursor: 'pointer', textTransform: 'uppercase' }}>
                 {t.about.medLookbook.btn}
               </button>
+            </div>
+          </section>
+
+          {/* ─── SECCIÓ D'INSTAGRAM (edge-to-edge visual feed) ─── */}
+          <section style={{ width: '100vw', marginLeft: 'calc(50% - 50vw)', marginBottom: '48px' }}>
+            <div style={{ maxWidth: '1180px', margin: '0 auto', padding: isMobile ? '20px 18px' : '28px 24px', textAlign: 'center' }}>
+              <h3 style={{ margin: 0, fontSize: isMobile ? '14px' : '16px', letterSpacing: '2px', fontWeight: 700 }}>{t.about.instagramTitle}</h3>
+            </div>
+            <div style={{ display: 'flex', gap: '8px', padding: '0 0 0 0', margin: 0 }}>
+              {[
+                'https://via.placeholder.com/900x900?text=MiRA+1',
+                'https://via.placeholder.com/900x900?text=MiRA+2',
+                'https://via.placeholder.com/900x900?text=MiRA+3',
+                'https://via.placeholder.com/900x900?text=MiRA+4',
+              ].map((src, i) => (
+                <a key={i} href="https://www.instagram.com/mira.maresme" target="_blank" rel="noreferrer" style={{ flex: '1 1 0', display: 'block' }}>
+                  <img src={src} alt={`${t.about.instagramTitle} ${i + 1}`} style={{ width: '100%', height: '100%', aspectRatio: '1 / 1', objectFit: 'cover', display: 'block', transition: 'opacity 180ms ease' }} onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = '0.72'; }} onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = '1'; }} />
+                </a>
+              ))}
             </div>
           </section>
 
