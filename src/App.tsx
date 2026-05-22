@@ -15,10 +15,10 @@ const translations = {
       remove: 'Eliminar',
       cancel: 'Cancelar',
       recommendedSize: 'La teva talla recomanada:',
-      cart: 'CARRETO',
+      cart: 'CARRETÓ',
       composition: 'Composicio:',
       viewCollection: 'Veure la col.leccio',
-      addToCart: 'AFEGIR AL CARRETO',
+      addToCart: 'AFEGIR AL CARRETÓ',
       exploreCollection: 'EXPLORAR COL.LECCIO',
       exploreProducts: 'EXPLORAR PRODUCTES',
     },
@@ -45,11 +45,11 @@ const translations = {
       piecesOf: 'PECES DE LA', heroAlt: 'Col.leccio MiRA, Essence i Tailor', back: 'TORNAR A LA COL.LECCIO', try3d: 'PROVAR EN EMPROVADOR 3D',
       officialSizeChart: 'Taula de mides oficial', recommenderTitle: "RECOMANADOR D'ALTA PRECISIO", recommendPrefix: 'Et recomanem la talla', recommendSuffix: 'per a aquesta peca.',
       modifyMeasures: 'Modificar mesures', missingMeasuresPrefix: 'Per calcular la teva talla necessitem:', enterMissingMeasures: 'Introduir les mesures que falten',
-      configureMeasures: 'Configura les teves mesures al perfil per activar el recomanador.', selectSize: 'SELECCIONAR TALLA', addToCartLong: 'AFEGIR AL CARRETO DE COMPRA',
+      configureMeasures: 'Configura les teves mesures al perfil per activar el recomanador.', selectSize: 'SELECCIONAR TALLA', addToCartLong: 'AFEGIR AL CARRETÓ DE COMPRA',
       whatsapp: 'CONSULTA RAPIDA PER WHATSAPP', altWalking: 'Model MiRA caminant amb sastreria urbana', altCapsule: 'Armari capsula MiRA amb peces seleccionades',
     },
     news: { eyebrow: 'Edicio recent', title: 'Novetats de la Temporada', latest: 'ULTIMES INCORPORACIONS', description: 'Peces noves pensades per vestir amb intencio, moviment i una elegancia serena.', empty: 'Aviat arribaran noves peces. Manten-te a prop de MiRA.' },
-    sales: { eyebrow: 'Seleccio conscient', title: 'Mid-Season Sales', description: "Una tria precisa de peces d'armari capsula, amb descompte aplicat sense soroll i amb estoc limitat.", note: "Els preus especials s'apliquen automaticament al carreto. Sense codis, sense urgencia artificial." },
+    sales: { eyebrow: 'Seleccio conscient', title: 'Mid-Season Sales', description: "Una tria precisa de peces d'armari capsula, amb descompte aplicat sense soroll i amb estoc limitat.", note: "Els preus especials s'apliquen automaticament al carretó. Sense codis, sense urgencia artificial." },
     about: {
       medIdentitat: { subtitulo: 'IDENTITAT MEDITERRÀNIA', titulo: 'BORN IN THE MARESME', texto: 'MiRA neix entre la llum clara del Maresme i el ritme pausat de la costa. Una firma de moda digital, local i conscient que dissenya peces per vestir amb seguretat, calma i presència, sense renunciar a la precisió tecnològica.' },
       medMissio: { subtitulo: 'MISSIÓ I VISIÓ', titulo: 'Comprar online amb la confiança d\'una peça feta per a tu.', p1: 'La nostra missió és eliminar el dubte de la talla i acostar la moda responsable a una experiència digital més humana, precisa i transparent.', p2: 'Aspirem a convertir MiRA en l\'e-commerce de referència per a una nova generació de consumidores: dones que busquen disseny local, tecnologia útil i un armari més petit, però millor pensat.' },
@@ -65,13 +65,13 @@ const translations = {
       ],
       instagramText: 'SEGUEIX-NOS A @mira.maresme',
     },
-    cart: { title: 'EL TEU CARRETO DE COMPRA', empty: 'El teu carreto esta buit actualment.', summary: 'RESUM DE COMPRA', shippingCosts: "Despeses d'enviament", addForFreeShippingPrefix: 'Afegeix', addForFreeShippingSuffix: 'mes per obtenir enviament gratuit!', freeShippingApplied: 'Enviament gratuit aplicat', continuePayment: 'CONTINUAR AL PAGAMENT', backToCart: 'TORNAR AL CARRETO', paymentData: 'DADES DE PAGAMENT', cardholder: 'TITULAR DE LA TARGETA', cardholderPlaceholder: 'Nom i cognoms del titular', cardNumber: 'NUMERO DE TARGETA', expiry: "DATA D'EXPIRACIO", ssl: 'Les teves dades estan protegides amb xifratge SSL de 256 bits.', finalSummary: 'RESUM FINAL', confirmPay: 'CONFIRMAR I PAGAR', orderCode: 'Codi de Comanda', date: 'Data', purchasedProducts: 'Productes comprats', paidTotal: 'Total Pagat' },
+    cart: { title: 'EL TEU CARRETÓ DE COMPRA', empty: 'El teu carretó esta buit actualment.', summary: 'RESUM DE COMPRA', shippingCosts: "Despeses d'enviament", addForFreeShippingPrefix: 'Afegeix', addForFreeShippingSuffix: 'mes per obtenir enviament gratuit!', freeShippingApplied: 'Enviament gratuit aplicat', continuePayment: 'CONTINUAR AL PAGAMENT', backToCart: 'TORNAR AL CARRETÓ', paymentData: 'DADES DE PAGAMENT', cardholder: 'TITULAR DE LA TARGETA', cardholderPlaceholder: 'Nom i cognoms del titular', cardNumber: 'NUMERO DE TARGETA', expiry: "DATA D'EXPIRACIO", ssl: 'Les teves dades estan protegides amb xifratge SSL de 256 bits.', finalSummary: 'RESUM FINAL', confirmPay: 'CONFIRMAR I PAGAR', orderCode: 'Codi de Comanda', date: 'Data', purchasedProducts: 'Productes comprats', paidTotal: 'Total Pagat' },
     profile: { title: 'EL MEU PERFIL', tabData: 'Dades', tabRA: 'RA', tabLooks: 'Looks', tabFavorites: 'Preferits', tabOrders: 'Comandes', menuData: 'Les meves dades i mides', menuRA: 'Fotografies per a la RA', menuLooks: 'Els meus looks provats', menuFavorites: 'Els meus preferits', menuOrders: 'Les meves comandes', personalInfo: 'Informacio Personal', fullName: 'Nom Complet', email: 'Correu Electronic', phone: 'Numero de Telefon', address: "Direccio d'Enviament", myMeasures: 'Les teves mesures', height: 'Alcada (cm)', chest: 'Contorn de Pit (cm)', waist: 'Contorn de Cintura (cm)', hip: 'Contorn de Maluc (cm)', recommendedByPiece: 'TALLES RECOMANADES PER A CADA PECA', raFiles: 'Arxius per a Realitat Augmentada', previewRA: 'Preview RA', deleteSelectedPhoto: 'BORRAR FOTO SELECCIONADA', looksTitle: "Looks provats a l'emprovador 3D", emptyLooks: "Encara no has provat cap peca a l'emprovador virtual.", deleteLook: 'Eliminar look', favoritesTitle: 'Els meus preferits', emptyFavorites: 'Encara no has afegit cap peca als preferits.', viewPiece: 'VEURE PECA', ordersTitle: 'Historial de les meves comandes', emptyOrders: 'Encara no has realitzat cap comanda anteriorment a la nostra plataforma.', exploreCollection: 'EXPLORAR COL.LECCIO' },
     favoritesCart: { title: 'ELS TEUS PREFERITS', oneSaved: 'peca guardada', manySaved: 'peces guardades', deleteTitle: 'Eliminar de preferits' },
     virtualFitting: { system: 'SISTEMA INTERACTIU MIRA', title: 'EMPROVADOR 3D', selectedSize: 'TALLA SELECCIONADA', selected: 'seleccionada', recommendedForProfile: 'Recomanada per al teu perfil', close: 'TANCAR VISUALITZACIO', photoTitle: 'Fotografia necessaria', photoText: "Per poder activar l'emprovador conceptual, primer cal una fotografia de referencia corporal.", choosePhoto: 'Selecciona una fotografia del teu dispositiu' },
     quickMeasures: { title: 'Les meves mesures', savedInfo: 'Les mesures es guardaran al teu perfil i actualitzaran el recomanador automaticament.', missingPrefix: 'Per calcular la talla de', missingMiddle: 'necessitem:', heightPlaceholder: 'Ex: 168', chestPlaceholder: 'Ex: 90', waistPlaceholder: 'Ex: 70', hipPlaceholder: 'Ex: 96', save: 'GUARDAR MESURES' },
     sizeGuide: { title: 'TAULA DE MIDES OFICIALS', tshirtEssence: 'CAMISETA ESSENCE', trousersEssence: 'PANTALONS ESSENCE', tshirtTailor: 'CAMISETA TAILOR', trousersTailor: 'PANTALONS TAILOR', waist: 'Cintura (cm)', elasticWaist: 'Cintura elastica (cm)', fixedWaist: 'Cintura fixa (cm)', chest: 'Pit (cm)', chestContour: 'Contorn de Pit (cm)', hip: 'Maluc (cm)', tailorNote: 'Sastreria de cintura fixa · Si estas entre dues talles, agafa la mes gran.', recommendedPrefix: 'La teva talla recomanada per a aquesta peca es la' },
-    messages: { photoRASaved: 'Fotografia de RA guardada correctament al perfil.', photoSavedFitting: 'Fotografia guardada al perfil. Emprovador activat!', selectSizeBeforeAdd: "Si us plau, selecciona una talla abans d'afegir.", selectSize: 'Si us plau, selecciona una talla.', addedToCart: 'afegit al carreto.', addedToCartBang: 'afegit al carreto!', sizeLabel: 'Talla', removedFavorite: 'Eliminat de preferits.', addedFavorite: 'Afegit a la llista de preferits.', lookDeleted: 'Look eliminat de la teva galeria.', fillPayment: 'Si us plau, omple totes les dades de la targeta.', purchaseSuccess: 'Compra realitzada amb exit! Codi:', photoDeletedRA: 'Fotografia eliminada de la Realitat Augmentada.', measuresSaved: 'Mesures guardades al perfil. Recomanador activat!' },
+    messages: { photoRASaved: 'Fotografia de RA guardada correctament al perfil.', photoSavedFitting: 'Fotografia guardada al perfil. Emprovador activat!', selectSizeBeforeAdd: "Si us plau, selecciona una talla abans d'afegir.", selectSize: 'Si us plau, selecciona una talla.', addedToCart: 'afegit al carretó.', addedToCartBang: 'afegit al carretó!', sizeLabel: 'Talla', removedFavorite: 'Eliminat de preferits.', addedFavorite: 'Afegit a la llista de preferits.', lookDeleted: 'Look eliminat de la teva galeria.', fillPayment: 'Si us plau, omple totes les dades de la targeta.', purchaseSuccess: 'Compra realitzada amb exit! Codi:', photoDeletedRA: 'Fotografia eliminada de la Realitat Augmentada.', measuresSaved: 'Mesures guardades al perfil. Recomanador activat!' },
   },
   esp: {
     common: { brand: 'MiRA', cat: 'CAT', esp: 'ESP', size: 'Talla', total: 'TOTAL', free: 'Gratis', shipping: 'Envío', subtotal: 'Subtotal', remove: 'Eliminar', cancel: 'Cancelar', recommendedSize: 'Tu talla recomendada:', cart: 'CARRITO', composition: 'Composición:', viewCollection: 'Ver la colección', addToCart: 'AÑADIR AL CARRITO', exploreCollection: 'EXPLORAR COLECCIÓN', exploreProducts: 'EXPLORAR PRODUCTOS' },
@@ -362,7 +362,7 @@ export default function App() {
   const productText = (prod: typeof PRODUCTES[0]) => t.productes[prod.id as ProducteId];
   const [menuMobilObert, setMenuMobilObert] = useState(false);
 
-  const [seccioActiva, setSeccioActiva] = useState<'colleccio' | 'sobre-mira' | 'perfil' | 'carreto' | 'novetats' | 'mid-season'>('sobre-mira');
+  const [seccioActiva, setSeccioActiva] = useState<'colleccio' | 'sobre-mira' | 'perfil' | 'carretó' | 'novetats' | 'mid-season'>('sobre-mira');
   const [producteSeleccionat, setProducteSeleccionat] = useState<typeof PRODUCTES[0] | null>(null);
   const [imatgeActiva, setImatgeActiva] = useState(0);
   const [tallaSeleccionada, setTallaSeleccionada] = useState<string | null>(null);
@@ -605,8 +605,8 @@ export default function App() {
               {t.common.esp}
             </button>
           </div>
-          <div onClick={() => { setSeccioActiva('carreto'); setPasCheckout('carret'); }}
-            style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontSize: '13px', letterSpacing: '1px', borderBottom: seccioActiva === 'carreto' ? '1px solid #111' : 'none', paddingBottom: '4px' }}>
+          <div onClick={() => { setSeccioActiva('carretó'); setPasCheckout('carret'); }}
+            style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontSize: '13px', letterSpacing: '1px', borderBottom: seccioActiva === 'carretó' ? '1px solid #111' : 'none', paddingBottom: '4px' }}>
             <ShoppingBag size={18} />
             {!isMobile && <span>{t.common.cart} ({carret.reduce((a, b) => a + b.quantitat, 0)})</span>}
             {isMobile && carret.reduce((a, b) => a + b.quantitat, 0) > 0 && (
@@ -1186,7 +1186,7 @@ export default function App() {
       )}
 
       {/* ═══ SECCIÓ E: CARRETÓ ═══ */}
-      {seccioActiva === 'carreto' && (
+      {seccioActiva === 'carretó' && (
         <main style={{ maxWidth: '900px', margin: '40px auto', padding: isMobile ? '0 16px' : '0 30px' }}>
           <h1 style={{ fontSize: isMobile ? '24px' : '34px', fontWeight: '300', letterSpacing: '3px', marginBottom: '40px', fontFamily: '"Didot", serif', textAlign: 'center', color: '#111' }}>{t.cart.title}</h1>
 
