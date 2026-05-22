@@ -1104,7 +1104,7 @@ export default function App() {
           </section>
 
           {/* ─── SECCIÓ DE VALORS (Re-disseny: minimal, molt espai) ─── */}
-          <section style={{ maxWidth: '1180px', margin: '0 auto 64px', backgroundColor: '#FBF9F6', borderRadius: '10px', padding: isMobile ? '40px 20px' : '80px 96px', paddingBottom: '60px' }}>
+          <section style={{ maxWidth: '1180px', margin: '0 auto 64px', backgroundColor: '#FBF9F6', borderRadius: '10px', padding: isMobile ? '40px 20px' : '80px 96px', paddingBottom: '24px' }}>
             <div style={{ display: 'flex', gap: isMobile ? '20px' : '56px', justifyContent: 'space-between', alignItems: 'stretch' }}>
               {valors.map(({ Icon, tit, desc }, i) => (
                 <div key={i} style={{ flex: '1 1 0', padding: isMobile ? '20px' : '36px', textAlign: 'center', fontFamily: 'Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial', color: '#111' }}>
@@ -1119,7 +1119,7 @@ export default function App() {
           </section>
 
           {/* ─── SECCIÓ D'INSTAGRAM (senzilla i elegant) ─── */}
-          <section style={{ maxWidth: '1180px', margin: '0 auto 64px', backgroundColor: '#FBF9F6', borderRadius: '12px', padding: isMobile ? '44px 20px' : '72px 96px', textAlign: 'center' }}>
+          <section style={{ maxWidth: '1180px', margin: '0 auto 64px', backgroundColor: '#FBF9F6', borderRadius: '12px', padding: isMobile ? '30px 20px' : '48px 96px', textAlign: 'center' }}>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: isMobile ? '18px' : '24px' }}>
               <p style={{ margin: 0, fontSize: isMobile ? '13px' : '15px', letterSpacing: '1.6px', fontWeight: 800, textTransform: 'uppercase', color: '#8a7665', fontFamily: 'Montserrat, Inter, system-ui' }}>{t.about.instagramText}</p>
               <a href="https://www.instagram.com/mira.maresme" target="_blank" rel="noreferrer" aria-label="Instagram mira.maresme" style={{ display: 'inline-flex', marginTop: '6px', color: '#111', textDecoration: 'none', opacity: 1, width: isMobile ? '56px' : '64px', height: isMobile ? '56px' : '64px', alignItems: 'center', justifyContent: 'center', borderRadius: '999px', backgroundColor: '#fff', boxShadow: '0 8px 30px rgba(17,17,17,0.06)', border: '1px solid rgba(17,17,17,0.04)', transition: 'transform 160ms ease, box-shadow 160ms ease' }}>
