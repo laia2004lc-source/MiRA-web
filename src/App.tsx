@@ -1020,21 +1020,7 @@ export default function App() {
             </div>
           </section>
 
-          {/* ─── SECCIÓ DE VALORS (Re-disseny: minimal, molt espai) ─── */}
-          <section style={{ maxWidth: '1180px', margin: '0 auto 64px', backgroundColor: '#FBF9F6', borderRadius: '10px', padding: isMobile ? '40px 20px' : '80px 96px' }}>
-            <div style={{ display: 'flex', gap: isMobile ? '20px' : '56px', justifyContent: 'space-between', alignItems: 'stretch' }}>
-              {valors.map(({ Icon, tit, desc }, i) => (
-                <div key={i} style={{ flex: '1 1 0', padding: isMobile ? '20px' : '36px', textAlign: 'center', fontFamily: 'Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial', color: '#111' }}>
-                  <div style={{ width: isMobile ? '68px' : '84px', height: isMobile ? '68px' : '84px', margin: '0 auto 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '999px', backgroundColor: 'rgba(0,0,0,0.03)' }}>
-                    <Icon size={isMobile ? 34 : 44} strokeWidth={1.1} />
-                  </div>
-                  <p style={{ margin: 0, fontWeight: 700, fontSize: isMobile ? '13px' : '14px', letterSpacing: '1.6px', textTransform: 'uppercase', fontFamily: 'Montserrat, Inter, system-ui' }}>{tit}</p>
-                  <p style={{ margin: '12px 0 0 0', fontSize: '14px', color: '#6b5f56', lineHeight: '1.78', maxWidth: '320px', marginLeft: 'auto', marginRight: 'auto' }}>{desc}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
+          {/* VALORS (moved below to sit above Instagram) */}
           <section style={{ maxWidth: '1120px', margin: '0 auto 72px' }}>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.05fr 0.95fr', gap: isMobile ? '24px' : '36px', alignItems: 'stretch' }}>
               <div style={{ backgroundColor: '#fff', border: '1px solid #e8dfd4', borderRadius: '28px', padding: isMobile ? '30px 24px' : '48px 46px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -1114,6 +1100,21 @@ export default function App() {
               <button onClick={() => setSeccioActiva('colleccio')} style={{ backgroundColor: '#fff', color: '#111', border: 'none', borderRadius: '999px', padding: isMobile ? '14px 24px' : '16px 34px', fontSize: '12px', letterSpacing: '2px', fontWeight: 'bold', cursor: 'pointer', textTransform: 'uppercase' }}>
                 {t.about.medLookbook.btn}
               </button>
+            </div>
+          </section>
+
+          {/* ─── SECCIÓ DE VALORS (Re-disseny: minimal, molt espai) ─── */}
+          <section style={{ maxWidth: '1180px', margin: '0 auto 64px', backgroundColor: '#FBF9F6', borderRadius: '10px', padding: isMobile ? '40px 20px' : '80px 96px', paddingBottom: '60px' }}>
+            <div style={{ display: 'flex', gap: isMobile ? '20px' : '56px', justifyContent: 'space-between', alignItems: 'stretch' }}>
+              {valors.map(({ Icon, tit, desc }, i) => (
+                <div key={i} style={{ flex: '1 1 0', padding: isMobile ? '20px' : '36px', textAlign: 'center', fontFamily: 'Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial', color: '#111' }}>
+                  <div style={{ width: isMobile ? '68px' : '84px', height: isMobile ? '68px' : '84px', margin: '0 auto 20px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '999px', backgroundColor: 'rgba(0,0,0,0.03)' }}>
+                    <Icon size={isMobile ? 34 : 44} strokeWidth={1.1} />
+                  </div>
+                  <p style={{ margin: 0, fontWeight: 700, fontSize: isMobile ? '13px' : '14px', letterSpacing: '1.6px', textTransform: 'uppercase', fontFamily: 'Montserrat, Inter, system-ui' }}>{tit}</p>
+                  <p style={{ margin: '12px 0 0 0', fontSize: '14px', color: '#6b5f56', lineHeight: '1.78', maxWidth: '320px', marginLeft: 'auto', marginRight: 'auto' }}>{desc}</p>
+                </div>
+              ))}
             </div>
           </section>
 
