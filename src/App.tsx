@@ -849,100 +849,94 @@ export default function App() {
       {/* ═══ SECCIÓ C: SOBRE MiRA ═══ */}
       {seccioActiva === 'sobre-mira' && (
         <main style={{ maxWidth: '1000px', margin: '0 auto', padding: isMobile ? '40px 16px' : '60px 40px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '16px' }}>
-            <img src="/assets/logo.png" alt="MiRA logo" style={{ height: isMobile ? '48px' : '64px', width: 'auto', objectFit: 'contain' }}
-              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-            <h1 style={{ fontSize: isMobile ? '26px' : '36px', fontWeight: '300', letterSpacing: '4px', margin: 0, fontFamily: '"Didot", serif', color: '#111' }}>SOBRE MiRA</h1>
-          </div>
-
-          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <p style={{ fontSize: isMobile ? '18px' : '22px', fontStyle: 'italic', color: '#444', letterSpacing: '2px', fontFamily: '"Didot", serif', margin: 0 }}>
-              Born in the Maresme.
-            </p>
-          </div>
-
-          <div style={{ width: '100%', marginBottom: '0' }}>
-            <img src="/assets/esencia.png" alt="Models MiRA" style={{ width: '100%', height: isMobile ? '320px' : '520px', objectFit: 'cover', display: 'block' }}
-              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-          </div>
-          <div style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', borderTop: 'none', padding: isMobile ? '28px 24px' : '40px 48px', marginBottom: '60px' }}>
-            <p style={{ fontSize: isMobile ? '14px' : '16px', lineHeight: '2', color: '#444', margin: 0 }}>
-              MiRA és la unió de disseny conscient, comoditat i innovació digital. Creada al cor del Maresme, MiRA dissenya col·leccions atemporals de proximitat que s'integren perfectament en el teu armari diari. Cada detall dels seus dissenys està pensat per oferir el màxim confort, utilitzant la tecnologia per connectar de manera més directa i transparent amb la clienta.
-            </p>
-          </div>
-
-          <div style={{ borderTop: '1px solid #eceae4', paddingTop: '50px', marginBottom: '60px' }}>
-            <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-              <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#444', fontWeight: 'bold' }}>IDENTITAT DE MARCA</span>
-              <h2 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '22px' : '28px', fontWeight: '300', letterSpacing: '2px', margin: '8px 0 0 0', color: '#111' }}>MISSIÓ, VISIÓ I VALORS</h2>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: '0' }}>
-              <div style={{ padding: isMobile ? '28px 0' : '40px 36px', borderBottom: isMobile ? '1px solid #eceae4' : 'none', borderRight: !isMobile ? '1px solid #eceae4' : 'none' }}>
-                <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#bd1c1c', fontWeight: 'bold', display: 'block', marginBottom: '14px' }}>MISSIÓ</span>
-                <p style={{ fontSize: '14px', lineHeight: '1.85', color: '#444', margin: 0 }}>
-                  MiRA neix per eliminar els dubtes en la compra de moda online. A través del seu emprovador virtual de realitat augmentada, ofereix a la clienta la certesa de trobar la talla exacta a la primera, reduint devolucions i millorant l'experiència de compra de manera accessible i transparent.
-                </p>
+          <div className="grid gap-8 bg-[#FBF9F6] rounded-[32px] p-6 md:p-10 mb-12">
+            <div className="grid gap-6 md:grid-cols-12 md:items-center">
+              <div className="md:col-span-7">
+                <img src="/assets/platja_maresme.png" alt="Platja Maresme" className="w-full h-[420px] md:h-[550px] object-cover rounded-[28px]" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
               </div>
-              <div style={{ padding: isMobile ? '28px 0' : '40px 36px', borderBottom: isMobile ? '1px solid #eceae4' : 'none', borderRight: !isMobile ? '1px solid #eceae4' : 'none' }}>
-                <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#bd1c1c', fontWeight: 'bold', display: 'block', marginBottom: '14px' }}>VISIÓ</span>
-                <p style={{ fontSize: '14px', lineHeight: '1.85', color: '#444', margin: 0 }}>
-                  Convertir-se en l'e-commerce de moda de referència a Catalunya: un espai on tecnologia, sostenibilitat i disseny local s'integren de manera natural per oferir una alternativa conscient i innovadora a la moda de consum ràpid.
-                </p>
-              </div>
-              <div style={{ padding: isMobile ? '28px 0' : '40px 36px' }}>
-                <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#bd1c1c', fontWeight: 'bold', display: 'block', marginBottom: '14px' }}>VALORS</span>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                  {[
-                    { v: 'Innovació accessible', d: 'La tecnologia de RA no és un luxe: és una eina per a tothom.' },
-                    { v: 'Transparència', d: 'Materials, origen i preus clars, sense lletra petita.' },
-                    { v: 'Sostenibilitat real', d: 'Producció local, lots limitats i residu zero com a compromís permanent.' },
-                  ].map(({ v, d }) => (
-                    <div key={v}>
-                      <p style={{ margin: '0 0 3px 0', fontWeight: 'bold', fontSize: '13px', letterSpacing: '0.5px', color: '#111' }}>{v}</p>
-                      <p style={{ margin: 0, fontSize: '13px', color: '#555', lineHeight: '1.6' }}>{d}</p>
-                    </div>
-                  ))}
+              <div className="md:col-span-5 flex items-center">
+                <div className="w-full">
+                  <h1 className="font-serif text-3xl sm:text-[38px] md:text-[44px] leading-none tracking-[0.45em] uppercase text-[#111] md:-ml-16 md:relative md:z-10">
+                    BORN IN THE MARESME
+                  </h1>
+                  <p className="mt-6 text-sm sm:text-base text-[#444] leading-7 max-w-xl">
+                    Cada peça neix de la llum i la calma de la costa. Una història de mar, sorra i textures suaus que acompanya el teu dia a dia amb un aire sofisticat i serè.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div style={{ borderTop: '1px solid #eceae4', paddingTop: '50px', marginBottom: '60px' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '0', alignItems: 'stretch' }}>
-              <div style={{ overflow: 'hidden' }}>
-                <img src="/assets/realitat_augmentada.png" alt="Emprovador de realitat augmentada MiRA" style={{ width: '100%', height: isMobile ? '260px' : '420px', objectFit: 'cover', display: 'block' }}
-                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+          <div className="grid gap-8 md:grid-cols-[1.3fr_1fr] items-stretch mb-12">
+            <div className="overflow-hidden rounded-[32px]">
+              <img src="/assets/balco_maresme.png" alt="Balcó Maresme" className="w-full h-[420px] object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+            </div>
+            <div className="space-y-8">
+              <div className="bg-white border border-[#eae8e1] rounded-[28px] p-8">
+                <span className="text-[11px] tracking-[.3em] text-[#444] font-bold uppercase block mb-4">MISSIÓ</span>
+                <p className="text-sm leading-7 text-[#444]">
+                  MiRA existeix per fer que la compra de moda online sigui tan intuïtiva com una passejada pel passeig marítim. Volem que cada clienta arribi a casa amb la confiança de la talla perfecta i una peça amb història.
+                </p>
               </div>
-              <div style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', borderLeft: isMobile ? '1px solid #eae8e1' : 'none', padding: isMobile ? '28px 24px' : '48px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#444', fontWeight: 'bold', display: 'block', marginBottom: '12px' }}>TECNOLOGIA</span>
-                <h2 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '20px' : '26px', fontWeight: '300', letterSpacing: '1px', margin: '0 0 20px 0', color: '#111' }}>LA NOSTRA INNOVACIÓ DIGITAL</h2>
-                <p style={{ fontSize: '14px', lineHeight: '1.9', color: '#555', margin: 0 }}>
-                  MiRA vol transformar la manera de comprar online. Gràcies al seu emprovador virtual de realitat augmentada, la clienta pot comprovar com s'ajusta cada peça al seu cos abans de triar. Aquesta tecnologia ajuda a trobar la talla ideal a la primera, eliminant els dubtes i evitant l'impacte de les devolucions innecessàries.
+              <div className="bg-white border border-[#eae8e1] rounded-[28px] p-8">
+                <span className="text-[11px] tracking-[.3em] text-[#444] font-bold uppercase block mb-4">VISIÓ</span>
+                <p className="text-sm leading-7 text-[#444]">
+                  Ser la firma de referència a Catalunya per a una moda local, elegant i tecnològica, on cada col·lecció reflecteixi el caràcter mediterrani i el compromís amb la sostenibilitat.
                 </p>
               </div>
             </div>
           </div>
 
-          <div style={{ borderTop: '1px solid #eceae4', paddingTop: '50px', marginBottom: '60px' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '0', alignItems: 'stretch' }}>
-              <div style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', borderRight: isMobile ? '1px solid #eae8e1' : 'none', padding: isMobile ? '28px 24px' : '48px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center', order: isMobile ? 1 : 0 }}>
-                <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#444', fontWeight: 'bold', display: 'block', marginBottom: '12px' }}>COMPROMÍS</span>
-                <h2 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '20px' : '26px', fontWeight: '300', letterSpacing: '1px', margin: '0 0 20px 0', color: '#111' }}>SOSTENIBILITAT I RESIDU ZERO</h2>
-                <p style={{ fontSize: '14px', lineHeight: '1.9', color: '#555', margin: 0 }}>
-                  MiRA aposta per una producció de proximitat i conscient en lots limitats de 50 peces, passant al model sota comanda un cop esgotat l'estoc inicial. Treballa amb un criteri de residu zero, assegurant-se que cada disseny es fabriqui de manera local a Barcelona, evitant la sobreproducció i sense malgastar teixit.
-                </p>
+          <div className="grid gap-8 md:grid-cols-[1fr_0.9fr] items-start mb-12">
+            <div className="bg-white border border-[#eae8e1] rounded-[32px] p-8">
+              <span className="text-[11px] tracking-[.3em] text-[#444] font-bold uppercase block mb-4">VALORS</span>
+              <div className="space-y-5">
+                {[
+                  { v: 'Innovació accessible', d: 'La RA i el disseny digital arriben per a totes, sense complicacions.' },
+                  { v: 'Transparència', d: 'Cada material, cada procés i cada preu són clars des del primer moment.' },
+                  { v: 'Sostenibilitat real', d: 'Producció local i lots limitats per reduir residu i augmentar qualitat.' },
+                ].map(({ v, d }) => (
+                  <div key={v} className="rounded-[20px] border border-[#ece8e1] p-5">
+                    <p className="text-sm font-semibold tracking-[.03em] text-[#111] mb-2">{v}</p>
+                    <p className="text-sm leading-7 text-[#555]">{d}</p>
+                  </div>
+                ))}
               </div>
-              <div style={{ overflow: 'hidden', order: isMobile ? 0 : 1 }}>
-                <img src="/assets/tela.png" alt="Teixit de cotó orgànic MiRA" style={{ width: '100%', height: isMobile ? '260px' : '420px', objectFit: 'cover', display: 'block' }}
-                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-              </div>
+            </div>
+            <div className="overflow-hidden rounded-[32px]">
+              <img src="/assets/tailor_essence1.png" alt="Tailor Essence MiRA" className="w-full h-[420px] object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+            </div>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 items-center mb-12">
+            <div className="bg-white border border-[#eae8e1] rounded-[32px] p-8">
+              <span className="text-[11px] tracking-[.3em] text-[#444] font-bold uppercase block mb-4">TECNOLOGIA</span>
+              <h2 className="font-serif text-2xl sm:text-3xl text-[#111] tracking-[.02em] font-light mb-5">L'EMPROVADOR DIGITAL 3D</h2>
+              <p className="text-sm leading-7 text-[#555]">
+                El nostre sistema de prova virtual uneix el millor del probador amb la precisió de la realitat augmentada. Així et permetem experimentar cada silueta abans d'afegir-la al teu armari, amb una confiança total en la forma i la talla.
+              </p>
+            </div>
+            <div className="overflow-hidden rounded-[32px]">
+              <img src="/assets/disseny.png" alt="Disseny digital MiRA" className="w-full h-[420px] object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+            </div>
+          </div>
+
+          <div className="relative overflow-hidden rounded-[32px] h-[320px] sm:h-[420px] mb-12">
+            <img src="/assets/image_081884.jpg" alt="Lookbook MiRA" className="absolute inset-0 w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/10 to-black/45"></div>
+            <div className="relative z-10 h-full flex flex-col justify-center items-start p-8 sm:p-12">
+              <p className="text-sm tracking-[.3em] uppercase text-white mb-4">LOOKBOOK</p>
+              <h2 className="font-serif text-3xl sm:text-5xl text-white leading-tight max-w-2xl mb-6">Explora la dualitat de la nostra col·lecció</h2>
+              <button onClick={() => setSeccioActiva('colleccio')} className="inline-flex items-center justify-center bg-white text-[#111] font-semibold uppercase tracking-[.15em] px-8 py-4 rounded-full">
+                Veure ara
+              </button>
             </div>
           </div>
 
           <SeccioRessenyes isMobile={isMobile} />
 
-          <div style={{ textAlign: 'center', marginTop: '60px' }}>
-            <button onClick={() => setSeccioActiva('colleccio')} style={{ backgroundColor: '#111', color: '#fff', border: 'none', padding: '15px 35px', fontSize: '13px', letterSpacing: '2px', cursor: 'pointer' }}>
+          <div className="text-center mt-16">
+            <button onClick={() => setSeccioActiva('colleccio')} className="bg-[#111] text-white border-none px-10 py-4 text-sm tracking-[.2em] uppercase cursor-pointer">
               EXPLORAR LA COL·LECCIÓ
             </button>
           </div>
