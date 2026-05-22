@@ -39,7 +39,7 @@ const translations = {
       ],
     },
     collection: {
-      newBadge: 'NOU', explorePiece: 'EXPLORAR PECA I PROVAR EN 3D', heroEyebrow: 'NOVA TEMPORADA · BARCELONA', heroTitle: 'EXPLORA LES LINIES',
+      newBadge: 'NOU', explorePiece: 'EXPLORAR PECA I PROVAR EN 3D', heroEyebrow: 'NOVA TEMPORADA · BARCELONA', heroTitle: 'EXPLORA LES LINIES', heroDescription: 'Dissenys atemporals de proximitat. Emprovador virtual en 3D. Talla exacta a la primera.',
       essenceEyebrow: 'COL.LECCIO CASUAL ESSENTIALS', essenceTitle: 'LINIA ESSENCE', essenceSubtitle: 'Comoditat i fluidesa per al teu dia a dia', essenceAlt: 'Mosaic Linia Essence',
       tailorEyebrow: 'ALTA SASTRERIA ESTRUCTURAL', tailorTitle: 'LINIA TAILOR', tailorSubtitle: 'Elegancia classica i sastreria contemporania', tailorAlt: 'Mosaic Linia Tailor',
       piecesOf: 'PECES DE LA', heroAlt: 'Col.leccio MiRA, Essence i Tailor', back: 'TORNAR A LA COL.LECCIO', try3d: 'PROVAR EN EMPROVADOR 3D',
@@ -57,10 +57,10 @@ const translations = {
       valuesEyebrow: 'VALORS', valuesTitle: 'Disseny que respira, tecnologia que acompanya.', valueInnovation: 'Innovacio accessible', valueInnovationText: "La realitat augmentada i els patrons 3D es posen al servei d'una compra clara, intuitiva i sense barreres.",
       valueTransparency: 'Transparencia', valueTransparencyText: 'Materials, origen, preus i processos explicats amb honestedat perque cada decisio tingui context.', valueSustainability: 'Sostenibilitat real', valueSustainabilityText: 'Produccio local, lots limitats i residu zero per evitar sobreestoc i allargar el valor de cada peca.',
       digitalEyebrow: 'INNOVACIO DIGITAL', digitalTitle: "L'emprovador AR com a nova forma de confianca.", digitalText: "MiRA combina patrons digitals, recomanacio de talla i realitat augmentada perque puguis veure com s'adapta cada peca abans de comprar. Una experiencia tecnica, pero dissenyada per sentir-se natural.",
-      lookbook: 'Lookbook MiRA', lookbookTitle: 'Explora la dualitat de la nostra col.leccio', altBeach: 'Platja del Maresme, origen de MiRA', altLifestyle: 'Estil de vida MiRA al Maresme', altFabric: 'Textura de teixit MiRA', altModels: 'Dues models MiRA amb peces de la col.leccio', altCapsule: 'Armari capsula i seleccio conscient MiRA', altDesign: 'Disseny tecnic digital i patrons 3D MiRA', altLookbook: 'Lookbook MiRA amb dues models',
+      lookbook: 'Lookbook MiRA', lookbookTitle: 'Explora la dualitat de la nostra col.leccio', lookbookButton: 'Veure la col.leccio', altBeach: 'Platja del Maresme, origen de MiRA', altLifestyle: 'Estil de vida MiRA al Maresme', altFabric: 'Textura de teixit MiRA', altModels: 'Dues models MiRA amb peces de la col.leccio', altCapsule: 'Armari capsula i seleccio conscient MiRA', altDesign: 'Disseny tecnic digital i patrons 3D MiRA', altLookbook: 'Lookbook MiRA amb dues models',
     },
     cart: { title: 'EL TEU CARRETO DE COMPRA', empty: 'El teu carreto esta buit actualment.', summary: 'RESUM DE COMPRA', shippingCosts: "Despeses d'enviament", addForFreeShippingPrefix: 'Afegeix', addForFreeShippingSuffix: 'mes per obtenir enviament gratuit!', freeShippingApplied: 'Enviament gratuit aplicat', continuePayment: 'CONTINUAR AL PAGAMENT', backToCart: 'TORNAR AL CARRETO', paymentData: 'DADES DE PAGAMENT', cardholder: 'TITULAR DE LA TARGETA', cardholderPlaceholder: 'Nom i cognoms del titular', cardNumber: 'NUMERO DE TARGETA', expiry: "DATA D'EXPIRACIO", ssl: 'Les teves dades estan protegides amb xifratge SSL de 256 bits.', finalSummary: 'RESUM FINAL', confirmPay: 'CONFIRMAR I PAGAR', orderCode: 'Codi de Comanda', date: 'Data', purchasedProducts: 'Productes comprats', paidTotal: 'Total Pagat' },
-    profile: { title: 'EL MEU PERFIL', tabData: 'Dades', tabRA: 'RA', tabLooks: 'Looks', tabFavorites: 'Preferits', tabOrders: 'Comandes', menuData: 'Les meves dades i mides', menuRA: 'Fotografies per a la RA', menuLooks: 'Els meus looks provats', menuFavorites: 'Els meus preferits', menuOrders: 'Les meves comandes', personalInfo: 'Informacio Personal', fullName: 'Nom Complet', email: 'Correu Electronic', phone: 'Numero de Telefon', address: "Direccio d'Enviament", myMeasures: 'Les teves mesures', height: 'Alcada (cm)', chest: 'Contorn de Pit (cm)', waist: 'Contorn de Cintura (cm)', hip: 'Contorn de Maluc (cm)', recommendedByPiece: 'TALLES RECOMANADES PER A CADA PECA', raFiles: 'Arxius per a Realitat Augmentada', previewRA: 'Preview RA', deleteSelectedPhoto: 'BORRAR FOTO SELECCIONADA', looksTitle: "Looks provats a l'emprovador 3D", emptyLooks: "Encara no has provat cap peca a l'emprovador virtual.", deleteLook: 'Eliminar look', favoritesTitle: 'Els meus preferits', emptyFavorites: 'Encara no has afegit cap peca als preferits.', viewPiece: 'VEURE PECA', ordersTitle: 'Historial de les meves comandes', emptyOrders: 'Encara no has realitzat cap comanda anteriorment a la nostra plataforma.' },
+    profile: { title: 'EL MEU PERFIL', tabData: 'Dades', tabRA: 'RA', tabLooks: 'Looks', tabFavorites: 'Preferits', tabOrders: 'Comandes', menuData: 'Les meves dades i mides', menuRA: 'Fotografies per a la RA', menuLooks: 'Els meus looks provats', menuFavorites: 'Els meus preferits', menuOrders: 'Les meves comandes', personalInfo: 'Informacio Personal', fullName: 'Nom Complet', email: 'Correu Electronic', phone: 'Numero de Telefon', address: "Direccio d'Enviament", myMeasures: 'Les teves mesures', height: 'Alcada (cm)', chest: 'Contorn de Pit (cm)', waist: 'Contorn de Cintura (cm)', hip: 'Contorn de Maluc (cm)', recommendedByPiece: 'TALLES RECOMANADES PER A CADA PECA', raFiles: 'Arxius per a Realitat Augmentada', previewRA: 'Preview RA', deleteSelectedPhoto: 'BORRAR FOTO SELECCIONADA', looksTitle: "Looks provats a l'emprovador 3D", emptyLooks: "Encara no has provat cap peca a l'emprovador virtual.", deleteLook: 'Eliminar look', favoritesTitle: 'Els meus preferits', emptyFavorites: 'Encara no has afegit cap peca als preferits.', viewPiece: 'VEURE PECA', ordersTitle: 'Historial de les meves comandes', emptyOrders: 'Encara no has realitzat cap comanda anteriorment a la nostra plataforma.', exploreCollection: 'EXPLORAR COL.LECCIO' },
     favoritesCart: { title: 'ELS TEUS PREFERITS', oneSaved: 'peca guardada', manySaved: 'peces guardades', deleteTitle: 'Eliminar de preferits' },
     virtualFitting: { system: 'SISTEMA INTERACTIU MIRA', title: 'EMPROVADOR 3D', selectedSize: 'TALLA SELECCIONADA', selected: 'seleccionada', recommendedForProfile: 'Recomanada per al teu perfil', close: 'TANCAR VISUALITZACIO', photoTitle: 'Fotografia necessaria', photoText: "Per poder activar l'emprovador conceptual, primer cal una fotografia de referencia corporal.", choosePhoto: 'Selecciona una fotografia del teu dispositiu' },
     quickMeasures: { title: 'Les meves mesures', savedInfo: 'Les mesures es guardaran al teu perfil i actualitzaran el recomanador automaticament.', missingPrefix: 'Per calcular la talla de', missingMiddle: 'necessitem:', heightPlaceholder: 'Ex: 168', chestPlaceholder: 'Ex: 90', waistPlaceholder: 'Ex: 70', hipPlaceholder: 'Ex: 96', save: 'GUARDAR MESURES' },
@@ -81,12 +81,12 @@ const translations = {
       { nom: 'Marta Espinosa', lloc: 'Barcelona', producte: 'Top drapeado Essence', text: 'La calidad del algodon organico es mucho mejor de lo que esperaba. Saber que la ropa se fabrica en Barcelona con residuo cero hace que la compra tenga un significado distinto. El top es comodo y elegante a la vez. Repetire seguro!' },
       { nom: 'Nuria Calvet', lloc: 'Premia de Mar', producte: 'Blusa sastre Tailor', text: 'Siempre tengo dudas entre dos tallas, pero el recomendador de MiRA acierta a la primera. La blusa Tailor es preciosa en persona y la caida del tejido es exactamente como aparece en el probador 3D. Muy recomendable!' },
     ] },
-    collection: { newBadge: 'NUEVO', explorePiece: 'EXPLORAR PRENDA Y PROBAR EN 3D', heroEyebrow: 'NUEVA TEMPORADA · BARCELONA', heroTitle: 'EXPLORA LAS LINEAS', essenceEyebrow: 'COLECCION CASUAL ESSENTIALS', essenceTitle: 'LINEA ESSENCE', essenceSubtitle: 'Comodidad y fluidez para tu dia a dia', essenceAlt: 'Mosaico Linea Essence', tailorEyebrow: 'ALTA SASTRERIA ESTRUCTURAL', tailorTitle: 'LINEA TAILOR', tailorSubtitle: 'Elegancia clasica y sastreria contemporanea', tailorAlt: 'Mosaico Linea Tailor', piecesOf: 'PRENDAS DE LA', heroAlt: 'Coleccion MiRA, Essence y Tailor', back: 'VOLVER A LA COLECCION', try3d: 'PROBAR EN PROBADOR 3D', officialSizeChart: 'Tabla de tallas oficial', recommenderTitle: 'RECOMENDADOR DE ALTA PRECISION', recommendPrefix: 'Te recomendamos la talla', recommendSuffix: 'para esta prenda.', modifyMeasures: 'Modificar medidas', missingMeasuresPrefix: 'Para calcular tu talla necesitamos:', enterMissingMeasures: 'Introducir las medidas que faltan', configureMeasures: 'Configura tus medidas en el perfil para activar el recomendador.', selectSize: 'SELECCIONAR TALLA', addToCartLong: 'ANADIR AL CARRITO DE COMPRA', whatsapp: 'CONSULTA RAPIDA POR WHATSAPP', altWalking: 'Modelo MiRA caminando con sastreria urbana', altCapsule: 'Armario capsula MiRA con prendas seleccionadas' },
+    collection: { newBadge: 'NUEVO', explorePiece: 'EXPLORAR PRENDA Y PROBAR EN 3D', heroEyebrow: 'NUEVA TEMPORADA · BARCELONA', heroTitle: 'EXPLORA LAS LINEAS', heroDescription: 'Diseños atemporales de proximidad. Probador virtual en 3D. Talla exacta a la primera.', essenceEyebrow: 'COLECCION CASUAL ESSENTIALS', essenceTitle: 'LINEA ESSENCE', essenceSubtitle: 'Comodidad y fluidez para tu dia a dia', essenceAlt: 'Mosaico Linea Tailor', tailorEyebrow: 'ALTA SASTRERIA ESTRUCTURAL', tailorTitle: 'LINEA TAILOR', tailorSubtitle: 'Elegancia clasica y sastreria contemporanea', tailorAlt: 'Mosaico Linea Tailor', piecesOf: 'PRENDAS DE LA', heroAlt: 'Coleccion MiRA, Essence y Tailor', back: 'VOLVER A LA COLECCION', try3d: 'PROBAR EN PROBADOR 3D', officialSizeChart: 'Tabla de tallas oficial', recommenderTitle: 'RECOMENDADOR DE ALTA PRECISION', recommendPrefix: 'Te recomendamos la talla', recommendSuffix: 'para esta prenda.', modifyMeasures: 'Modificar medidas', missingMeasuresPrefix: 'Para calcular tu talla necesitamos:', enterMissingMeasures: 'Introducir las medidas que faltan', configureMeasures: 'Configura tus medidas en el perfil para activar el recomendador.', selectSize: 'SELECCIONAR TALLA', addToCartLong: 'ANADIR AL CARRITO DE COMPRA', whatsapp: 'CONSULTA RAPIDA POR WHATSAPP', altWalking: 'Modelo MiRA caminando con sastreria urbana', altCapsule: 'Armario capsula MiRA con prendas seleccionadas' },
     news: { eyebrow: 'Edicion reciente', title: 'Novedades de la Temporada', latest: 'ULTIMAS INCORPORACIONES', description: 'Prendas nuevas pensadas para vestir con intencion, movimiento y una elegancia serena.', empty: 'Pronto llegaran nuevas prendas. Mantente cerca de MiRA.' },
     sales: { eyebrow: 'Seleccion consciente', title: 'Mid-Season Sales', description: 'Una seleccion precisa de prendas de armario capsula, con descuento aplicado sin ruido y con stock limitado.', note: 'Los precios especiales se aplican automaticamente al carrito. Sin codigos, sin urgencia artificial.' },
     about: { identity: 'IDENTIDAD MEDITERRANEA', born: 'BORN IN THE MARESME', intro: 'MiRA nace entre la luz clara del Maresme y el ritmo pausado de la costa. Una firma de moda digital, local y consciente que disena prendas para vestir con seguridad, calma y presencia, sin renunciar a la precision tecnologica.', missionEyebrow: 'MISION Y VISION', missionTitle: 'Comprar online con la confianza de una prenda hecha para ti.', missionText: 'Nuestra mision es eliminar la duda de la talla y acercar la moda responsable a una experiencia digital mas humana, precisa y transparente.', visionText: 'Aspiramos a convertir MiRA en el e-commerce de referencia para una nueva generacion de consumidoras: mujeres que buscan diseno local, tecnologia util y un armario mas pequeno, pero mejor pensado.', valuesEyebrow: 'VALORES', valuesTitle: 'Diseno que respira, tecnologia que acompana.', valueInnovation: 'Innovacion accesible', valueInnovationText: 'La realidad aumentada y los patrones 3D se ponen al servicio de una compra clara, intuitiva y sin barreras.', valueTransparency: 'Transparencia', valueTransparencyText: 'Materiales, origen, precios y procesos explicados con honestidad para que cada decision tenga contexto.', valueSustainability: 'Sostenibilidad real', valueSustainabilityText: 'Produccion local, lotes limitados y residuo cero para evitar sobrestock y alargar el valor de cada prenda.', digitalEyebrow: 'INNOVACION DIGITAL', digitalTitle: 'El probador AR como nueva forma de confianza.', digitalText: 'MiRA combina patrones digitales, recomendacion de talla y realidad aumentada para que puedas ver como se adapta cada prenda antes de comprar. Una experiencia tecnica, pero disenada para sentirse natural.', lookbook: 'Lookbook MiRA', lookbookTitle: 'Explora la dualidad de nuestra coleccion', altBeach: 'Playa del Maresme, origen de MiRA', altLifestyle: 'Estilo de vida MiRA en el Maresme', altFabric: 'Textura de tejido MiRA', altModels: 'Dos modelos MiRA con prendas de la coleccion', altCapsule: 'Armario capsula y seleccion consciente MiRA', altDesign: 'Diseno tecnico digital y patrones 3D MiRA', altLookbook: 'Lookbook MiRA con dos modelos' },
     cart: { title: 'TU CARRITO DE COMPRA', empty: 'Tu carrito esta vacio actualmente.', summary: 'RESUMEN DE COMPRA', shippingCosts: 'Gastos de envio', addForFreeShippingPrefix: 'Anade', addForFreeShippingSuffix: 'mas para obtener envio gratis!', freeShippingApplied: 'Envio gratis aplicado', continuePayment: 'CONTINUAR AL PAGO', backToCart: 'VOLVER AL CARRITO', paymentData: 'DATOS DE PAGO', cardholder: 'TITULAR DE LA TARJETA', cardholderPlaceholder: 'Nombre y apellidos del titular', cardNumber: 'NUMERO DE TARJETA', expiry: 'FECHA DE CADUCIDAD', ssl: 'Tus datos estan protegidos con cifrado SSL de 256 bits.', finalSummary: 'RESUMEN FINAL', confirmPay: 'CONFIRMAR Y PAGAR', orderCode: 'Codigo de pedido', date: 'Fecha', purchasedProducts: 'Productos comprados', paidTotal: 'Total pagado' },
-    profile: { title: 'MI PERFIL', tabData: 'Datos', tabRA: 'RA', tabLooks: 'Looks', tabFavorites: 'Favoritos', tabOrders: 'Pedidos', menuData: 'Mis datos y medidas', menuRA: 'Fotografias para la RA', menuLooks: 'Mis looks probados', menuFavorites: 'Mis favoritos', menuOrders: 'Mis pedidos', personalInfo: 'Informacion personal', fullName: 'Nombre completo', email: 'Correo electronico', phone: 'Numero de telefono', address: 'Direccion de envio', myMeasures: 'Tus medidas', height: 'Altura (cm)', chest: 'Contorno de pecho (cm)', waist: 'Contorno de cintura (cm)', hip: 'Contorno de cadera (cm)', recommendedByPiece: 'TALLAS RECOMENDADAS PARA CADA PRENDA', raFiles: 'Archivos para Realidad Aumentada', previewRA: 'Vista previa RA', deleteSelectedPhoto: 'BORRAR FOTO SELECCIONADA', looksTitle: 'Looks probados en el probador 3D', emptyLooks: 'Aun no has probado ninguna prenda en el probador virtual.', deleteLook: 'Eliminar look', favoritesTitle: 'Mis favoritos', emptyFavorites: 'Aun no has anadido ninguna prenda a favoritos.', viewPiece: 'VER PRENDA', ordersTitle: 'Historial de mis pedidos', emptyOrders: 'Aun no has realizado ningun pedido anteriormente en nuestra plataforma.' },
+    profile: { title: 'MI PERFIL', tabData: 'Datos', tabRA: 'RA', tabLooks: 'Looks', tabFavorites: 'Favoritos', tabOrders: 'Pedidos', menuData: 'Mis datos y medidas', menuRA: 'Fotografias para la RA', menuLooks: 'Mis looks probados', menuFavorites: 'Mis favoritos', menuOrders: 'Mis pedidos', personalInfo: 'Informacion personal', fullName: 'Nombre completo', email: 'Correo electronico', phone: 'Numero de telefono', address: 'Direccion de envio', myMeasures: 'Tus medidas', height: 'Altura (cm)', chest: 'Contorno de pecho (cm)', waist: 'Contorno de cintura (cm)', hip: 'Contorno de cadera (cm)', recommendedByPiece: 'TALLAS RECOMENDADAS PARA CADA PRENDA', raFiles: 'Archivos para Realidad Aumentada', previewRA: 'Vista previa RA', deleteSelectedPhoto: 'BORRAR FOTO SELECCIONADA', looksTitle: 'Looks probados en el probador 3D', emptyLooks: 'Aun no has probado ninguna prenda en el probador virtual.', deleteLook: 'Eliminar look', favoritesTitle: 'Mis favoritos', emptyFavorites: 'Aun no has anadido ninguna prenda a favoritos.', viewPiece: 'VER PRENDA', ordersTitle: 'Historial de mis pedidos', emptyOrders: 'Aun no has realizado ningun pedido anteriormente en nuestra plataforma.', exploreCollection: 'EXPLORAR COLECCION' },
     favoritesCart: { title: 'TUS FAVORITOS', oneSaved: 'prenda guardada', manySaved: 'prendas guardadas', deleteTitle: 'Eliminar de favoritos' },
     virtualFitting: { system: 'SISTEMA INTERACTIVO MIRA', title: 'PROBADOR 3D', selectedSize: 'TALLA SELECCIONADA', selected: 'seleccionada', recommendedForProfile: 'Recomendada para tu perfil', close: 'CERRAR VISUALIZACION', photoTitle: 'Fotografia necesaria', photoText: 'Para poder activar el probador conceptual, primero hace falta una fotografia de referencia corporal.', choosePhoto: 'Selecciona una fotografia de tu dispositivo' },
     quickMeasures: { title: 'Mis medidas', savedInfo: 'Las medidas se guardaran en tu perfil y actualizaran el recomendador automaticamente.', missingPrefix: 'Para calcular la talla de', missingMiddle: 'necesitamos:', heightPlaceholder: 'Ej: 168', chestPlaceholder: 'Ej: 90', waistPlaceholder: 'Ej: 70', hipPlaceholder: 'Ej: 96', save: 'GUARDAR MEDIDAS' },
@@ -301,7 +301,7 @@ function PreferitsCarret({ preferits, tallaRecomanadaPerProducte, onAfegir, onEl
           <Heart size={18} style={{ display: 'inline', marginRight: '10px', verticalAlign: 'middle' }} fill="#111" />
           {t.favoritesCart.title}
         </h2>
-        <span style={{ fontSize: '12px', color: '#444', letterSpacing: '1px' }}>{preferits.length} {preferits.length === 1 ? 'peça guardada' : 'peces guardades'}</span>
+        <span style={{ fontSize: '12px', color: '#444', letterSpacing: '1px' }}>{preferits.length} {preferits.length === 1 ? t.favoritesCart.oneSaved : t.favoritesCart.manySaved}</span>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '20px' }}>
         {preferits.map((prod) => {
@@ -317,11 +317,11 @@ function PreferitsCarret({ preferits, tallaRecomanadaPerProducte, onAfegir, onEl
                 <p style={{ margin: '0 0 6px 0', fontSize: '13px', fontWeight: 'bold' }}>{prod.preu.toFixed(2)} €</p>
                 {tallaRec && (
                   <p style={{ margin: '0 0 8px 0', fontSize: '12px', color: '#2e7d32', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <Check size={12} /> La teva talla recomanada: {tallaRec}
+                    <Check size={12} /> {t.common.recommendedSize} {tallaRec}
                   </p>
                 )}
                 <div style={{ marginBottom: '10px' }}>
-                  <span style={{ fontSize: '11px', color: '#444', display: 'block', marginBottom: '6px', letterSpacing: '0.5px' }}>TALLA</span>
+                  <span style={{ fontSize: '11px', color: '#444', display: 'block', marginBottom: '6px', letterSpacing: '0.5px' }}>{t.common.size.toUpperCase()}</span>
                   <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                     {['XS', 'S', 'M', 'L', 'XL'].map(t => (
                       <button key={t} onClick={() => setTallesSeleccionades(prev => ({ ...prev, [prod.id]: t }))}
@@ -333,10 +333,10 @@ function PreferitsCarret({ preferits, tallaRecomanadaPerProducte, onAfegir, onEl
                 </div>
                 <button onClick={() => onAfegir(prod, tallaActual)}
                   style={{ backgroundColor: '#111', color: '#fff', border: 'none', padding: '9px 14px', fontSize: '11px', fontWeight: 'bold', cursor: 'pointer', letterSpacing: '1px', width: '100%' }}>
-                  AFEGIR AL CARRETÓ
+                  {t.collection.addToCartLong}
                 </button>
               </div>
-              <button onClick={() => onEliminarPreferit(prod)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#555', flexShrink: 0, padding: '2px' }} title="Eliminar de preferits">
+              <button onClick={() => onEliminarPreferit(prod)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#555', flexShrink: 0, padding: '2px' }} title={t.favoritesCart.deleteTitle}>
                 <X size={16} />
               </button>
             </div>
@@ -627,20 +627,20 @@ export default function App() {
         const LINIES = [
           {
             key: 'essence',
-            etiqueta: 'COL·LECCIÓ CASUAL ESSENTIALS',
-            titol: 'LÍNIA ESSENCE',
-            subtitol: 'Comoditat i fluidesa per al teu dia a dia',
+            etiqueta: t.collection.essenceEyebrow,
+            titol: t.collection.essenceTitle,
+            subtitol: t.collection.essenceSubtitle,
             mosaicImg: '/assets/linia_essence.png',
-            mosaicAlt: 'Mosaïc Línia Essence',
+            mosaicAlt: t.collection.essenceAlt,
             productes: PRODUCTES.filter(p => p.id.includes('essence')),
           },
           {
             key: 'tailor',
-            etiqueta: 'ALTA SASTRERIA ESTRUCTURAL',
-            titol: 'LÍNIA TAILOR',
-            subtitol: 'Elegància clàssica i sastreria contemporània',
+            etiqueta: t.collection.tailorEyebrow,
+            titol: t.collection.tailorTitle,
+            subtitol: t.collection.tailorSubtitle,
             mosaicImg: '/assets/linia_tailor.png',
-            mosaicAlt: 'Mosaïc Línia Tailor',
+            mosaicAlt: t.collection.tailorAlt,
             productes: PRODUCTES.filter(p => p.id.includes('tailor')),
           },
         ];
@@ -658,7 +658,7 @@ export default function App() {
             }}>
               <img
                 src="/assets/linia_essence_tailor.png"
-                alt="Col·lecció MiRA — Essence i Tailor"
+                alt={t.collection.heroAlt}
                 style={{
                   width: '100%',
                   height: '100%',
@@ -692,7 +692,7 @@ export default function App() {
                   color: 'rgba(255,255,255,0.65)',
                   fontWeight: 'bold',
                   marginBottom: '10px',
-                }}>NOVA TEMPORADA · BARCELONA</span>
+                }}>{t.collection.heroEyebrow}</span>
                 <h1 style={{
                   fontFamily: '"Didot", "Playfair Display", serif',
                   fontSize: isMobile ? '32px' : '58px',
@@ -701,7 +701,7 @@ export default function App() {
                   margin: '0 0 14px 0',
                   color: '#ffffff',
                   lineHeight: 1.1,
-                }}>EXPLORA LES LÍNIES</h1>
+                }}>{t.collection.heroTitle}</h1>
                 <p style={{
                   color: 'rgba(255,255,255,0.75)',
                   fontSize: isMobile ? '13px' : '15px',
@@ -710,7 +710,7 @@ export default function App() {
                   maxWidth: '560px',
                   margin: 0,
                 }}>
-                  Dissenys atemporals de proximitat. Emprovador virtual en 3D. Talla exacta a la primera.
+                  {t.collection.heroDescription}
                 </p>
               </div>
             </div>
@@ -785,7 +785,7 @@ export default function App() {
                   }}>
                     <div style={{ flex: 1, height: '1px', backgroundColor: '#eceae4' }} />
                     <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#aaa', fontWeight: 'bold', whiteSpace: 'nowrap' }}>
-                      PECES DE LA {linia.titol.split(' ')[1].toUpperCase()}
+                      {t.collection.piecesOf} {linia.titol.split(' ')[1].toUpperCase()}
                     </span>
                     <div style={{ flex: 1, height: '1px', backgroundColor: '#eceae4' }} />
                   </div>
@@ -809,12 +809,12 @@ export default function App() {
       {seccioActiva === 'novetats' && (
         <main style={{ padding: isMobile ? '0 16px 40px' : '0 40px 70px', backgroundColor: '#FBF9F6' }}>
           <section style={{ width: 'calc(100% + ' + (isMobile ? '32px' : '80px') + ')', marginLeft: isMobile ? '-16px' : '-40px', marginRight: isMobile ? '-16px' : '-40px', marginBottom: isMobile ? '34px' : '56px', position: 'relative', overflow: 'hidden' }}>
-            <img src="/assets/modelo_caminant.png" alt="Model MiRA caminant amb sastreria urbana" style={{ width: '100%', height: isMobile ? '360px' : '520px', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+            <img src="/assets/modelo_caminant.png" alt={t.collection.altWalking} style={{ width: '100%', height: isMobile ? '360px' : '520px', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
               onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(17,17,17,0.58), rgba(17,17,17,0.18) 45%, rgba(251,249,246,0.12))' }} />
             <div style={{ position: 'absolute', left: isMobile ? '24px' : '64px', bottom: isMobile ? '34px' : '62px', maxWidth: isMobile ? '78%' : '520px', color: '#fff' }}>
-              <span style={{ fontSize: '11px', letterSpacing: '4px', textTransform: 'uppercase', display: 'block', marginBottom: '12px' }}>Edició recent</span>
-              <h1 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '34px' : '58px', lineHeight: '1', fontWeight: '300', letterSpacing: '2px', margin: 0, color: '#fff' }}>Novetats de la Temporada</h1>
+              <span style={{ fontSize: '11px', letterSpacing: '4px', textTransform: 'uppercase', display: 'block', marginBottom: '12px' }}>{t.news.eyebrow}</span>
+              <h1 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '34px' : '58px', lineHeight: '1', fontWeight: '300', letterSpacing: '2px', margin: 0, color: '#fff' }}>{t.news.title}</h1>
             </div>
           </section>
 
@@ -822,8 +822,8 @@ export default function App() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '32px', borderBottom: '1px solid #e5ded2', paddingBottom: '24px' }}>
               <Sparkles size={20} />
               <div>
-                <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#6d6256', fontWeight: 'bold', display: 'block' }}>ÚLTIMES INCORPORACIONS</span>
-                <p style={{ fontSize: isMobile ? '13px' : '14px', color: '#5f574f', margin: '6px 0 0 0', lineHeight: '1.7' }}>Peces noves pensades per vestir amb intenció, moviment i una elegància serena.</p>
+                <span style={{ fontSize: '11px', letterSpacing: '3px', color: '#6d6256', fontWeight: 'bold', display: 'block' }}>{t.news.latest}</span>
+                <p style={{ fontSize: isMobile ? '13px' : '14px', color: '#5f574f', margin: '6px 0 0 0', lineHeight: '1.7' }}>{t.news.description}</p>
               </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -832,7 +832,7 @@ export default function App() {
               ))}
             </div>
             {PRODUCTES.filter(p => p.isNou).length === 0 && (
-              <p style={{ textAlign: 'center', color: '#555', padding: '60px 0', fontSize: '15px' }}>Aviat arribaran noves peces. Mantén-te a prop de MiRA.</p>
+              <p style={{ textAlign: 'center', color: '#555', padding: '60px 0', fontSize: '15px' }}>{t.news.empty}</p>
             )}
           </div>
         </main>
@@ -842,13 +842,13 @@ export default function App() {
       {seccioActiva === 'mid-season' && (
         <main style={{ padding: isMobile ? '0 16px 44px' : '0 40px 72px', backgroundColor: '#FBF9F6' }}>
           <section style={{ width: 'calc(100% + ' + (isMobile ? '32px' : '80px') + ')', marginLeft: isMobile ? '-16px' : '-40px', marginRight: isMobile ? '-16px' : '-40px', marginBottom: isMobile ? '34px' : '56px', position: 'relative', overflow: 'hidden' }}>
-            <img src="/assets/colleccio.png" alt="Armari càpsula MiRA amb peces seleccionades" style={{ width: '100%', height: isMobile ? '360px' : '500px', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+            <img src="/assets/colleccio.png" alt={t.collection.altCapsule} style={{ width: '100%', height: isMobile ? '360px' : '500px', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
               onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(251,249,246,0.92), rgba(251,249,246,0.62) 42%, rgba(17,17,17,0.18))' }} />
             <div style={{ position: 'absolute', left: isMobile ? '24px' : '64px', bottom: isMobile ? '34px' : '58px', maxWidth: isMobile ? '82%' : '500px' }}>
-              <span style={{ fontSize: '11px', letterSpacing: '4px', color: '#6d6256', textTransform: 'uppercase', display: 'block', marginBottom: '10px' }}>Selecció conscient</span>
-              <h1 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '34px' : '56px', lineHeight: '1', fontWeight: '300', margin: '0 0 14px 0', letterSpacing: '2px', color: '#111' }}>Mid-Season Sales</h1>
-              <p style={{ fontSize: isMobile ? '13px' : '15px', color: '#4b433d', margin: 0, lineHeight: '1.8' }}>Una tria precisa de peces d'armari càpsula, amb descompte aplicat sense soroll i amb estoc limitat.</p>
+              <span style={{ fontSize: '11px', letterSpacing: '4px', color: '#6d6256', textTransform: 'uppercase', display: 'block', marginBottom: '10px' }}>{t.sales.eyebrow}</span>
+              <h1 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '34px' : '56px', lineHeight: '1', fontWeight: '300', margin: '0 0 14px 0', letterSpacing: '2px', color: '#111' }}>{t.sales.title}</h1>
+              <p style={{ fontSize: isMobile ? '13px' : '15px', color: '#4b433d', margin: 0, lineHeight: '1.8' }}>{t.sales.description}</p>
             </div>
           </section>
 
@@ -870,7 +870,7 @@ export default function App() {
       {seccioActiva === 'colleccio' && producteSeleccionat && (
         <main style={{ maxWidth: '1200px', margin: '40px auto', padding: isMobile ? '0 16px' : '0 30px' }}>
           <button onClick={() => setProducteSeleccionat(null)} style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'none', border: 'none', fontSize: '13px', cursor: 'pointer', marginBottom: '30px', color: '#444', letterSpacing: '1px' }}>
-            <ArrowLeft size={14} /> TORNAR A LA COL·LECCIÓ
+            <ArrowLeft size={14} /> {t.collection.back}
           </button>
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.1fr 0.9fr', gap: isMobile ? '30px' : '60px', alignItems: 'start' }}>
             <div>
@@ -1096,17 +1096,17 @@ export default function App() {
       {/* ═══ SECCIÓ D: PERFIL ═══ */}
       {seccioActiva === 'perfil' && (
         <main style={{ maxWidth: '1100px', margin: '40px auto', padding: isMobile ? '0 16px' : '0 30px' }}>
-          <h1 style={{ fontSize: isMobile ? '24px' : '34px', fontWeight: '300', letterSpacing: '3px', marginBottom: '30px', fontFamily: '"Didot", serif', color: '#111' }}>EL MEU PERFIL</h1>
+          <h1 style={{ fontSize: isMobile ? '24px' : '34px', fontWeight: '300', letterSpacing: '3px', marginBottom: '30px', fontFamily: '"Didot", serif', color: '#111' }}>{t.profile.title}</h1>
 
           {isMobile ? (
             <>
               <div style={{ display: 'flex', overflowX: 'auto', gap: '0', borderBottom: '2px solid #eae8e1', marginBottom: '24px', WebkitOverflowScrolling: 'touch' }}>
                 {([
-                  { key: 'dades',    icon: <User size={14} />,     label: 'Dades' },
-                  { key: 'ra',       icon: <ImageIcon size={14} />, label: 'RA' },
-                  { key: 'looks',    icon: <Sliders size={14} />,   label: 'Looks' },
-                  { key: 'preferits',icon: <Heart size={14} />,     label: `Preferits${preferits.length > 0 ? ` (${preferits.length})` : ''}` },
-                  { key: 'compres',  icon: <Package size={14} />,   label: 'Comandes' },
+                  { key: 'dades',    icon: <User size={14} />,     label: t.profile.tabData },
+                  { key: 'ra',       icon: <ImageIcon size={14} />, label: t.profile.tabRA },
+                  { key: 'looks',    icon: <Sliders size={14} />,   label: t.profile.tabLooks },
+                  { key: 'preferits',icon: <Heart size={14} />,     label: `${t.profile.tabFavorites}${preferits.length > 0 ? ` (${preferits.length})` : ''}` },
+                  { key: 'compres',  icon: <Package size={14} />,   label: t.profile.tabOrders },
                 ] as const).map(tab => (
                   <button key={tab.key} onClick={() => setSubgrupPerfil(tab.key as any)}
                     style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '12px 14px', border: 'none', background: 'none', cursor: 'pointer', fontSize: '12px', letterSpacing: '0.5px', whiteSpace: 'nowrap', borderBottom: subgrupPerfil === tab.key ? '2px solid #111' : '2px solid transparent', marginBottom: '-2px', fontWeight: subgrupPerfil === tab.key ? 'bold' : 'normal', color: subgrupPerfil === tab.key ? '#111' : '#444' }}>
@@ -1122,11 +1122,11 @@ export default function App() {
             <div style={{ display: 'grid', gridTemplateColumns: '280px 1fr', gap: '50px', alignItems: 'start' }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', backgroundColor: '#fff', padding: '20px', border: '1px solid #eae8e1' }}>
                 {[
-                  { key: 'dades',     icon: <User size={16} />,     label: 'Les meves dades i mides' },
-                  { key: 'ra',        icon: <ImageIcon size={16} />, label: 'Fotografies per a la RA' },
-                  { key: 'looks',     icon: <Sliders size={16} />,   label: 'Els meus looks provats' },
-                  { key: 'preferits', icon: <Heart size={16} />,     label: `Els meus preferits${preferits.length > 0 ? ` (${preferits.length})` : ''}` },
-                  { key: 'compres',   icon: <Package size={16} />,   label: 'Les meves comandes' },
+                  { key: 'dades',     icon: <User size={16} />,     label: t.profile.menuData },
+                  { key: 'ra',        icon: <ImageIcon size={16} />, label: t.profile.menuRA },
+                  { key: 'looks',     icon: <Sliders size={16} />,   label: t.profile.menuLooks },
+                  { key: 'preferits', icon: <Heart size={16} />,     label: `${t.profile.menuFavorites}${preferits.length > 0 ? ` (${preferits.length})` : ''}` },
+                  { key: 'compres',   icon: <Package size={16} />,   label: t.profile.menuOrders },
                 ].map(({ key, icon, label }) => (
                   <button key={key} onClick={() => setSubgrupPerfil(key as any)}
                     style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', padding: '15px', border: 'none', background: subgrupPerfil === key ? '#f4f3ee' : 'none', textAlign: 'left', cursor: 'pointer', fontWeight: subgrupPerfil === key ? 'bold' : 'normal', fontSize: '14px', color: '#111' }}>
@@ -1205,15 +1205,15 @@ export default function App() {
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 340px', gap: '30px', alignItems: 'start' }}>
               <div style={{ backgroundColor: '#fff', border: '1px solid #eae8e1', padding: isMobile ? '20px' : '35px' }}>
                 <button onClick={() => setPasCheckout('carret')} style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'none', border: 'none', fontSize: '13px', cursor: 'pointer', marginBottom: '25px', color: '#444', letterSpacing: '1px' }}>
-                  <ArrowLeft size={14} /> TORNAR AL CARRETÓ
+                  <ArrowLeft size={14} /> {t.cart.backToCart}
                 </button>
                 <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 25px 0', fontWeight: '300', display: 'flex', alignItems: 'center', gap: '10px', color: '#111' }}>
-                  <CreditCard size={20} /> DADES DE PAGAMENT
+                  <CreditCard size={20} /> {t.cart.paymentData}
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                   {[
-                    { label: 'TITULAR DE LA TARGETA', key: 'titular', type: 'text', placeholder: 'Nom i cognoms del titular', maxLength: undefined },
-                    { label: 'NÚMERO DE TARGETA', key: 'numero', type: 'text', placeholder: '1234 5678 9012 3456', maxLength: 19 },
+                    { label: t.cart.cardholder, key: 'titular', type: 'text', placeholder: t.cart.cardholderPlaceholder, maxLength: undefined },
+                    { label: t.cart.cardNumber, key: 'numero', type: 'text', placeholder: '1234 5678 9012 3456', maxLength: 19 },
                   ].map(({ label, key, type, placeholder, maxLength }) => (
                     <div key={key}>
                       <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '8px', letterSpacing: '1px' }}>{label}</label>
@@ -1229,7 +1229,7 @@ export default function App() {
                   ))}
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                     <div>
-                      <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '8px', letterSpacing: '1px' }}>DATA D'EXPIRACIÓ</label>
+                      <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '8px', letterSpacing: '1px' }}>{t.cart.expiry}</label>
                       <input type="text" placeholder="MM/AA" maxLength={5} value={dadesPagament.expiracio}
                         onChange={e => { let v = e.target.value.replace(/\D/g, ''); if (v.length >= 3) v = v.slice(0,2) + '/' + v.slice(2,4); setDadesPagament({...dadesPagament, expiracio: v}); }}
                         style={{ width: '100%', padding: '14px', border: '1px solid #ccc', backgroundColor: '#fafafa', fontSize: '14px', boxSizing: 'border-box' as const }} />
@@ -1257,19 +1257,19 @@ export default function App() {
                   </div>
                 ))}
                 <div style={{ borderTop: '1px solid #eceae4', paddingTop: '12px', marginTop: '12px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', marginBottom: '8px', color: '#444' }}><span>Enviament</span><span>{costEnviament === 0 ? 'Gratuït' : `${costEnviament.toFixed(2)} €`}</span></div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '16px', fontWeight: 'bold', borderTop: '1px solid #eceae4', paddingTop: '12px', marginTop: '8px' }}><span>TOTAL</span><span>{totalGlobal.toFixed(2)} €</span></div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', marginBottom: '8px', color: '#444' }}><span>{t.common.shipping}</span><span>{costEnviament === 0 ? t.common.free : `${costEnviament.toFixed(2)} €`}</span></div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '16px', fontWeight: 'bold', borderTop: '1px solid #eceae4', paddingTop: '12px', marginTop: '8px' }}><span>{t.common.total}</span><span>{totalGlobal.toFixed(2)} €</span></div>
                 </div>
                 <button onClick={() => {
-                  if (!dadesPagament.titular || !dadesPagament.numero || !dadesPagament.expiracio || !dadesPagament.cvv) { setMissatgeWeb({ text: 'Si us plau, omple totes les dades de la targeta.', tipus: 'info' }); return; }
+                  if (!dadesPagament.titular || !dadesPagament.numero || !dadesPagament.expiracio || !dadesPagament.cvv) { setMissatgeWeb({ text: t.messages.fillPayment, tipus: 'info' }); return; }
                   const codiRandom = 'CMD-' + Math.floor(100000 + Math.random() * 900000);
-                  const novaComanda = { id: codiRandom, data: new Date().toLocaleDateString('ca-ES'), productes: carret.map(i => `${i.producte.nom} (${i.talla})`).join(', '), total: `${totalGlobal.toFixed(2)} €` };
+                  const novaComanda = { id: codiRandom, data: new Date().toLocaleDateString(lang === 'cat' ? 'ca-ES' : 'es-ES'), productes: carret.map(i => `${i.producte.nom} (${i.talla})`).join(', '), total: `${totalGlobal.toFixed(2)} €` };
                   setPerfil(prev => ({ ...prev, comandes: [novaComanda, ...prev.comandes] }));
                   setCarret([]); setDadesPagament({ numero: '', expiracio: '', titular: '', cvv: '' }); setPasCheckout('carret');
-                  setMissatgeWeb({ text: `Compra realitzada amb èxit! Codi: ${codiRandom}`, tipus: 'exit' });
+                  setMissatgeWeb({ text: `${t.messages.purchaseSuccess} ${codiRandom}`, tipus: 'exit' });
                   setSeccioActiva('perfil'); setSubgrupPerfil('compres');
                 }} style={{ width: '100%', backgroundColor: '#111', color: '#fff', border: 'none', padding: '16px', fontSize: '13px', fontWeight: 'bold', cursor: 'pointer', letterSpacing: '1px', marginTop: '20px' }}>
-                  CONFIRMAR I PAGAR {totalGlobal.toFixed(2)} €
+                  {t.cart.confirmPay} {totalGlobal.toFixed(2)} €
                 </button>
               </div>
             </div>
@@ -1300,7 +1300,7 @@ export default function App() {
                 <span style={{ fontSize: '11px', letterSpacing: '2px', color: '#444', fontWeight: 'bold' }}>SISTEMA INTERACTIU MIRA</span>
                 <h3 style={{ fontFamily: '"Didot", serif', fontSize: isMobile ? '20px' : '24px', margin: '5px 0 15px 0', fontWeight: '300', color: '#111' }}>EMPROVADOR 3D</h3>
                 <div style={{ backgroundColor: '#f4f3ee', padding: '16px', border: '1px solid #eae8e1', marginBottom: '20px' }}>
-                  <span style={{ fontSize: '11px', fontWeight: 'bold', letterSpacing: '1px', display: 'block', marginBottom: '10px' }}>TALLA SELECCIONADA</span>
+                  <span style={{ fontSize: '11px', fontWeight: 'bold', letterSpacing: '1px', display: 'block', marginBottom: '10px' }}>{t.virtualFitting.selectedSize}</span>
                   <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                     {['XS', 'S', 'M', 'L', 'XL'].map((talla) => (
                       <button key={talla} onClick={() => setTallaSeleccionada(talla)}
@@ -1312,17 +1312,17 @@ export default function App() {
                   {tallaSeleccionada && (
                     <p style={{ margin: '10px 0 0 0', fontSize: '12px', color: '#2e7d32', fontWeight: 'bold' }}>
                       <Check size={12} style={{ display: 'inline', marginRight: '4px' }} />
-                      Talla {tallaSeleccionada} seleccionada{tallaRecomanada === tallaSeleccionada && ' · Recomanada per al teu perfil'}
+                      {t.common.size} {tallaSeleccionada} {t.virtualFitting.selected}{tallaRecomanada === tallaSeleccionada ? ` · ${t.virtualFitting.recommendedForProfile}` : ''}
                     </p>
                   )}
                 </div>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '16px' }}>
                 <button onClick={afegirAlCarretDesDeEmprovador} style={{ backgroundColor: '#111', color: '#fff', border: 'none', padding: '15px', fontSize: '13px', fontWeight: 'bold', cursor: 'pointer', letterSpacing: '1px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                  <ShoppingBag size={16} /> AFEGIR AL CARRETÓ
+                  <ShoppingBag size={16} /> {t.collection.addToCartLong}
                 </button>
                 <button onClick={() => setEmprovadorObert(false)} style={{ backgroundColor: '#fff', color: '#111', border: '1px solid #ccc', padding: '13px', fontSize: '13px', cursor: 'pointer', letterSpacing: '1px' }}>
-                  TANCAR VISUALITZACIÓ
+                  {t.virtualFitting.close}
                 </button>
               </div>
             </div>
@@ -1334,14 +1334,14 @@ export default function App() {
       {pasFotoObligatori && (
         <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', backgroundColor: 'rgba(0,0,0,0.6)', zIndex: 600, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <div style={{ backgroundColor: '#fff', padding: isMobile ? '28px 20px' : '40px', maxWidth: '480px', width: '90%', border: '1px solid #eae8e1', textAlign: 'center' }}>
-            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 15px 0', fontWeight: '300', color: '#111' }}>Fotografia necessària</h3>
-            <p style={{ fontSize: '14px', color: '#444', lineHeight: '1.6', marginBottom: '25px' }}>Per poder activar l'emprovador conceptual, primer cal una fotografia de referència corporal.</p>
+            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 15px 0', fontWeight: '300', color: '#111' }}>{t.virtualFitting.photoTitle}</h3>
+            <p style={{ fontSize: '14px', color: '#444', lineHeight: '1.6', marginBottom: '25px' }}>{t.virtualFitting.photoText}</p>
             <div style={{ border: '2px dashed #eae8e1', padding: '25px', backgroundColor: '#faf9f6', marginBottom: '20px', textAlign: 'center' }}>
               <ImageIcon size={28} color="#aaa" style={{ marginBottom: '10px' }} />
-              <p style={{ margin: '0 0 12px 0', fontSize: '13px', color: '#444' }}>Selecciona una fotografia del teu dispositiu</p>
+              <p style={{ margin: '0 0 12px 0', fontSize: '13px', color: '#444' }}>{t.virtualFitting.choosePhoto}</p>
               <input type="file" accept="image/*" onChange={handleFotoUploadDesDeEmprovador} style={{ cursor: 'pointer', fontSize: '13px' }} />
             </div>
-            <button onClick={() => setPasFotoObligatori(false)} style={{ background: 'none', border: '1px solid #ccc', padding: '12px 20px', fontSize: '13px', cursor: 'pointer' }}>Cancel·lar</button>
+            <button onClick={() => setPasFotoObligatori(false)} style={{ background: 'none', border: '1px solid #ccc', padding: '12px 20px', fontSize: '13px', cursor: 'pointer' }}>{t.common.cancel}</button>
           </div>
         </div>
       )}
@@ -1351,43 +1351,43 @@ export default function App() {
         <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 650, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <div style={{ backgroundColor: '#fff', padding: isMobile ? '28px 20px' : '40px', maxWidth: '460px', width: '90%', border: '1px solid #eae8e1', position: 'relative' }}>
             <button onClick={() => setMesuresRapidesObertes(false)} style={{ position: 'absolute', top: '15px', right: '15px', background: 'none', border: 'none', cursor: 'pointer' }}><X size={20} /></button>
-            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 8px 0', fontWeight: '300', color: '#111' }}>Les meves mesures</h3>
+            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 8px 0', fontWeight: '300', color: '#111' }}>{t.quickMeasures.title}</h3>
             {producteSeleccionat && campsFaltants.length > 0 ? (
               <p style={{ fontSize: '13px', color: '#bd1c1c', margin: '0 0 20px 0', fontWeight: 'bold' }}>
-                Per calcular la talla de <em>{producteSeleccionat.nom}</em> necessitem: {campsFaltants.map(c => LABELS_CAMP[c]).join(' i ')}.
+                {t.quickMeasures.missingPrefix} <em>{producteSeleccionat.nom}</em> {t.quickMeasures.missingMiddle} {campsFaltants.map(c => LABELS_CAMP[c]).join(' i ')}.
               </p>
             ) : (
-              <p style={{ fontSize: '13px', color: '#444', margin: '0 0 20px 0' }}>Les mesures es guardaran al teu perfil i actualitzaran el recomanador automàticament.</p>
+              <p style={{ fontSize: '13px', color: '#444', margin: '0 0 20px 0' }}>{t.quickMeasures.savedInfo}</p>
             )}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginBottom: '25px' }}>
               <div>
-                <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>Alçada (cm)</label>
-                <input type="number" value={mesuresTemp.alcada} onChange={e => setMesuresTemp({...mesuresTemp, alcada: e.target.value})} placeholder="Ej: 168" style={{ width: '100%', padding: '12px', border: '1px solid #ccc', boxSizing: 'border-box' as const }} />
+                <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>{t.profile.height}</label>
+                <input type="number" value={mesuresTemp.alcada} onChange={e => setMesuresTemp({...mesuresTemp, alcada: e.target.value})} placeholder={t.quickMeasures.heightPlaceholder} style={{ width: '100%', padding: '12px', border: '1px solid #ccc', boxSizing: 'border-box' as const }} />
               </div>
               {(!producteSeleccionat || (CAMPS_PER_PRODUCTE[producteSeleccionat.id] || []).includes('pit')) && (
                 <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>Contorn de Pit (cm){campsFaltants.includes('pit') && <span style={{ color: '#bd1c1c', marginLeft: '4px' }}>*</span>}</label>
-                  <input type="number" value={mesuresTemp.pit} onChange={e => setMesuresTemp({...mesuresTemp, pit: e.target.value})} placeholder="Ej: 90" style={{ width: '100%', padding: '12px', border: campsFaltants.includes('pit') ? '1px solid #bd1c1c' : '1px solid #ccc', boxSizing: 'border-box' as const }} />
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>{t.profile.chest}{campsFaltants.includes('pit') && <span style={{ color: '#bd1c1c', marginLeft: '4px' }}>*</span>}</label>
+                  <input type="number" value={mesuresTemp.pit} onChange={e => setMesuresTemp({...mesuresTemp, pit: e.target.value})} placeholder={t.quickMeasures.chestPlaceholder} style={{ width: '100%', padding: '12px', border: campsFaltants.includes('pit') ? '1px solid #bd1c1c' : '1px solid #ccc', boxSizing: 'border-box' as const }} />
                 </div>
               )}
               {(!producteSeleccionat || (CAMPS_PER_PRODUCTE[producteSeleccionat.id] || []).includes('cintura')) && (
                 <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>Contorn de Cintura (cm){campsFaltants.includes('cintura') && <span style={{ color: '#bd1c1c', marginLeft: '4px' }}>*</span>}</label>
-                  <input type="number" value={mesuresTemp.cintura} onChange={e => setMesuresTemp({...mesuresTemp, cintura: e.target.value})} placeholder="Ej: 70" style={{ width: '100%', padding: '12px', border: campsFaltants.includes('cintura') ? '1px solid #bd1c1c' : '1px solid #ccc', boxSizing: 'border-box' as const }} />
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>{t.profile.waist}{campsFaltants.includes('cintura') && <span style={{ color: '#bd1c1c', marginLeft: '4px' }}>*</span>}</label>
+                  <input type="number" value={mesuresTemp.cintura} onChange={e => setMesuresTemp({...mesuresTemp, cintura: e.target.value})} placeholder={t.quickMeasures.waistPlaceholder} style={{ width: '100%', padding: '12px', border: campsFaltants.includes('cintura') ? '1px solid #bd1c1c' : '1px solid #ccc', boxSizing: 'border-box' as const }} />
                 </div>
               )}
               {(!producteSeleccionat || (CAMPS_PER_PRODUCTE[producteSeleccionat.id] || []).includes('maluc')) && (
                 <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>Contorn de Maluc (cm){campsFaltants.includes('maluc') && <span style={{ color: '#bd1c1c', marginLeft: '4px' }}>*</span>}</label>
-                  <input type="number" value={mesuresTemp.maluc} onChange={e => setMesuresTemp({...mesuresTemp, maluc: e.target.value})} placeholder="Ej: 96" style={{ width: '100%', padding: '12px', border: campsFaltants.includes('maluc') ? '1px solid #bd1c1c' : '1px solid #ccc', boxSizing: 'border-box' as const }} />
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>{t.profile.hip}{campsFaltants.includes('maluc') && <span style={{ color: '#bd1c1c', marginLeft: '4px' }}>*</span>}</label>
+                  <input type="number" value={mesuresTemp.maluc} onChange={e => setMesuresTemp({...mesuresTemp, maluc: e.target.value})} placeholder={t.quickMeasures.hipPlaceholder} style={{ width: '100%', padding: '12px', border: campsFaltants.includes('maluc') ? '1px solid #bd1c1c' : '1px solid #ccc', boxSizing: 'border-box' as const }} />
                 </div>
               )}
             </div>
             <div style={{ display: 'flex', gap: '12px' }}>
-              <button onClick={() => setMesuresRapidesObertes(false)} style={{ flex: 1, background: 'none', border: '1px solid #ccc', padding: '13px', fontSize: '13px', cursor: 'pointer' }}>Cancel·lar</button>
-              <button onClick={() => { setPerfil(prev => ({ ...prev, alcada: mesuresTemp.alcada, pit: mesuresTemp.pit, cintura: mesuresTemp.cintura, maluc: mesuresTemp.maluc })); setMesuresRapidesObertes(false); setMissatgeWeb({ text: 'Mesures guardades al perfil. Recomanador activat!', tipus: 'exit' }); }}
+              <button onClick={() => setMesuresRapidesObertes(false)} style={{ flex: 1, background: 'none', border: '1px solid #ccc', padding: '13px', fontSize: '13px', cursor: 'pointer' }}>{t.common.cancel}</button>
+              <button onClick={() => { setPerfil(prev => ({ ...prev, alcada: mesuresTemp.alcada, pit: mesuresTemp.pit, cintura: mesuresTemp.cintura, maluc: mesuresTemp.maluc })); setMesuresRapidesObertes(false); setMissatgeWeb({ text: t.messages.measuresSaved, tipus: 'exit' }); }}
                 style={{ flex: 2, backgroundColor: '#111', color: '#fff', border: 'none', padding: '13px', fontSize: '13px', fontWeight: 'bold', cursor: 'pointer', letterSpacing: '1px' }}>
-                GUARDAR MESURES
+                {t.quickMeasures.save}
               </button>
             </div>
           </div>
@@ -1399,13 +1399,13 @@ export default function App() {
         <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', backgroundColor: 'rgba(0,0,0,0.4)', zIndex: 700, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <div style={{ backgroundColor: '#fff', padding: isMobile ? '28px 16px' : '40px', maxWidth: '520px', width: '92%', position: 'relative', border: '1px solid #eae8e1', overflowX: 'auto', maxHeight: '90vh', overflowY: 'auto' }}>
             <button onClick={() => setGuiaMidesOberta(false)} style={{ position: 'absolute', top: '20px', right: '20px', background: 'none', border: 'none', cursor: 'pointer', color: '#111' }}><X size={20} /></button>
-            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 4px 0', fontWeight: '300', textAlign: 'center', color: '#111' }}>TAULA DE MIDES OFICIALS</h3>
+            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 4px 0', fontWeight: '300', textAlign: 'center', color: '#111' }}>{t.sizeGuide.title}</h3>
             {producteSeleccionat && <p style={{ fontSize: '12px', color: '#444', textAlign: 'center', margin: '0 0 22px 0', letterSpacing: '1px' }}>{producteSeleccionat.nom.toUpperCase()}</p>}
 
             {(!producteSeleccionat || producteSeleccionat.id === 'camiseta-essence') && (
-              <><h4 style={{ fontSize: '13px', letterSpacing: '1px', margin: '0 0 10px 0', color: '#111' }}>CAMISETA ESSENCE</h4>
+              <><h4 style={{ fontSize: '13px', letterSpacing: '1px', margin: '0 0 10px 0', color: '#111' }}>{t.sizeGuide.tshirtEssence}</h4>
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: isMobile ? '12px' : '13px', textAlign: 'center', marginBottom: '24px' }}>
-                <thead><tr style={{ borderBottom: '2px solid #111', fontWeight: 'bold' }}><th style={{ padding: '10px 6px' }}>Talla</th><th style={{ padding: '10px 6px' }}>Cintura (cm)</th><th style={{ padding: '10px 6px' }}>Pit (cm)</th></tr></thead>
+                <thead><tr style={{ borderBottom: '2px solid #111', fontWeight: 'bold' }}><th style={{ padding: '10px 6px' }}>Talla</th><th style={{ padding: '10px 6px' }}>{t.sizeGuide.waist}</th><th style={{ padding: '10px 6px' }}>{t.sizeGuide.chest}</th></tr></thead>
                 <tbody>{[['XS','60 – 64','84 – 88'],['S','64 – 68','88 – 92'],['M','68 – 72','92 – 96'],['L','72 – 76','96 – 100'],['XL','76 – 80','100 – 104']].map(([t,c,p]) => (
                   <tr key={t} style={{ borderBottom: '1px solid #eceae4', backgroundColor: tallaRecomanada === t && producteSeleccionat?.id === 'camiseta-essence' ? '#e8f5e9' : 'transparent' }}>
                     <td style={{ padding: '10px 6px', fontWeight: 'bold' }}>{t}</td><td style={{ padding: '10px 6px' }}>{c}</td><td style={{ padding: '10px 6px' }}>{p}</td>
@@ -1413,9 +1413,9 @@ export default function App() {
               </table></>
             )}
             {(!producteSeleccionat || producteSeleccionat.id === 'pantalons-essence') && (
-              <><h4 style={{ fontSize: '13px', letterSpacing: '1px', margin: '0 0 10px 0', color: '#111' }}>PANTALONS ESSENCE</h4>
+              <><h4 style={{ fontSize: '13px', letterSpacing: '1px', margin: '0 0 10px 0', color: '#111' }}>{t.sizeGuide.trousersEssence}</h4>
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: isMobile ? '12px' : '13px', textAlign: 'center', marginBottom: '24px' }}>
-                <thead><tr style={{ borderBottom: '2px solid #111', fontWeight: 'bold' }}><th style={{ padding: '10px 6px' }}>Talla</th><th style={{ padding: '10px 6px' }}>Cintura elàstica (cm)</th><th style={{ padding: '10px 6px' }}>Maluc (cm)</th></tr></thead>
+                <thead><tr style={{ borderBottom: '2px solid #111', fontWeight: 'bold' }}><th style={{ padding: '10px 6px' }}>Talla</th><th style={{ padding: '10px 6px' }}>{t.sizeGuide.elasticWaist}</th><th style={{ padding: '10px 6px' }}>{t.sizeGuide.hip}</th></tr></thead>
                 <tbody>{[['XS','60 – 68','86 – 92'],['S','64 – 72','90 – 96'],['M','70 – 78','94 – 100'],['L','76 – 84','98 – 104'],['XL','82 – 90','102 – 108']].map(([t,c,m]) => (
                   <tr key={t} style={{ borderBottom: '1px solid #eceae4', backgroundColor: tallaRecomanada === t && producteSeleccionat?.id === 'pantalons-essence' ? '#e8f5e9' : 'transparent' }}>
                     <td style={{ padding: '10px 6px', fontWeight: 'bold' }}>{t}</td><td style={{ padding: '10px 6px' }}>{c}</td><td style={{ padding: '10px 6px' }}>{m}</td>
@@ -1423,9 +1423,9 @@ export default function App() {
               </table></>
             )}
             {(!producteSeleccionat || producteSeleccionat.id === 'camiseta-tailor') && (
-              <><h4 style={{ fontSize: '13px', letterSpacing: '1px', margin: '0 0 10px 0', color: '#111' }}>CAMISETA TAILOR</h4>
+              <><h4 style={{ fontSize: '13px', letterSpacing: '1px', margin: '0 0 10px 0', color: '#111' }}>{t.sizeGuide.tshirtTailor}</h4>
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: isMobile ? '12px' : '13px', textAlign: 'center', marginBottom: '24px' }}>
-                <thead><tr style={{ borderBottom: '2px solid #111', fontWeight: 'bold' }}><th style={{ padding: '10px 6px' }}>Talla</th><th style={{ padding: '10px 6px' }}>Contorn de Pit (cm)</th></tr></thead>
+                <thead><tr style={{ borderBottom: '2px solid #111', fontWeight: 'bold' }}><th style={{ padding: '10px 6px' }}>Talla</th><th style={{ padding: '10px 6px' }}>{t.sizeGuide.chestContour}</th></tr></thead>
                 <tbody>{[['XS','84 – 88'],['S','88 – 92'],['M','92 – 96'],['L','96 – 100'],['XL','100 – 104']].map(([t,p]) => (
                   <tr key={t} style={{ borderBottom: '1px solid #eceae4', backgroundColor: tallaRecomanada === t && producteSeleccionat?.id === 'camiseta-tailor' ? '#e8f5e9' : 'transparent' }}>
                     <td style={{ padding: '10px 6px', fontWeight: 'bold' }}>{t}</td><td style={{ padding: '10px 6px' }}>{p}</td>
@@ -1433,10 +1433,10 @@ export default function App() {
               </table></>
             )}
             {(!producteSeleccionat || producteSeleccionat.id === 'pantalons-tailor') && (
-              <><h4 style={{ fontSize: '13px', letterSpacing: '1px', margin: '0 0 10px 0', color: '#111' }}>PANTALONS TAILOR</h4>
-              <p style={{ fontSize: '11px', color: '#444', margin: '-4px 0 10px 0', fontStyle: 'italic' }}>Sastreria de cintura fixa · Si estàs entre dues talles, agafa la més gran.</p>
+              <><h4 style={{ fontSize: '13px', letterSpacing: '1px', margin: '0 0 10px 0', color: '#111' }}>{t.sizeGuide.trousersTailor}</h4>
+              <p style={{ fontSize: '11px', color: '#444', margin: '-4px 0 10px 0', fontStyle: 'italic' }}>{t.sizeGuide.tailorNote}</p>
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: isMobile ? '12px' : '13px', textAlign: 'center', marginBottom: '8px' }}>
-                <thead><tr style={{ borderBottom: '2px solid #111', fontWeight: 'bold' }}><th style={{ padding: '10px 6px' }}>Talla</th><th style={{ padding: '10px 6px' }}>Cintura fixa (cm)</th><th style={{ padding: '10px 6px' }}>Maluc (cm)</th></tr></thead>
+                <thead><tr style={{ borderBottom: '2px solid #111', fontWeight: 'bold' }}><th style={{ padding: '10px 6px' }}>Talla</th><th style={{ padding: '10px 6px' }}>{t.sizeGuide.fixedWaist}</th><th style={{ padding: '10px 6px' }}>{t.sizeGuide.hip}</th></tr></thead>
                 <tbody>{[['XS','62 – 65','88 – 92'],['S','66 – 69','92 – 96'],['M','70 – 73','96 – 100'],['L','74 – 77','100 – 104'],['XL','78 – 81','104 – 108']].map(([t,c,m]) => (
                   <tr key={t} style={{ borderBottom: '1px solid #eceae4', backgroundColor: tallaRecomanada === t && producteSeleccionat?.id === 'pantalons-tailor' ? '#e8f5e9' : 'transparent' }}>
                     <td style={{ padding: '10px 6px', fontWeight: 'bold' }}>{t}</td><td style={{ padding: '10px 6px' }}>{c}</td><td style={{ padding: '10px 6px' }}>{m}</td>
@@ -1445,7 +1445,7 @@ export default function App() {
             )}
             {tallaRecomanada && producteSeleccionat && (
               <p style={{ fontSize: '12px', color: '#2e7d32', marginTop: '16px', textAlign: 'center', fontWeight: 'bold' }}>
-                • La teva talla recomanada per a aquesta peça és la <strong>{tallaRecomanada}</strong>.
+                • {t.sizeGuide.recommendedPrefix} <strong>{tallaRecomanada}</strong>.
               </p>
             )}
           </div>
@@ -1460,13 +1460,13 @@ export default function App() {
       <>
         {subgrupPerfil === 'dades' && (
           <div>
-            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 25px 0', fontWeight: '300', color: '#111' }}>Informació Personal</h3>
+            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 25px 0', fontWeight: '300', color: '#111' }}>{t.profile.personalInfo}</h3>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '20px', marginBottom: '35px' }}>
               {[
-                { label: 'Nom Complet', key: 'nom', type: 'text' },
-                { label: 'Correu Electrònic', key: 'email', type: 'email' },
-                { label: 'Número de Telèfon', key: 'telefon', type: 'text' },
-                { label: "Direcció d'Enviament", key: 'adreca', type: 'text' },
+                { label: t.profile.fullName, key: 'nom', type: 'text' },
+                { label: t.profile.email, key: 'email', type: 'email' },
+                { label: t.profile.phone, key: 'telefon', type: 'text' },
+                { label: t.profile.address, key: 'adreca', type: 'text' },
               ].map(({ label, key, type }) => (
                 <div key={key}>
                   <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '6px' }}>{label}</label>
@@ -1476,28 +1476,28 @@ export default function App() {
               ))}
             </div>
 
-            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '18px', margin: '0 0 20px 0', fontWeight: '300', borderTop: '1px solid #eee', paddingTop: '25px', color: '#111' }}>Les teves mesures</h3>
+            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '18px', margin: '0 0 20px 0', fontWeight: '300', borderTop: '1px solid #eee', paddingTop: '25px', color: '#111' }}>{t.profile.myMeasures}</h3>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(2, 1fr)', gap: '15px', marginBottom: '25px' }}>
               <div style={{ gridColumn: '1 / -1' }}>
-                <label style={{ display: 'block', fontSize: '12px', marginBottom: '6px' }}>Alçada (cm)</label>
+                <label style={{ display: 'block', fontSize: '12px', marginBottom: '6px' }}>{t.profile.height}</label>
                 <input type="number" value={perfil.alcada} onChange={e => setPerfil({...perfil, alcada: e.target.value})} style={{ width: '100%', padding: '10px', border: '1px solid #ccc', boxSizing: 'border-box' as const }} />
               </div>
               <div>
-                <label style={{ display: 'block', fontSize: '12px', marginBottom: '6px' }}>Contorn de Pit (cm)</label>
+                <label style={{ display: 'block', fontSize: '12px', marginBottom: '6px' }}>{t.profile.chest}</label>
                 <input type="number" value={perfil.pit} onChange={e => setPerfil({...perfil, pit: e.target.value})} style={{ width: '100%', padding: '10px', border: '1px solid #ccc', boxSizing: 'border-box' as const }} />
               </div>
               <div>
-                <label style={{ display: 'block', fontSize: '12px', marginBottom: '6px' }}>Contorn de Cintura (cm)</label>
+                <label style={{ display: 'block', fontSize: '12px', marginBottom: '6px' }}>{t.profile.waist}</label>
                 <input type="number" value={perfil.cintura} onChange={e => setPerfil({...perfil, cintura: e.target.value})} style={{ width: '100%', padding: '10px', border: '1px solid #ccc', boxSizing: 'border-box' as const }} />
               </div>
               <div style={{ gridColumn: '1 / -1' }}>
-                <label style={{ display: 'block', fontSize: '12px', marginBottom: '6px' }}>Contorn de Maluc (cm)</label>
+                <label style={{ display: 'block', fontSize: '12px', marginBottom: '6px' }}>{t.profile.hip}</label>
                 <input type="number" value={perfil.maluc} onChange={e => setPerfil({...perfil, maluc: e.target.value})} style={{ width: '100%', padding: '10px', border: '1px solid #ccc', boxSizing: 'border-box' as const }} />
               </div>
             </div>
             {(perfil.pit || perfil.cintura || perfil.maluc) && (
               <div style={{ backgroundColor: '#f4f3ee', border: '1px solid #eae8e1', padding: '16px', fontSize: '13px' }}>
-                <p style={{ margin: '0 0 10px 0', fontWeight: 'bold', letterSpacing: '0.5px', fontSize: '12px' }}>TALLES RECOMANADES PER A CADA PEÇA</p>
+                <p style={{ margin: '0 0 10px 0', fontWeight: 'bold', letterSpacing: '0.5px', fontSize: '12px' }}>{t.profile.recommendedByPiece}</p>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
                   {PRODUCTES.map(p => {
                     const t = recomanarTallaPerProducte(p.id);
@@ -1516,16 +1516,16 @@ export default function App() {
 
         {subgrupPerfil === 'ra' && (
           <div>
-            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 20px 0', fontWeight: '300', color: '#111' }}>Arxius per a Realitat Augmentada</h3>
+            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 20px 0', fontWeight: '300', color: '#111' }}>{t.profile.raFiles}</h3>
             <div style={{ border: '2px dashed #eae8e1', padding: '40px', textAlign: 'center', backgroundColor: '#faf9f6', marginBottom: '25px' }}>
               <input type="file" accept="image/*" onChange={handleFotoUpload} style={{ cursor: 'pointer' }} />
             </div>
             {perfil.fotoRA && (
               <div style={{ textAlign: 'center', marginTop: '20px' }}>
-                <img src={perfil.fotoRA} alt="Preview RA" style={{ maxWidth: '200px', height: 'auto', border: '1px solid #eae8e1', display: 'block', margin: '0 auto 15px auto' }} />
-                <button onClick={() => { setPerfil(prev => ({ ...prev, fotoRA: null })); setMissatgeWeb({ text: 'Fotografia eliminada de la Realitat Augmentada.', tipus: 'info' }); }}
+                <img src={perfil.fotoRA} alt={t.profile.previewRA} style={{ maxWidth: '200px', height: 'auto', border: '1px solid #eae8e1', display: 'block', margin: '0 auto 15px auto' }} />
+                <button onClick={() => { setPerfil(prev => ({ ...prev, fotoRA: null })); setMissatgeWeb({ text: t.messages.photoDeletedRA, tipus: 'info' }); }}
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: '#bd1c1c', color: '#fff', border: 'none', padding: '10px 18px', fontSize: '13px', fontWeight: 'bold', cursor: 'pointer', letterSpacing: '1px' }}>
-                  <Trash2 size={14} /> BORRAR FOTO SELECCIONADA
+                  <Trash2 size={14} /> {t.profile.deleteSelectedPhoto}
                 </button>
               </div>
             )}
@@ -1534,9 +1534,9 @@ export default function App() {
 
         {subgrupPerfil === 'looks' && (
           <div>
-            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 20px 0', fontWeight: '300', color: '#111' }}>Looks provats a l'emprovador 3D</h3>
+            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 20px 0', fontWeight: '300', color: '#111' }}>{t.profile.looksTitle}</h3>
             {perfil.looksProvats.length === 0 ? (
-              <p style={{ color: '#444', fontSize: '14px' }}>Encara no has provat cap peça a l'emprovador virtual.</p>
+              <p style={{ color: '#444', fontSize: '14px' }}>{t.profile.emptyLooks}</p>
             ) : (
               <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '30px' }}>
                 {perfil.looksProvats.map((lookId) => {
@@ -1544,7 +1544,7 @@ export default function App() {
                   if (!prod) return null;
                   return (
                     <div key={lookId} style={{ border: '1px solid #eae8e1', backgroundColor: '#faf9f6', position: 'relative', overflow: 'hidden' }}>
-                      <button onClick={() => handleDeleteLook(lookId)} title="Eliminar look"
+                      <button onClick={() => handleDeleteLook(lookId)} title={t.profile.deleteLook}
                         style={{ position: 'absolute', top: '10px', right: '10px', zIndex: 10, background: 'rgba(255,255,255,0.92)', border: '1px solid #eae8e1', borderRadius: '50%', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', boxShadow: '0 1px 4px rgba(0,0,0,0.10)' }}>
                         <X size={14} color="#888" />
                       </button>
@@ -1557,7 +1557,7 @@ export default function App() {
                       <div style={{ padding: '14px 20px' }}>
                         <button onClick={() => handleDeleteLook(lookId)}
                           style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'none', border: '1px solid #ccc', padding: '8px 14px', fontSize: '12px', cursor: 'pointer', color: '#444', letterSpacing: '0.5px' }}>
-                          <Trash2 size={13} /> Eliminar look
+                          <Trash2 size={13} /> {t.profile.deleteLook}
                         </button>
                       </div>
                     </div>
@@ -1570,12 +1570,12 @@ export default function App() {
 
         {subgrupPerfil === ('preferits' as any) && (
           <div>
-            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 25px 0', fontWeight: '300', color: '#111' }}>Els meus preferits</h3>
+            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 25px 0', fontWeight: '300', color: '#111' }}>{t.profile.favoritesTitle}</h3>
             {preferits.length === 0 ? (
               <div style={{ textAlign: 'center', padding: '40px 0', color: '#444' }}>
                 <Heart size={32} style={{ marginBottom: '10px', strokeWidth: 1 }} />
-                <p style={{ fontSize: '14px', margin: '0 0 20px 0' }}>Encara no has afegit cap peça als preferits.</p>
-                <button onClick={() => { setSeccioActiva('colleccio'); setProducteSeleccionat(null); }} style={{ backgroundColor: '#111', color: '#fff', border: 'none', padding: '12px 28px', fontSize: '13px', letterSpacing: '1px', cursor: 'pointer' }}>EXPLORAR COL·LECCIÓ</button>
+                <p style={{ fontSize: '14px', margin: '0 0 20px 0' }}>{t.profile.emptyFavorites}</p>
+                <button onClick={() => { setSeccioActiva('colleccio'); setProducteSeleccionat(null); }} style={{ backgroundColor: '#111', color: '#fff', border: 'none', padding: '12px 28px', fontSize: '13px', letterSpacing: '1px', cursor: 'pointer' }}>{t.profile.exploreCollection}</button>
               </div>
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -1597,11 +1597,11 @@ export default function App() {
                         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                           <button onClick={() => { setSeccioActiva('colleccio'); setProducteSeleccionat(prod); setImatgeActiva(0); }}
                             style={{ backgroundColor: '#111', color: '#fff', border: 'none', padding: '9px 16px', fontSize: '12px', fontWeight: 'bold', cursor: 'pointer', letterSpacing: '1px' }}>
-                            VEURE PEÇA
+                            {t.profile.viewPiece}
                           </button>
                           <button onClick={() => commutarPreferit(prod)}
                             style={{ backgroundColor: 'transparent', color: '#bd1c1c', border: '1px solid #bd1c1c', padding: '9px 16px', fontSize: '12px', cursor: 'pointer', letterSpacing: '1px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                            <Trash2 size={13} /> ELIMINAR
+                            <Trash2 size={13} /> {t.common.remove}
                           </button>
                         </div>
                       </div>
@@ -1616,11 +1616,11 @@ export default function App() {
 
         {subgrupPerfil === 'compres' && (
           <div>
-            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 25px 0', fontWeight: '300', color: '#111' }}>Historial de les meves comandes</h3>
+            <h3 style={{ fontFamily: '"Didot", serif', fontSize: '22px', margin: '0 0 25px 0', fontWeight: '300', color: '#111' }}>{t.profile.ordersTitle}</h3>
             {perfil.comandes.length === 0 ? (
               <div style={{ textAlign: 'center', padding: '40px 0', color: '#444' }}>
                 <Package size={32} style={{ marginBottom: '10px', strokeWidth: 1 }} />
-                <p style={{ fontSize: '14px', margin: 0 }}>Encara no has realitzat cap comanda anteriorment a la nostra plataforma.</p>
+                <p style={{ fontSize: '14px', margin: 0 }}>{t.profile.emptyOrders}</p>
               </div>
             ) : isMobile ? (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -1638,10 +1638,10 @@ export default function App() {
             ) : (
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px', letterSpacing: '0.5px' }}>
                 <thead><tr style={{ borderBottom: '2px solid #111', textAlign: 'left' }}>
-                  <th style={{ padding: '12px 8px' }}>Codi de Comanda</th>
-                  <th style={{ padding: '12px 8px' }}>Data</th>
-                  <th style={{ padding: '12px 8px' }}>Productes comprats</th>
-                  <th style={{ padding: '12px 8px', textAlign: 'right' }}>Total Pagat</th>
+                  <th style={{ padding: '12px 8px' }}>{t.cart.orderCode}</th>
+                  <th style={{ padding: '12px 8px' }}>{t.cart.date}</th>
+                  <th style={{ padding: '12px 8px' }}>{t.cart.purchasedProducts}</th>
+                  <th style={{ padding: '12px 8px', textAlign: 'right' }}>{t.cart.paidTotal}</th>
                 </tr></thead>
                 <tbody>{perfil.comandes.map(cmd => (
                   <tr key={cmd.id} style={{ borderBottom: '1px solid #eceae4' }}>
