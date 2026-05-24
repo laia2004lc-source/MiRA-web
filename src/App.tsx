@@ -33,10 +33,12 @@ const translations = {
       eyebrow: 'EL QUE DIU LA COMUNITAT',
       title: 'OPINIONS REALS',
       items: [
-        { nom: 'Laia Puigdomenech', lloc: 'Mataró', producte: 'Pantaló sastre Tailor', text: 'El provador virtual és una passada! Vaig poder veure exactament com em quedaria el pantaló Tailor abans de comprar. La talla que em van recomanar és perfecta. Mai havia tingut una experiència de compra online tan segura i sense sorpreses.' },
-        { nom: 'Marta Espinosa', lloc: 'Barcelona', producte: 'Top drapejat Essence', text: 'La qualitat del cotó orgànic és molt millor del que esperava. Saber que la roba es fabrica a Barcelona amb residu zero fa que la compra tingui un significat diferent. El top és còmode i elegant alhora. Repetiré segur!' },
-        { nom: 'Núria Calvet', lloc: 'Premià de Mar', producte: 'Brusa sastre Tailor', text: "Sempre tinc dubtes entre dues talles, però el recomanador de MiRA encerta a la primera. La brusa Tailor és preciosa en persona i la caiguda del teixit és exactament com apareix a l'emprovador 3D. Molt recomanable!" },
-        { nom: 'Carla Valls', lloc: 'Girona', producte: 'Pantaló fluid Essence', text: "Molt contenta amb l'atenció al client. Vaig tenir un petit problema amb l'enviament i em van respondre molt ràpid per resoldre-ho. Es nota que és una marca que es preocupa per cuidar els detalls i a la clienta." },
+        { id: 1, nom: 'Laia Puigdomenech', lloc: 'Mataró', valoracio: 5, producte: 'Pantaló sastre Tailor', text: 'El provador virtual és una passada! Vaig poder veure exactament com em quedaria el pantaló Tailor abans de comprar. La talla que em van recomanar és perfecta. Mai havia tingut una experiència de compra online tan segura i sense sorpreses.' },
+        { id: 2, nom: 'Marta Espinosa', lloc: 'Barcelona', valoracio: 4, producte: 'Top drapejat Essence', text: 'La qualitat del cotó orgànic és molt millor del que esperava. Saber que la roba es fabrica a Barcelona amb residu zero fa que la compra tingui un significat diferent. El top és còmode i elegant alhora. Repetiré segur!' },
+        { id: 3, nom: 'Núria Calvet', lloc: 'Premià de Mar', valoracio: 5, producte: 'Brusa sastre Tailor', text: "Sempre tinc dubtes entre dues talles, però el recomanador de MiRA encerta a la primera. La brusa Tailor és preciosa en persona i la caiguda del teixit és exactament com apareix a l'emprovador 3D. Molt recomanable!" },
+        { id: 4, nom: 'Carla Valls', lloc: 'Girona', valoracio: 5, producte: 'Pantaló fluid Essence', text: "Molt contenta amb l'atenció al client. Vaig tenir un petit problema amb l'enviament i em van respondre molt ràpid per resoldre-ho. Es nota que és una marca que es preocupa per cuidar els detalls i a la clienta." },
+        { id: 5, nom: 'Marta Riera', lloc: 'Vilanova i la Geltrú', valoracio: 4, producte: 'Pantaló sastre Tailor', text: "El disseny sastre és molt elegant i es nota la qualitat del teixit local. L'emprovador 3D m'ha ajudat molt a decidir-me, encara que m'agradaria que hi hagués encara més varietat de colors disponibles en el futur." },
+        { id: 6, nom: 'Laura Ferran', lloc: 'Manresa', valoracio: 5, producte: 'Top drapejat Essence', text: "La tecnologia de l'emprovador 3D ha clavat la meva talla a la primera, cosa que em dona molta seguretat al comprar online. L'única pega és que vaig haver d'esperar un parell de dies més del previst, però la qualitat del cotó orgànic compensa l'espera." },
       ],
     },
     collection: {
@@ -68,7 +70,7 @@ const translations = {
     },
     cart: { title: 'EL TEU CARRETÓ DE COMPRA', empty: 'El teu carretó està buit actualment.', summary: 'RESUM DE COMPRA', shippingCosts: "Despeses d'enviament", addForFreeShippingPrefix: 'Afegeix', addForFreeShippingSuffix: 'més per obtenir enviament gratuit!', freeShippingApplied: 'Enviament gratuit aplicat', continuePayment: 'CONTINUAR AL PAGAMENT', backToCart: 'TORNAR AL CARRETÓ', paymentData: 'DADES DE PAGAMENT', cardholder: 'TITULAR DE LA TARGETA', cardholderPlaceholder: 'Nom i cognoms del titular', cardNumber: 'NÚMERO DE TARGETA', expiry: "DATA D'EXPIRACIÓ", ssl: 'Les teves dades estan protegides amb xifratge SSL de 256 bits.', finalSummary: 'RESUM FINAL', confirmPay: 'CONFIRMAR I PAGAR', orderCode: 'Codi de Comanda', date: 'Data', purchasedProducts: 'Productes comprats', paidTotal: 'Total Pagat' },
     profile: { title: 'EL MEU PERFIL', tabData: 'Dades', tabRA: 'RA', tabLooks: 'Looks', tabFavorites: 'Preferits', tabOrders: 'Comandes', menuData: 'Les meves dades i mides', menuRA: 'Fotografies per a la RA', menuLooks: 'Els meus looks provats', menuFavorites: 'Els meus preferits', menuOrders: 'Les meves comandes', personalInfo: 'Informació Personal', fullName: 'Nom Complet', email: 'Correu Electrònic', phone: 'Número de Telèfon', address: "Direcció d'Enviament", myMeasures: 'Les teves mesures', height: 'Alçada (cm)', chest: 'Contorn de Pit (cm)', waist: 'Contorn de Cintura (cm)', hip: 'Contorn de Maluc (cm)', recommendedByPiece: 'TALLES RECOMANADES PER A CADA PEÇA', raFiles: 'Arxius per a Realitat Augmentada', previewRA: 'Preview RA', deleteSelectedPhoto: 'BORRAR FOTO SELECCIONADA', looksTitle: "Looks provats a l'emprovador 3D", emptyLooks: "Encara no has provat cap peça a l'emprovador virtual.", deleteLook: 'Eliminar look', favoritesTitle: 'Els meus preferits', emptyFavorites: 'Encara no has afegit cap peça als preferits.', viewPiece: 'VEURE PEÇA', ordersTitle: 'Historial de les meves comandes', emptyOrders: 'Encara no has realitzat cap comanda anteriorment a la nostra plataforma.', exploreCollection: 'EXPLORAR COL·LECCIÓ' },
-    favoritesCart: { title: 'ELS TEUS PREFERITS', oneSaved: 'peca guardada', manySaved: 'peces guardades', deleteTitle: 'Eliminar de preferits' },
+    favoritesCart: { title: 'ELS TEUS PREFERITS', oneSaved: 'peça guardada', manySaved: 'peces guardades', deleteTitle: 'Eliminar de preferits' },
     virtualFitting: { system: 'SISTEMA INTERACTIU MIRA', title: 'EMPROVADOR 3D', selectedSize: 'TALLA SELECCIONADA', selected: 'seleccionada', recommendedForProfile: 'Recomanada per al teu perfil', close: 'TANCAR VISUALITZACIÓ', photoTitle: 'Fotografia necessària', photoText: "Per poder activar l'emprovador conceptual, primer cal una fotografia de referència corporal.", choosePhoto: 'Selecciona una fotografia del teu dispositiu' },
     quickMeasures: { title: 'Les meves mesures', savedInfo: 'Les mesures es guardaran al teu perfil i actualitzaran el recomanador automàticament.', missingPrefix: 'Per calcular la talla de', missingMiddle: 'necessitem:', heightPlaceholder: 'Ex: 168', chestPlaceholder: 'Ex: 90', waistPlaceholder: 'Ex: 70', hipPlaceholder: 'Ex: 96', save: 'GUARDAR MESURES' },
     sizeGuide: { title: 'TAULA DE MIDES OFICIALS', tshirtEssence: 'CAMISETA ESSENCE', trousersEssence: 'PANTALONS ESSENCE', tshirtTailor: 'CAMISETA TAILOR', trousersTailor: 'PANTALONS TAILOR', waist: 'Cintura (cm)', elasticWaist: 'Cintura elàstica (cm)', fixedWaist: 'Cintura fixa (cm)', chest: 'Pit (cm)', chestContour: 'Contorn de Pit (cm)', hip: 'Maluc (cm)', tailorNote: 'Sastreria de cintura fixa · Si estàs entre dues talles, agafa la més gran.', recommendedPrefix: 'La teva talla recomanada per a aquesta peça és la' },
@@ -84,10 +86,12 @@ const translations = {
       'camiseta-tailor': { nom: 'Blusa sastre Tailor', descripcio: 'Elegancia y sofisticación minimalista para tu día a día. Esta blusa destaca por sus líneas puras, un escote refinado y una caída fluida de máxima comodidad. Confeccionada en Barcelona bajo criterios de diseño consciente y residuo cero.', teixit: '100% Algodón Orgánico Premium' },
     },
     reviews: { eyebrow: 'LO QUE DICE LA COMUNIDAD', title: 'OPINIONES REALES', items: [
-      { nom: 'Laia Puigdomenech', lloc: 'Mataró', producte: 'Pantalón sastre Tailor', text: 'El probador virtual ¡es una pasada! Pude ver exactamente cómo me quedaría el pantalón Tailor antes de comprar. La talla que me recomendaron es perfecta. Nunca había tenido una experiencia de compra online tan segura y sin sorpresas.' },
-      { nom: 'Marta Espinosa', lloc: 'Barcelona', producte: 'Top drapeado Essence', text: 'La calidad del algodón orgánico es mucho mejor de lo que esperaba. Saber que la ropa se fabrica en Barcelona con residuo cero hace que la compra tenga un significado distinto. El top es cómodo y elegante a la vez. ¡Repetiré seguro!' },
-      { nom: 'Núria Calvet', lloc: 'Premià de Mar', producte: 'Blusa sastre Tailor', text: 'Siempre tengo dudas entre dos tallas, pero el recomendador de MiRA acierta a la primera. La blusa Tailor es preciosa en persona y la caída del tejido es exactamente como aparece en el probador 3D. ¡Muy recomendable!' },
-      { nom: 'Carla Valls', lloc: 'Girona', producte: 'Pantalón fluido Essence', text: 'Muy contenta con la atención al cliente. Tuve un pequeño problema con el envío y me respondieron muy rápido para resolverlo. Se nota que es una marca que se preocupa por cuidar los detalles y a la clienta.' },
+      { id: 1, nom: 'Laia Puigdomenech', lloc: 'Mataró', valoracio: 5, producte: 'Pantalón sastre Tailor', text: 'El probador virtual ¡es una pasada! Pude ver exactamente cómo me quedaría el pantalón Tailor antes de comprar. La talla que me recomendaron es perfecta. Nunca había tenido una experiencia de compra online tan segura y sin sorpresas.' },
+      { id: 2, nom: 'Marta Espinosa', lloc: 'Barcelona', valoracio: 4, producte: 'Top drapeado Essence', text: 'La calidad del algodón orgánico es mucho mejor de lo que esperaba. Saber que la ropa se fabrica en Barcelona con residuo cero hace que la compra tenga un significado distinto. El top es cómodo y elegante a la vez. ¡Repetiré seguro!' },
+      { id: 3, nom: 'Núria Calvet', lloc: 'Premià de Mar', valoracio: 5, producte: 'Blusa sastre Tailor', text: 'Siempre tengo dudas entre dos tallas, pero el recomendador de MiRA acierta a la primera. La blusa Tailor es preciosa en persona y la caída del tejido es exactamente como aparece en el probador 3D. ¡Muy recomendable!' },
+      { id: 4, nom: 'Carla Valls', lloc: 'Girona', valoracio: 5, producte: 'Pantalón fluido Essence', text: 'Muy contenta con la atención al cliente. Tuve un pequeño problema con el envío y me respondieron muy rápido para resolverlo. Se nota que es una marca que se preocupa por cuidar los detalles y a la clienta.' },
+      { id: 5, nom: 'Marta Riera', lloc: 'Vilanova i la Geltrú', valoracio: 4, producte: 'Pantalón sastre Tailor', text: 'El diseño sastre es muy elegante y se nota la calidad del tejido local. El probador 3D me ha ayudado mucho a decidirme, aunque me gustaría que hubiera aún más variedad de colores disponibles en el futuro.' },
+      { id: 6, nom: 'Laura Ferran', lloc: 'Manresa', valoracio: 5, producte: 'Top Drapeado Essence', text: 'La tecnología del probador 3D ha clavado mi talla a la primera, lo que me da mucha seguridad al comprar online. El único inconveniente es que tuve que esperar un par de días más de lo previsto, pero la calidad del algodón orgánico compensa la espera.' },
     ] },
     collection: { newBadge: 'NUEVO', explorePiece: 'EXPLORAR PRENDA Y PROBAR EN 3D', heroEyebrow: 'NUEVA TEMPORADA · BARCELONA', heroTitle: 'EXPLORA LAS LÍNEAS', heroDescription: 'Diseños atemporales de proximidad. Probador virtual en 3D. Talla exacta a la primera.', essenceEyebrow: 'COLECCIÓN CASUAL ESSENTIALS', essenceTitle: 'LÍNEA ESSENCE', essenceSubtitle: 'Comodidad y fluidez para tu día a día', essenceAlt: 'Mosaico Línea Tailor', tailorEyebrow: 'ALTA SASTRERÍA ESTRUCTURAL', tailorTitle: 'LÍNEA TAILOR', tailorSubtitle: 'Elegancia clásica y sastrería contemporánea', tailorAlt: 'Mosaico Línea Tailor', piecesOf: 'PRENDAS DE LA', heroAlt: 'Colección MiRA, Essence y Tailor', back: 'VOLVER A LA COLECCIÓN', try3d: 'PROBAR EN PROBADOR 3D', officialSizeChart: 'Tabla de tallas oficial', recommenderTitle: 'RECOMENDADOR DE ALTA PRECISIÓN', recommendPrefix: 'Te recomendamos la talla', recommendSuffix: 'para esta prenda.', modifyMeasures: 'Modificar medidas', missingMeasuresPrefix: 'Para calcular tu talla necesitamos:', enterMissingMeasures: 'Introducir las medidas que faltan', configureMeasures: 'Configura tus medidas en el perfil para activar el recomendador.', selectSize: 'SELECCIONAR TALLA', addToCartLong: 'AÑADIR AL CARRITO DE COMPRA', whatsapp: 'CONSULTA RÁPIDA POR WHATSAPP', altWalking: 'Modelo MiRA caminando con sastrería urbana', altCapsule: 'Armario cápsula MiRA con prendas seleccionadas' },
     news: { eyebrow: 'Edición reciente', title: 'Novedades de la Temporada', latest: 'ÚLTIMAS INCORPORACIONES', description: 'Prendas nuevas pensadas para vestir con intención, movimiento y una elegancia serena.', empty: 'Pronto llegarán nuevas prendas. Mantente cerca de MiRA.' },
@@ -207,58 +211,6 @@ const PRODUCTES = [
   }
 ];
 
-// ─── RESSENYES DE CLIENTS ──────────────────────────────────────────────────
-const RESSENYES = [
-  {
-    id: 1,
-    nom: 'Laia Puigdomènech',
-    lloc: 'Mataró',
-    valoracio: 5,
-    producte: 'Pantaló sastre Tailor',
-    text: "El probador virtual és una passada! Vaig poder veure exactament com em quedaria el pantaló Tailor abans de comprar. La talla que em van recomanar és perfecta. Mai havia tingut una experiència de compra online tan segura i sense sorpreses."
-  },
-  {
-    id: 2,
-    nom: 'Marta Espinosa',
-    lloc: 'Barcelona',
-    valoracio: 4,
-    producte: 'Top drapejat Essence',
-    text: "La qualitat del cotó orgànic és molt millor del que esperava. Saber que la roba es fabrica a Barcelona amb residu zero fa que la compra tingui un significat diferent. El top és còmode i elegant alhora. Repetiré segur!"
-  },
-  {
-    id: 3,
-    nom: 'Núria Calvet',
-    lloc: 'Premià de Mar',
-    valoracio: 5,
-    producte: 'Pantaló fluid Essence',
-    text: "Sempre tinc dubtes entre dues talles, però el recomanador de MiRA encerta a la primera. La brusa Tailor és preciosa en persona i la caiguda del teixit és exactament com apareix a l'emprovador 3D. Molt recomanable!"
-  },
-  {
-    id: 4,
-    nom: 'Carla Valls',
-    lloc: 'Girona',
-    valoracio: 5,
-    producte: 'Brusa sastre Tailor',
-    text: "Molt contenta amb l'atenció al client. Vaig tenir un petit problema amb l'enviament i em van respondre molt ràpid per resoldre-ho. Es nota que és una marca que es preocupa per cuidar els detalls i a la clienta." 
-  },
-  {
-    id: 5,
-    nom: 'Marta Riera',
-    lloc: 'Vilanova i la Geltrú',
-    valoracio: 4,
-    producte: 'Pantaló sastre Tailor',
-    text: "El disseny sastre és molt elegant i es nota la qualitat del teixit local. L'emprovador 3D m'ha ajudat molt a decidir-me, encara que m'agradaria que hi hagués encara més varietat de colors disponibles en el futur."
-  },
-  {
-    id: 6,
-    nom: 'Laura Ferran',
-    lloc: 'Manresa',
-    valoracio: 4,
-    producte: 'Top Drapejat Essence',
-    text: "La tecnologia de l'emprovador 3D ha clavat la meva talla a la primera, cosa que em dona molta seguretat al comprar online. L'única pega és que vaig haver d'esperar un parell de dies més del previst, però la qualitat del cotó orgànic compensa l'espera."
-  }
-];
-
 // Preu amb descompte
 const preuSales = (prod: typeof PRODUCTES[0]) =>
   prod.descompte > 0 ? +(prod.preu * (1 - prod.descompte)).toFixed(2) : prod.preu;
@@ -286,7 +238,7 @@ function SeccioRessenyes({ isMobile, lang }: { isMobile: boolean; lang: Lang }) 
         </h2>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: '20px' }}>
-        {RESSENYES.map((r) => (
+        {t.reviews.items.map((r) => (
           <div key={r.id} style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', padding: '28px 24px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
             <Estrelles n={r.valoracio} />
             <p style={{ margin: 0, fontSize: '14px', color: '#444', lineHeight: '1.75', fontStyle: 'italic' }}>
