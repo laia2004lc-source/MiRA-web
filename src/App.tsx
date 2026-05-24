@@ -286,9 +286,9 @@ function SeccioRessenyes({ isMobile, lang }: { isMobile: boolean; lang: Lang }) 
         </h2>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: '20px' }}>
-        {t.reviews.items.map((r, index) => (
-          <div key={index} style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', padding: '28px 24px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
-            <Estrelles n={RESSENYES[index].valoracio} />
+        {RESSENYES.map((r) => (
+          <div key={r.id} style={{ backgroundColor: '#ffffff', border: '1px solid #eae8e1', padding: '28px 24px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            <Estrelles n={r.valoracio} />
             <p style={{ margin: 0, fontSize: '14px', color: '#444', lineHeight: '1.75', fontStyle: 'italic' }}>
               "{r.text}"
             </p>
