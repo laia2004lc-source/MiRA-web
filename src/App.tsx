@@ -253,7 +253,7 @@ const RESSENYES = [
     id: 6,
     nom: 'Laura Ferran',
     lloc: 'Manresa',
-    valoracio: 5,
+    valoracio: 4,
     producte: 'Top Drapejat Essence',
     text: "La tecnologia de l'emprovador 3D ha clavat la meva talla a la primera, cosa que em dona molta seguretat al comprar online. L'única pega és que vaig haver d'esperar un parell de dies més del previst, però la qualitat del cotó orgànic compensa l'espera."
   }
