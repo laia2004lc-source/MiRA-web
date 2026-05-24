@@ -87,7 +87,7 @@ const translations = {
       { nom: 'Laia Puigdomenech', lloc: 'Mataró', producte: 'Pantalón sastre Tailor', text: 'El probador virtual ¡es una pasada! Pude ver exactamente cómo me quedaría el pantalón Tailor antes de comprar. La talla que me recomendaron es perfecta. Nunca había tenido una experiencia de compra online tan segura y sin sorpresas.' },
       { nom: 'Marta Espinosa', lloc: 'Barcelona', producte: 'Top drapeado Essence', text: 'La calidad del algodón orgánico es mucho mejor de lo que esperaba. Saber que la ropa se fabrica en Barcelona con residuo cero hace que la compra tenga un significado distinto. El top es cómodo y elegante a la vez. ¡Repetiré seguro!' },
       { nom: 'Núria Calvet', lloc: 'Premià de Mar', producte: 'Blusa sastre Tailor', text: 'Siempre tengo dudas entre dos tallas, pero el recomendador de MiRA acierta a la primera. La blusa Tailor es preciosa en persona y la caída del tejido es exactamente como aparece en el probador 3D. ¡Muy recomendable!' },
-      { nom: 'Carla Valls', lloc: 'Girona', producte: 'Muy contenta con la atención al cliente. Tuve un pequeño problema con el envío y me respondieron muy rápido para resolverlo. Se nota que es una marca que se preocupa por cuidar los detalles y a la clienta.' },
+      { nom: 'Carla Valls', lloc: 'Girona', producte: 'Pantalón fluido Essence', text: 'Muy contenta con la atención al cliente. Tuve un pequeño problema con el envío y me respondieron muy rápido para resolverlo. Se nota que es una marca que se preocupa por cuidar los detalles y a la clienta.' },
     ] },
     collection: { newBadge: 'NUEVO', explorePiece: 'EXPLORAR PRENDA Y PROBAR EN 3D', heroEyebrow: 'NUEVA TEMPORADA · BARCELONA', heroTitle: 'EXPLORA LAS LÍNEAS', heroDescription: 'Diseños atemporales de proximidad. Probador virtual en 3D. Talla exacta a la primera.', essenceEyebrow: 'COLECCIÓN CASUAL ESSENTIALS', essenceTitle: 'LÍNEA ESSENCE', essenceSubtitle: 'Comodidad y fluidez para tu día a día', essenceAlt: 'Mosaico Línea Tailor', tailorEyebrow: 'ALTA SASTRERÍA ESTRUCTURAL', tailorTitle: 'LÍNEA TAILOR', tailorSubtitle: 'Elegancia clásica y sastrería contemporánea', tailorAlt: 'Mosaico Línea Tailor', piecesOf: 'PRENDAS DE LA', heroAlt: 'Colección MiRA, Essence y Tailor', back: 'VOLVER A LA COLECCIÓN', try3d: 'PROBAR EN PROBADOR 3D', officialSizeChart: 'Tabla de tallas oficial', recommenderTitle: 'RECOMENDADOR DE ALTA PRECISIÓN', recommendPrefix: 'Te recomendamos la talla', recommendSuffix: 'para esta prenda.', modifyMeasures: 'Modificar medidas', missingMeasuresPrefix: 'Para calcular tu talla necesitamos:', enterMissingMeasures: 'Introducir las medidas que faltan', configureMeasures: 'Configura tus medidas en el perfil para activar el recomendador.', selectSize: 'SELECCIONAR TALLA', addToCartLong: 'AÑADIR AL CARRITO DE COMPRA', whatsapp: 'CONSULTA RÁPIDA POR WHATSAPP', altWalking: 'Modelo MiRA caminando con sastrería urbana', altCapsule: 'Armario cápsula MiRA con prendas seleccionadas' },
     news: { eyebrow: 'Edición reciente', title: 'Novedades de la Temporada', latest: 'ÚLTIMAS INCORPORACIONES', description: 'Prendas nuevas pensadas para vestir con intención, movimiento y una elegancia serena.', empty: 'Pronto llegarán nuevas prendas. Mantente cerca de MiRA.' },
@@ -152,8 +152,8 @@ const PRODUCTES = [
     teixit: '100% Cotó Orgànic Certificat',
     model3d: '/assets/pantalons_essence.glb',
     isNou: false,
-    isSales: true,
-    descompte: 0.20
+    isSales: false,
+    descompte: 0
   },
   {
     id: 'pantalons-tailor',
@@ -515,7 +515,9 @@ export default function App() {
     setMissatgeWeb({ text: t.messages.lookDeleted, tipus: 'info' });
   };
 
-  const subtotalCarret = carret.reduce((sum, item) => sum + (item.producte.preu * item.quantitat), 0);
+  const subtotalOriginal = carret.reduce((sum, item) => sum + (item.producte.preu * item.quantitat), 0);
+  const descompteCarret = carret.reduce((sum, item) => sum + ((item.producte.preu - preuSales(item.producte)) * item.quantitat), 0);
+  const subtotalCarret = subtotalOriginal - descompteCarret;
   const costEnviament = subtotalCarret >= 60 || subtotalCarret === 0 ? 0 : 3.95;
   const totalGlobal = subtotalCarret + costEnviament;
   const faltaPerEnviamentGratis = subtotalCarret > 0 && subtotalCarret < 60 ? (60 - subtotalCarret) : 0;
@@ -1224,10 +1226,10 @@ export default function App() {
                             <Check size={11} /> {t.common.recommendedSize} {tallaRecItem}
                           </p>
                         )}
-                        <p style={{ margin: 0, fontSize: '13px', color: '#111' }}>{item.quantitat} x {item.producte.preu.toFixed(2)} €</p>
+                        <p style={{ margin: 0, fontSize: '13px', color: '#111' }}>{item.quantitat} x {preuSales(item.producte).toFixed(2)} €</p>
                       </div>
                       <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                        <p style={{ margin: '0 0 10px 0', fontWeight: 'bold', fontSize: '15px' }}>{(item.producte.preu * item.quantitat).toFixed(2)} €</p>
+                        <p style={{ margin: '0 0 10px 0', fontWeight: 'bold', fontSize: '15px' }}>{(preuSales(item.producte) * item.quantitat).toFixed(2)} €</p>
                         <button onClick={() => setCarret(prev => { const it = prev[index]; if (it.quantitat > 1) return prev.map((x, i) => i === index ? { ...x, quantitat: x.quantitat - 1 } : x); return prev.filter((_, i) => i !== index); })}
                           style={{ background: 'none', border: 'none', color: '#bd1c1c', cursor: 'pointer', fontSize: '12px', textDecoration: 'underline', padding: 0 }}>
                           {t.common.remove}
@@ -1240,7 +1242,10 @@ export default function App() {
 
               <div style={{ backgroundColor: '#fff', border: '1px solid #eae8e1', padding: isMobile ? '20px' : '30px' }}>
                 <h3 style={{ fontFamily: '"Didot", serif', fontSize: '20px', margin: '0 0 20px 0', fontWeight: '300', borderBottom: '1px solid #eceae4', paddingBottom: '15px', color: '#111' }}>{t.cart.summary}</h3>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '14px', marginBottom: '12px', color: '#444' }}><span>{t.common.subtotal}</span><span>{subtotalCarret.toFixed(2)} €</span></div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '14px', marginBottom: '12px', color: '#444' }}><span>{t.common.subtotal}</span><span>{subtotalOriginal.toFixed(2)} €</span></div>
+                {descompteCarret > 0 && (
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '14px', marginBottom: '12px', color: '#bd1c1c' }}><span>{t.sales.title}</span><span>-{descompteCarret.toFixed(2)} €</span></div>
+                )}
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '14px', marginBottom: '8px', color: '#444' }}><span>{t.cart.shippingCosts}</span><span>{costEnviament === 0 ? t.common.free : `${costEnviament.toFixed(2)} €`}</span></div>
                 {faltaPerEnviamentGratis > 0 && (
                   <div style={{ backgroundColor: '#f4f3ee', border: '1px solid #eae8e1', padding: '10px 12px', marginBottom: '20px', fontSize: '12px', color: '#444', lineHeight: '1.5' }}>
@@ -1306,7 +1311,7 @@ export default function App() {
                 {carret.map((item) => (
                   <div key={`${item.producte.id}-${item.talla}`} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', marginBottom: '10px', color: '#444' }}>
                     <span style={{ maxWidth: '60%' }}>{item.producte.nom} ({item.talla}) x{item.quantitat}</span>
-                    <span>{(item.producte.preu * item.quantitat).toFixed(2)} €</span>
+                    <span>{(preuSales(item.producte) * item.quantitat).toFixed(2)} €</span>
                   </div>
                 ))}
                 <div style={{ borderTop: '1px solid #eceae4', paddingTop: '12px', marginTop: '12px' }}>
