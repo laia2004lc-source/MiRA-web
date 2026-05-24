@@ -24,10 +24,10 @@ const translations = {
     },
     nav: { about: 'SOBRE MiRA', news: 'NOVETATS', sales: 'MID-SEASON SALES', collection: 'COL·LECCIÓ', profile: 'EL MEU PERFIL' },
     productes: {
-      'pantalons-essence': { nom: 'Pantaló fluid Essence', descripcio: "Pantaló d'estil urbà amb tall wide leg i teixit fluid que s'adapta perfectament al teu moviment. Confeccionat de manera sostenible en tallers locals. Una peça còmoda, versàtil i en tendència per al teu dia a dia.", teixit: '95% Cotó Orgànic Certificat, 5% Elastà' },
-      'pantalons-tailor': { nom: 'Pantaló sastre Tailor', descripcio: 'Elegància clàssica i sastreria contemporània. Aquest pantaló destaca pel seu tall estructurat de tir alt que defineix la silueta amb la màxima comoditat. Creat a Barcelona amb materials responsables i sota criteris de residu zero.', teixit: "100% Cotó Orgànic Premium d'alta densitat" },
+      'pantalons-essence': { nom: 'Pantaló fluid Essence', descripcio: "Pantaló d'estil urbà amb tall wide leg i teixit fluid que s'adapta perfectament al teu moviment. Confeccionat de manera sostenible en tallers locals. Una peça còmoda, versàtil i en tendència per al teu dia a dia.", teixit: '100% Cotó Orgànic Certificat' },
+      'pantalons-tailor': { nom: 'Pantaló sastre Tailor', descripcio: 'Elegància clàssica i sastreria contemporània. Aquest pantaló destaca pel seu tall estructurat de tir alt que defineix la silueta amb la màxima comoditat. Creat a Barcelona amb materials responsables i sota criteris de residu zero.', teixit: "98% Cotó Orgànic Premium, 2% Elastà" },
       'camiseta-essence': { nom: 'Top drapejat Essence', descripcio: 'Disseny conscient i sofisticació minimalista. Aquest top destaca pel seu escot creuat i un drapejat elegant que afavoreix la silueta amb una caiguda molt fluida. Dissenyada de proximitat i amb residu zero.', teixit: '100% Cotó Orgànic Certificat de primera qualitat' },
-      'camiseta-tailor': { nom: 'Brusa sastre Tailor', descripcio: 'Elegància i sofisticació minimalista per al teu dia a dia. Aquesta brusa destaca per les seves línies pures, un escot refinat i una caiguda fluida de màxima comoditat. Confeccionada a Barcelona sota criteris de disseny conscient i residu zero.', teixit: "100% Cotó Orgànic Premium d'alta densitat i tissatge fi" },
+      'camiseta-tailor': { nom: 'Brusa sastre Tailor', descripcio: 'Elegància i sofisticació minimalista per al teu dia a dia. Aquesta brusa destaca per les seves línies pures, un escot refinat i una caiguda fluida de màxima comoditat. Confeccionada a Barcelona sota criteris de disseny conscient i residu zero.', teixit: "100% Cotó Orgànic Premium" },
     },
     reviews: {
       eyebrow: 'EL QUE DIU LA COMUNITAT',
@@ -36,6 +36,7 @@ const translations = {
         { nom: 'Laia Puigdomenech', lloc: 'Mataró', producte: 'Pantaló sastre Tailor', text: 'El provador virtual és una passada! Vaig poder veure exactament com em quedaria el pantaló Tailor abans de comprar. La talla que em van recomanar és perfecta. Mai havia tingut una experiència de compra online tan segura i sense sorpreses.' },
         { nom: 'Marta Espinosa', lloc: 'Barcelona', producte: 'Top drapejat Essence', text: 'La qualitat del cotó orgànic és molt millor del que esperava. Saber que la roba es fabrica a Barcelona amb residu zero fa que la compra tingui un significat diferent. El top és còmode i elegant alhora. Repetiré segur!' },
         { nom: 'Núria Calvet', lloc: 'Premià de Mar', producte: 'Brusa sastre Tailor', text: "Sempre tinc dubtes entre dues talles, però el recomanador de MiRA encerta a la primera. La brusa Tailor és preciosa en persona i la caiguda del teixit és exactament com apareix a l'emprovador 3D. Molt recomanable!" },
+        { nom: 'Carla Valls', lloc: 'Girona', producte: 'Pantaló fluid Essence', text: "Molt contenta amb l'atenció al client. Vaig tenir un petit problema amb l'enviament i em van respondre molt ràpid per resoldre-ho. Es nota que és una marca que es preocupa per cuidar els detalls i a la clienta." },
       ],
     },
     collection: {
@@ -51,14 +52,14 @@ const translations = {
     news: { eyebrow: 'Edició recent', title: 'Novetats de la Temporada', latest: 'ÚLTIMES INCORPORACIONS', description: 'Peces noves pensades per vestir amb intenció, moviment i una elegància serena.', empty: 'Aviat arribaran noves peces. Manten-te a prop de MiRA.' },
     sales: { eyebrow: 'Selecció conscient', title: 'Mid-Season Sales', description: "Una tria precisa de peces d'armari càpsula, amb descompte aplicat sense soroll i amb estoc limitat.", note: "Els preus especials s'apliquen automàticament al carretó. Sense codis, sense urgència artificial." },
     about: {
-      medIdentitat: { subtitulo: 'IDENTITAT MEDITERRÀNIA', titulo: 'BORN IN THE MARESME', texto: 'MiRA neix entre la llum clara del Maresme i el ritme pausat de la costa. Una firma de moda digital, local i conscient que dissenya peces per vestir amb seguretat, calma i presència, sense renunciar a la precisió tecnològica.' },
+      medIdentitat: { subtitulo: 'IDENTITAT MEDITERRÀNIA', titulo: 'CREACIÓ DES DEL MARESME', texto: 'MiRA neix entre la llum clara del Maresme i el ritme pausat de la costa. Una firma de moda digital, local i conscient que dissenya peces per vestir amb seguretat, calma i presència, sense renunciar a la precisió tecnològica.' },
       medMissio: { subtitulo: 'MISSIÓ I VISIÓ', titulo: 'Comprar online amb la confiança d\'una peça feta per a tu.', p1: 'La nostra missió és eliminar el dubte de la talla i acostar la moda responsable a una experiència digital més humana, precisa i transparent.', p2: 'Aspirem a convertir MiRA en l\'e-commerce de referència per a una nova generació de consumidores: dones que busquen disseny local, tecnologia útil i un armari més petit, però millor pensat.' },
       medValors: { subtitulo: 'VALORS', titulo: 'Disseny que respira, tecnologia que acompanya.', v1_tit: 'INNOVACIÓ ACCESSIBLE', v1_txt: 'La realitat augmentada i els patrons 3D es posen al servei d\'una compra clara, intuïtiva i sense barreres.', v2_tit: 'TRANSPARÈNCIA', v2_txt: 'Materials, origen, preus i processos explicats amb honestedat perquè cada decisió tingui context.', v3_tit: 'SOSTENIBILITAT REAL', v3_txt: 'Producció local, lots limitats i residu zero per evitar sobreestoc i allargar el valor de cada peça.' },
       medInnovacio: { subtitulo: 'INNOVACIÓ DIGITAL', titulo: 'L\'emprovador AR com a nova forma de confiança.', texto: 'MiRA combina patrons digitals, recomanació de talla i realitat augmentada perquè puguis veure com s\'adapta cada peça abans de comprar. Una experiència tècnica, però dissenyada per sentir-se natural.' },
       medLookbook: { eyebrow: 'Lookbook MiRA', titulo: 'Explora la dualitat de la nostra col·lecció', btn: 'VEURE LA COL·LECCIÓ' },
       alts: { altBeach: 'Platja del Maresme, origen de MiRA', altLifestyle: 'Estil de vida MiRA al Maresme', altFabric: 'Textura de teixit MiRA', altModels: 'Dues models MiRA amb peces de la col·lecció', altCapsule: 'Armari càpsula i selecció conscient MiRA', altDesign: 'Disseny tècnic digital i patrons 3D MiRA', altLookbook: 'Lookbook MiRA amb dues models' },
       valors: [
-        { tit: 'PROXIMITAT', desc: 'Disseny i producció local al Maresme' },
+        { tit: 'PROXIMITAT', desc: 'Disseny i producció local a Barcelona' },
         { tit: 'TECNOLOGIA', desc: 'Realitat augmentada aplicada al patronatge' },
         { tit: 'CONSCIÈNCIA', desc: 'Residu zero: producció per lots' },
         { tit: 'EXPERIÈNCIA', desc: 'Compra digital humana i precisa' },
@@ -77,15 +78,16 @@ const translations = {
     common: { brand: 'MiRA', cat: 'CAT', esp: 'ESP', size: 'Talla', total: 'TOTAL', free: 'Gratis', shipping: 'Envío', subtotal: 'Subtotal', remove: 'Eliminar', cancel: 'Cancelar', recommendedSize: 'Tu talla recomendada:', cart: 'CARRITO', composition: 'Composición:', viewCollection: 'Ver la colección', addToCart: 'AÑADIR AL CARRITO', exploreCollection: 'EXPLORAR COLECCIÓN', exploreProducts: 'EXPLORAR PRODUCTOS' },
     nav: { about: 'SOBRE MiRA', news: 'NOVEDADES', sales: 'MID-SEASON SALES', collection: 'COLECCIÓN', profile: 'MI PERFIL' },
     productes: {
-      'pantalons-essence': { nom: 'Pantalón fluido Essence', descripcio: 'Pantalón de estilo urbano con corte wide leg y tejido fluido que se adapta perfectamente a tu movimiento. Confeccionado de forma sostenible en talleres locales. Una prenda cómoda, versátil y en tendencia para tu día a día.', teixit: '95% Algodón Orgánico Certificado, 5% Elastano' },
-      'pantalons-tailor': { nom: 'Pantalón sastre Tailor', descripcio: 'Elegancia clásica y sastrería contemporánea. Este pantalón destaca por su corte estructurado de tiro alto que define la silueta con la máxima comodidad. Creado en Barcelona con materiales responsables y bajo criterios de residuo cero.', teixit: '100% Algodón Orgánico Premium de alta densidad' },
+      'pantalons-essence': { nom: 'Pantalón fluido Essence', descripcio: 'Pantalón de estilo urbano con corte wide leg y tejido fluido que se adapta perfectamente a tu movimiento. Confeccionado de forma sostenible en talleres locales. Una prenda cómoda, versátil y en tendencia para tu día a día.', teixit: '100% Algodón Orgánico Certificado' },
+      'pantalons-tailor': { nom: 'Pantalón sastre Tailor', descripcio: 'Elegancia clásica y sastrería contemporánea. Este pantalón destaca por su corte estructurado de tiro alto que define la silueta con la máxima comodidad. Creado en Barcelona con materiales responsables y bajo criterios de residuo cero.', teixit: '98% Algodón Orgánico Premium, 2% Elastano' },
       'camiseta-essence': { nom: 'Top drapeado Essence', descripcio: 'Diseño consciente y sofisticación minimalista. Este top destaca por su escote cruzado y un drapeado elegante que favorece la silueta con una caída muy fluida. Diseñado de proximidad y con residuo cero.', teixit: '100% Algodón Orgánico Certificado de primera calidad' },
-      'camiseta-tailor': { nom: 'Blusa sastre Tailor', descripcio: 'Elegancia y sofisticación minimalista para tu día a día. Esta blusa destaca por sus líneas puras, un escote refinado y una caída fluida de máxima comodidad. Confeccionada en Barcelona bajo criterios de diseño consciente y residuo cero.', teixit: '100% Algodón Orgánico Premium de alta densidad y tejido fino' },
+      'camiseta-tailor': { nom: 'Blusa sastre Tailor', descripcio: 'Elegancia y sofisticación minimalista para tu día a día. Esta blusa destaca por sus líneas puras, un escote refinado y una caída fluida de máxima comodidad. Confeccionada en Barcelona bajo criterios de diseño consciente y residuo cero.', teixit: '100% Algodón Orgánico Premium' },
     },
     reviews: { eyebrow: 'LO QUE DICE LA COMUNIDAD', title: 'OPINIONES REALES', items: [
       { nom: 'Laia Puigdomenech', lloc: 'Mataró', producte: 'Pantalón sastre Tailor', text: 'El probador virtual ¡es una pasada! Pude ver exactamente cómo me quedaría el pantalón Tailor antes de comprar. La talla que me recomendaron es perfecta. Nunca había tenido una experiencia de compra online tan segura y sin sorpresas.' },
       { nom: 'Marta Espinosa', lloc: 'Barcelona', producte: 'Top drapeado Essence', text: 'La calidad del algodón orgánico es mucho mejor de lo que esperaba. Saber que la ropa se fabrica en Barcelona con residuo cero hace que la compra tenga un significado distinto. El top es cómodo y elegante a la vez. ¡Repetiré seguro!' },
       { nom: 'Núria Calvet', lloc: 'Premià de Mar', producte: 'Blusa sastre Tailor', text: 'Siempre tengo dudas entre dos tallas, pero el recomendador de MiRA acierta a la primera. La blusa Tailor es preciosa en persona y la caída del tejido es exactamente como aparece en el probador 3D. ¡Muy recomendable!' },
+      { nom: 'Carla Valls', lloc: 'Girona', producte: 'Muy contenta con la atención al cliente. Tuve un pequeño problema con el envío y me respondieron muy rápido para resolverlo. Se nota que es una marca que se preocupa por cuidar los detalles y a la clienta.' },
     ] },
     collection: { newBadge: 'NUEVO', explorePiece: 'EXPLORAR PRENDA Y PROBAR EN 3D', heroEyebrow: 'NUEVA TEMPORADA · BARCELONA', heroTitle: 'EXPLORA LAS LÍNEAS', heroDescription: 'Diseños atemporales de proximidad. Probador virtual en 3D. Talla exacta a la primera.', essenceEyebrow: 'COLECCIÓN CASUAL ESSENTIALS', essenceTitle: 'LÍNEA ESSENCE', essenceSubtitle: 'Comodidad y fluidez para tu día a día', essenceAlt: 'Mosaico Línea Tailor', tailorEyebrow: 'ALTA SASTRERÍA ESTRUCTURAL', tailorTitle: 'LÍNEA TAILOR', tailorSubtitle: 'Elegancia clásica y sastrería contemporánea', tailorAlt: 'Mosaico Línea Tailor', piecesOf: 'PRENDAS DE LA', heroAlt: 'Colección MiRA, Essence y Tailor', back: 'VOLVER A LA COLECCIÓN', try3d: 'PROBAR EN PROBADOR 3D', officialSizeChart: 'Tabla de tallas oficial', recommenderTitle: 'RECOMENDADOR DE ALTA PRECISIÓN', recommendPrefix: 'Te recomendamos la talla', recommendSuffix: 'para esta prenda.', modifyMeasures: 'Modificar medidas', missingMeasuresPrefix: 'Para calcular tu talla necesitamos:', enterMissingMeasures: 'Introducir las medidas que faltan', configureMeasures: 'Configura tus medidas en el perfil para activar el recomendador.', selectSize: 'SELECCIONAR TALLA', addToCartLong: 'AÑADIR AL CARRITO DE COMPRA', whatsapp: 'CONSULTA RÁPIDA POR WHATSAPP', altWalking: 'Modelo MiRA caminando con sastrería urbana', altCapsule: 'Armario cápsula MiRA con prendas seleccionadas' },
     news: { eyebrow: 'Edición reciente', title: 'Novedades de la Temporada', latest: 'ÚLTIMAS INCORPORACIONES', description: 'Prendas nuevas pensadas para vestir con intención, movimiento y una elegancia serena.', empty: 'Pronto llegarán nuevas prendas. Mantente cerca de MiRA.' },
@@ -139,7 +141,7 @@ const PRODUCTES = [
   {
     id: 'pantalons-essence',
     nom: 'Pantaló fluid Essence',
-    preu: 50.00,
+    preu: 80.00,
     descripcio: "Pantaló d'estil urbà amb tall wide leg i teixit fluid que s'adapta perfectament al teu moviment. Confeccionat de manera sostenible en tallers locals. Una peça còmoda, versàtil i en tendència per al teu dia a dia.",
     imatges: [
       '/assets/pantalons_essence_1.jpg',
@@ -147,7 +149,7 @@ const PRODUCTES = [
       '/assets/pantalons_essence_3.jpg',
       '/assets/pantalons_essence_4.jpg'
     ],
-    teixit: '95% Cotó Orgànic Certificat, 5% Elastà',
+    teixit: '100% Cotó Orgànic Certificat',
     model3d: '/assets/pantalons_essence.glb',
     isNou: false,
     isSales: true,
@@ -156,7 +158,7 @@ const PRODUCTES = [
   {
     id: 'pantalons-tailor',
     nom: 'Pantaló sastre Tailor',
-    preu: 70.00,
+    preu: 90.00,
     descripcio: 'Elegància clàssica i sastreria contemporània. Aquest pantaló destaca pel seu tall estructurat de tir alt que defineix la silueta amb la màxima comoditat. Creat a Barcelona amb materials responsables i sota criteris de residu zero.',
     imatges: [
       '/assets/pantalons_tailor_1.jpg',
@@ -164,7 +166,7 @@ const PRODUCTES = [
       '/assets/pantalons_tailor_3.jpg',
       '/assets/pantalons_tailor_4.jpg'
     ],
-    teixit: '100% Cotó Orgànic Premium d\'alta densitat',
+    teixit: '98% Cotó Orgànic Premium, 2% Elastà',
     model3d: '/assets/pantalons_tailor.glb',
     isNou: true,
     isSales: false,
@@ -173,7 +175,7 @@ const PRODUCTES = [
   {
     id: 'camiseta-essence',
     nom: 'Top drapejat Essence',
-    preu: 40.00,
+    preu: 50.00,
     descripcio: 'Disseny conscient i sofisticació minimalista. Aquest top destaca pel seu escot creuat i un drapejat elegant que afavoreix la silueta amb una caiguda molt fluida. Dissenyada de proximitat i amb residu zero.',
     imatges: [
       '/assets/camiseta_essence_1.png',
@@ -189,7 +191,7 @@ const PRODUCTES = [
   {
     id: 'camiseta-tailor',
     nom: 'Brusa sastre Tailor',
-    preu: 50.00,
+    preu: 60.00,
     descripcio: 'Elegància i sofisticació minimalista per al teu dia a dia. Aquesta brusa destaca per les seves línies pures, un escot refinat i una caiguda fluida de màxima comoditat. Confeccionada a Barcelona sota criteris de disseny conscient i residu zero.',
     imatges: [
       '/assets/camiseta_tailor_1.png',
@@ -197,7 +199,7 @@ const PRODUCTES = [
       '/assets/camiseta_tailor_3.png',
       '/assets/camiseta_tailor_4.jpg'
     ],
-    teixit: '100% Cotó Orgànic Premium d\'alta densitat i tissatge fi',
+    teixit: '100% Cotó Orgànic Premium',
     model3d: '/assets/camiseta_tailor.glb',
     isNou: true,
     isSales: false,
@@ -219,7 +221,7 @@ const RESSENYES = [
     id: 2,
     nom: 'Marta Espinosa',
     lloc: 'Barcelona',
-    valoracio: 5,
+    valoracio: 4,
     producte: 'Top drapejat Essence',
     text: "La qualitat del cotó orgànic és molt millor del que esperava. Saber que la roba es fabrica a Barcelona amb residu zero fa que la compra tingui un significat diferent. El top és còmode i elegant alhora. Repetiré segur!"
   },
@@ -228,8 +230,16 @@ const RESSENYES = [
     nom: 'Núria Calvet',
     lloc: 'Premià de Mar',
     valoracio: 5,
-    producte: 'Brusa sastre Tailor',
+    producte: 'Pantaló fluid Essence',
     text: "Sempre tinc dubtes entre dues talles, però el recomanador de MiRA encerta a la primera. La brusa Tailor és preciosa en persona i la caiguda del teixit és exactament com apareix a l'emprovador 3D. Molt recomanable!"
+  },
+  {
+    id: 4,
+    nom: 'Carla Valls',
+    lloc: 'Girona',
+    valoracio: 5,
+    producte: 'Brusa sastre Tailor',
+    text: "Molt contenta amb l'atenció al client. Vaig tenir un petit problema amb l'enviament i em van respondre molt ràpid per resoldre-ho. Es nota que és una marca que es preocupa per cuidar els detalls i a la clienta." 
   }
 ];
 
@@ -1051,7 +1061,7 @@ export default function App() {
                   onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
               </div>
               <div style={{ overflow: 'hidden', borderRadius: '26px', minHeight: isMobile ? '240px' : '390px' }}>
-                <img src="/assets/colleccio.png" alt={t.about.alts.altCapsule} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+                <img src="/assets/realitat_augmentada.png" alt={t.about.alts.altCapsule} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
                   onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
               </div>
             </div>
