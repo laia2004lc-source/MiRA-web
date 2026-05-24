@@ -817,7 +817,7 @@ export default function App() {
 
                   {/* Grid de productes */}
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-                    {linia.productes.map(prod => <TarjetaProducte key={prod.id} prod={prod} />)}
+                    {linia.productes.map(prod => <TarjetaProducte key={prod.id} prod={prod} mostrarPreuSales={prod.isSales} />)}
                   </div>
 
                 </div>
