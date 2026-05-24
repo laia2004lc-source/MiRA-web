@@ -240,6 +240,22 @@ const RESSENYES = [
     valoracio: 5,
     producte: 'Brusa sastre Tailor',
     text: "Molt contenta amb l'atenció al client. Vaig tenir un petit problema amb l'enviament i em van respondre molt ràpid per resoldre-ho. Es nota que és una marca que es preocupa per cuidar els detalls i a la clienta." 
+  },
+  {
+    id: 5,
+    nom: 'Marta Riera',
+    lloc: 'Vilanova i la Geltrú',
+    valoracio: 4,
+    producte: 'Pantaló sastre Tailor',
+    text: "El disseny sastre és molt elegant i es nota la qualitat del teixit local. L'emprovador 3D m'ha ajudat molt a decidir-me, encara que m'agradaria que hi hagués encara més varietat de colors disponibles en el futur."
+  },
+  {
+    id: 6,
+    nom: 'Laura Ferran',
+    lloc: 'Manresa',
+    valoracio: 5,
+    producte: 'Top Drapejat Essence',
+    text: "La tecnologia de l'emprovador 3D ha clavat la meva talla a la primera, cosa que em dona molta seguretat al comprar online. L'única pega és que vaig haver d'esperar un parell de dies més del previst, però la qualitat del cotó orgànic compensa l'espera."
   }
 ];
 
